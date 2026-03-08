@@ -13,7 +13,6 @@ let package = Package(
         .package(url: "https://github.com/groue/GRDB.swift.git", from: "7.0.0"),
         .package(url: "https://github.com/scinfu/SwiftSoup.git", from: "2.6.0"),
         .package(url: "https://github.com/MacPaw/PermissionsKit.git", branch: "master"),
-        .package(url: "https://github.com/Swiftgram/TDLibKit.git", branch: "main"),
     ],
     targets: [
         .executableTarget(
