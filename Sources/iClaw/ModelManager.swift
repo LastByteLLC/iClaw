@@ -12,6 +12,7 @@ import UniformTypeIdentifiers
 import HealthKit
 import AVFoundation
 import CoreMotion
+import NaturalLanguage
 
 @MainActor
 class CameraManager: NSObject, AVCapturePhotoCaptureDelegate {
@@ -119,25 +120,47 @@ class LocationManager: NSObject, @preconcurrency CLLocationManagerDelegate {
             // Activate the app so macOS can anchor the permission dialog (LSUIElement apps need this)
             NSApp.activate(ignoringOtherApps: true)
 
-            status = await withCheckedContinuation { continuation in
-                self.authContinuation = continuation
-                manager.requestWhenInUseAuthorization()
+            // Timeout after 5 seconds — LSUIElement apps often can't show the system prompt
+            manager.requestWhenInUseAuthorization()
+            // Poll for up to 5 seconds waiting for the delegate callback
+            for _ in 0..<50 {
+                try? await Task.sleep(for: .milliseconds(100))
+                let current = manager.authorizationStatus
+                if current != .notDetermined {
+                    status = current
+                    break
+                }
             }
+            // Clean up any pending continuation
+            authContinuation = nil
             print("[LocationManager] Authorization result: \(status.rawValue)")
         }
 
-        if status == .denied || status == .restricted {
-            throw NSError(domain: "LocationManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Location access denied. Grant permission in System Settings > Privacy > Location Services."])
+        if status == .notDetermined || status == .denied || status == .restricted {
+            throw NSError(domain: "LocationManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Location unavailable. Ask the user to provide a city or location name."])
         }
 
         guard status == .authorized || status == .authorizedAlways else {
-            throw NSError(domain: "LocationManager", code: 2, userInfo: [NSLocalizedDescriptionKey: "Location authorization not granted (status: \(status.rawValue))."])
+            throw NSError(domain: "LocationManager", code: 2, userInfo: [NSLocalizedDescriptionKey: "Location unavailable. Ask the user to provide a city or location name."])
         }
 
         print("[LocationManager] Requesting location...")
-        return try await withCheckedThrowingContinuation { continuation in
-            self.locationContinuation = continuation
-            manager.requestLocation()
+        return try await withThrowingTaskGroup(of: CLLocation.self) { group in
+            group.addTask {
+                try await withCheckedThrowingContinuation { continuation in
+                    Task { @MainActor in
+                        self.locationContinuation = continuation
+                        self.manager.requestLocation()
+                    }
+                }
+            }
+            group.addTask {
+                try await Task.sleep(for: .seconds(10))
+                throw NSError(domain: "LocationManager", code: 3, userInfo: [NSLocalizedDescriptionKey: "Location request timed out. Ask the user to provide a city or location name."])
+            }
+            let result = try await group.next()!
+            group.cancelAll()
+            return result
         }
     }
 
@@ -801,7 +824,7 @@ struct WeatherTool: Tool {
     typealias Output = String
     
     let name = "weather"
-    let description = "Get the current weather for a specific location or the user's current location."
+    let description = "Get the current weather. Always provide a locationName if known. If no locationName is given and location access fails, ask the user for their city."
     var parameters: GenerationSchema { Arguments.generationSchema }
 
     func call(arguments input: WeatherInput) async throws -> String {
@@ -1199,18 +1222,31 @@ struct NewsTool: Tool {
         guard let url = URL(string: urlString) else { return "Invalid news query." }
 
         do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            
-            struct Story: Codable {
-                let title: String
-                let description: String?
-                let url: String?
-                let category: String?
-                let publishedAt: String?
+            let (data, response) = try await URLSession.shared.data(from: url)
+
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                return "News API returned HTTP \(httpResponse.statusCode)."
             }
 
-            let stories = try JSONDecoder().decode([Story].self, from: data)
-            
+            struct Story: Codable {
+                let title: String
+                let summary: String?
+                let sourceUrl: String?
+                let issue: Issue?
+                let datePublished: String?
+
+                struct Issue: Codable {
+                    let name: String?
+                }
+            }
+
+            struct StoriesResponse: Codable {
+                let data: [Story]
+            }
+
+            let decoded = try JSONDecoder().decode(StoriesResponse.self, from: data)
+            let stories = decoded.data
+
             if stories.isEmpty {
                 return "No recent stories found\(input.slug != nil ? " for category '\(input.slug!)'" : "")."
             }
@@ -1218,19 +1254,18 @@ struct NewsTool: Tool {
             var result = "Recent stories:\n"
             for story in stories.prefix(5) {
                 result += "- \(story.title)"
-                if let category = story.category {
-                    result += " [\(category)]"
+                if let issue = story.issue?.name {
+                    result += " [\(issue)]"
                 }
-                if let description = story.description, !description.isEmpty {
-                    result += ": \(description)"
-                }
-                if let url = story.url {
-                    result += " (\(url))"
+                if let summary = story.summary, !summary.isEmpty {
+                    let short = summary.count > 150 ? String(summary.prefix(150)) + "..." : summary
+                    result += ": \(short)"
                 }
                 result += "\n"
             }
             return result
         } catch {
+            print("[NewsTool] Decoding error: \(error)")
             return "Error fetching news: \(error.localizedDescription)"
         }
     }
@@ -1530,6 +1565,28 @@ class ModelManager {
         if let phone = me.userPhone { userInfo += ", Phone: \(phone)" }
         parts.append(userInfo)
 
+        parts.append("""
+        Tool routing guide — always use the right tool:
+        - weather/temperature/forecast → weather
+        - news/headlines/current events → news
+        - podcast/episodes/shows → podcast
+        - calendar/schedule/events → calendar
+        - contacts/people/phone/email → contacts
+        - files/documents/find file → spotlight or read_file
+        - clipboard/copy/paste → clipboard
+        - reminders/todo → reminders
+        - volume/dark mode/system → system_control
+        - launch/quit/open app → app_manager
+        - web search/google/look up → web_search
+        - wikipedia/wiki/who is/what is → wikipedia
+        - photo/camera/selfie → camera
+        - currency/convert/exchange rate → currency_converter
+        - notes/note → notes
+        - fetch URL/webpage → fetch
+        - health/steps/heart rate/sleep → health
+        Never make up data. Always call the tool.
+        """)
+
         return parts.joined(separator: "\n\n")
     }
 
@@ -1558,14 +1615,61 @@ class ModelManager {
     }
 
 
+    // MARK: - NER Entity Extraction
+
+    private func extractEntities(from text: String) -> (places: [String], people: [String], orgs: [String]) {
+        let tagger = NLTagger(tagSchemes: [.nameType])
+        tagger.string = text
+        let options: NLTagger.Options = [.omitWhitespace, .omitPunctuation, .joinNames]
+
+        var places: [String] = []
+        var people: [String] = []
+        var orgs: [String] = []
+
+        tagger.enumerateTags(in: text.startIndex..<text.endIndex, unit: .word, scheme: .nameType, options: options) { tag, range in
+            let entity = String(text[range])
+            switch tag {
+            case .placeName:
+                places.append(entity)
+            case .personalName:
+                people.append(entity)
+            case .organizationName:
+                orgs.append(entity)
+            default:
+                break
+            }
+            return true
+        }
+        return (places, people, orgs)
+    }
+
     func generateResponse(prompt: String, history: [Memory]) async throws -> String {
         let systemPrompt = generateSystemPrompt()
         let allTools = tools
         print("[ModelManager] Registered \(allTools.count) tools: \(allTools.map { $0.name }.joined(separator: ", "))")
         print("[ModelManager] Prompt: \(prompt)")
 
+        // Extract named entities via NER to help the small on-device model
+        let entities = extractEntities(from: prompt)
+        var nerHints = ""
+        if !entities.places.isEmpty {
+            nerHints += "\nDetected locations: \(entities.places.joined(separator: ", ")). Use these as tool arguments (e.g. locationName for weather)."
+        }
+        if !entities.people.isEmpty {
+            nerHints += "\nDetected people: \(entities.people.joined(separator: ", ")). Use these as tool arguments (e.g. name for contacts)."
+        }
+        if !entities.orgs.isEmpty {
+            nerHints += "\nDetected organizations: \(entities.orgs.joined(separator: ", "))."
+        }
+        if !nerHints.isEmpty {
+            print("[ModelManager] NER:\(nerHints)")
+        }
+
         // Build instructions with brief factual context from history (no tool outputs or errors)
         var instructions = systemPrompt
+        if !nerHints.isEmpty {
+            instructions += "\n\n" + nerHints
+        }
         let relevantHistory = history.suffix(5).filter { memory in
             // Only include short user/agent messages, skip tool outputs and errors
             let content = memory.content
