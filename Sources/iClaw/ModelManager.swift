@@ -1687,9 +1687,6 @@ class ModelManager {
         // Weather
         (["weather", "temperature", "forecast", "rain", "snow", "sunny", "humid", "wind", "degrees"],
          ["weather"]),
-        // Podcasts
-        (["podcast", "podcasts", "episode", "episodes", "listen", "show", "shows"],
-         ["podcast"]),
         // News
         (["news", "headlines", "current events", "what's happening", "whats happening"],
          ["news"]),
@@ -1711,9 +1708,6 @@ class ModelManager {
         // Wikipedia
         (["wikipedia", "wiki", "who is", "who was", "what is", "what was", "define", "definition"],
          ["wikipedia"]),
-        // Web search
-        (["search", "google", "look up", "find out", "search for"],
-         ["web_search"]),
         // Files
         (["file", "files", "document", "documents", "find file", "open file", "desktop", "downloads"],
          ["spotlight", "read_file"]),

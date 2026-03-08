@@ -231,6 +231,7 @@ struct ChatView: View {
     @State private var thinkingPhrase = thinkingPhrases.randomElement()!
     @ObservedObject private var speechManager = SpeechManager.shared
     @ObservedObject private var podcastPlayer = PodcastPlayerManager.shared
+    @ObservedObject private var messageBus = MessageBus.shared
     @State private var currentTask: Task<Void, Never>?
 
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
@@ -324,17 +325,22 @@ struct ChatView: View {
                 ForEach(messages) { message in
                     HStack(alignment: .top, spacing: 12) {
                         Circle()
-                            .fill(.primary.opacity(0.1))
+                            .fill(message.source == "imessage" ? .green.opacity(0.2) : .primary.opacity(0.1))
                             .frame(width: 32, height: 32)
                             .overlay {
-                                Image(systemName: message.role == "user" ? "person.fill" : "sparkles")
+                                Image(systemName: message.source == "imessage"
+                                      ? "message.fill"
+                                      : (message.role == "user" ? "person.fill" : "sparkles"))
                                     .font(.caption2)
+                                    .foregroundStyle(message.source == "imessage" ? .green : .primary)
                             }
 
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(message.role == "user" ? "You" : "iClaw")
+                            Text(message.source == "imessage"
+                                 ? (message.role == "user" ? "iMessage" : "iClaw → iMessage")
+                                 : (message.role == "user" ? "You" : "iClaw"))
                                 .font(.caption)
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(message.source == "imessage" ? .green : .secondary)
 
                             if message.content.contains("PHOTO_CAPTURED:"),
                                let capturedPart = message.content.split(separator: "PHOTO_CAPTURED:", maxSplits: 1).last,
@@ -447,6 +453,11 @@ struct ChatView: View {
                         confirmRecording()
                     }
                 }
+                .onChange(of: messageBus.pending.count) { _, _ in
+                    let newMessages = messageBus.pending
+                    messageBus.pending.removeAll()
+                    messages.append(contentsOf: newMessages)
+                }
             } else {
                 HStack(spacing: 12) {
                     TextField("Message iClaw...", text: $input)
@@ -549,6 +560,18 @@ struct Message: Identifiable {
     let id = UUID()
     let role: String
     let content: String
+    var source: String = "local"  // "local" for UI, "imessage" for iMessage
+}
+
+/// Shared bus for iMessage poller to push messages into the UI
+@MainActor
+class MessageBus: ObservableObject {
+    static let shared = MessageBus()
+    @Published var pending: [Message] = []
+
+    func post(role: String, content: String) {
+        pending.append(Message(role: role, content: content, source: "imessage"))
+    }
 }
 
 struct ThinkingDotsView: View {

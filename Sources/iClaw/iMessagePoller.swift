@@ -138,6 +138,11 @@ class iMessagePoller {
             processedTexts.insert(dedupeKey)
 
             print("[iMessagePoller] Received: \(prompt)")
+
+            // Show in UI with sender info
+            let senderLabel = msg.sender.isEmpty ? "You (iMessage)" : "iMessage (\(msg.sender))"
+            MessageBus.shared.post(role: "user", content: "[\(senderLabel)] \(prompt)")
+
             processMessage(prompt: prompt, replyTo: msg.sender)
         }
     }
@@ -153,6 +158,9 @@ class iMessagePoller {
                 _ = try await DatabaseManager.shared.saveMemory(userMemory)
                 let agentMemory = Memory(id: nil, role: "agent", content: response, embedding: nil, created_at: Date(), is_important: false)
                 _ = try await DatabaseManager.shared.saveMemory(agentMemory)
+
+                // Show response in UI
+                MessageBus.shared.post(role: "agent", content: response)
 
                 // Track this reply so the poller skips it when it appears in chat.db
                 self.sentReplies.insert(response)
