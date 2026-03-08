@@ -3,7 +3,7 @@ import AppKit
 extension NSImage {
     static var clawApple: NSImage {
         let size = NSSize(width: 20, height: 20)
-        let image = NSImage(size: size, flipped: true) { rect in
+        let image: NSImage = NSImage(size: size, flipped: true) { rect in
             let path = NSBezierPath()
             path.lineWidth = 1.5
             path.lineCapStyle = .round

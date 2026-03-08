@@ -32,5 +32,7 @@
     <string>iClaw needs camera access to take photos.</string>
     <key>NSHealthShareUsageDescription</key>
     <string>iClaw needs access to your health data to answer health-related questions.</string>
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>iClaw needs access to your health data to answer health-related questions.</string>
 </dict>
 </plist>

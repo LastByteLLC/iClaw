@@ -317,17 +317,25 @@ struct ChatView: View {
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
 
-                            if message.content.starts(with: "PHOTO_CAPTURED:"),
-                               let path = message.content.split(separator: ":", maxSplits: 1).last,
+                            if message.content.contains("PHOTO_CAPTURED:"),
+                               let capturedPart = message.content.split(separator: "PHOTO_CAPTURED:", maxSplits: 1).last,
+                               let path = capturedPart.split(separator: "\n").first?.trimmingCharacters(in: .whitespaces),
                                let image = NSImage(contentsOfFile: String(path)) {
-                                Image(nsImage: image)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(maxWidth: 240)
-                                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                                    .padding(8)
-                                    .background(.white.opacity(0.1))
-                                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                                VStack(alignment: .leading, spacing: 8) {
+                                    if !message.content.starts(with: "PHOTO_CAPTURED:") {
+                                        Text(markdownAttributed(message.content.replacingOccurrences(of: "PHOTO_CAPTURED:\(path)", with: "")))
+                                            .textSelection(.enabled)
+                                    }
+
+                                    Image(nsImage: image)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxWidth: 240)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                                }
+                                .padding(12)
+                                .background(message.role == "user" ? .blue.opacity(0.2) : .white.opacity(0.1))
+                                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                             } else {
                                 Text(markdownAttributed(message.content))
                                     .textSelection(.enabled)
