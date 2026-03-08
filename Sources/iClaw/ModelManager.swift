@@ -200,13 +200,35 @@ class MeCardManager {
     func fetchMeCardIfAuthorized() {
         let status = CNContactStore.authorizationStatus(for: .contacts)
         guard status == .authorized else { return }
+        fetchMeCard()
+    }
 
+    /// Request contacts access and fetch the Me Card. Call once at startup.
+    func requestAccessAndFetchMeCard() async {
+        let store = CNContactStore()
+        let status = CNContactStore.authorizationStatus(for: .contacts)
+
+        if status == .notDetermined {
+            NSApp.activate(ignoringOtherApps: true)
+            let granted = (try? await store.requestAccess(for: .contacts)) ?? false
+            if granted {
+                fetchMeCard()
+            }
+        } else if status == .authorized {
+            fetchMeCard()
+        }
+    }
+
+    private func fetchMeCard() {
         let store = CNContactStore()
         let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactEmailAddressesKey, CNContactPhoneNumbersKey] as [CNKeyDescriptor]
 
         do {
             let me = try store.unifiedMeContactWithKeys(toFetch: keys)
-            self.userName = "\(me.givenName) \(me.familyName)".trimmingCharacters(in: .whitespaces)
+            let name = "\(me.givenName) \(me.familyName)".trimmingCharacters(in: .whitespaces)
+            if !name.isEmpty {
+                self.userName = name
+            }
             self.userEmail = me.emailAddresses.first?.value as String?
             self.userPhone = me.phoneNumbers.first?.value.stringValue
         } catch {
@@ -1796,8 +1818,8 @@ class ModelManager {
 
     func generateGreeting() async throws -> String {
         let me = MeCardManager.shared
-        let hasContacts = CNContactStore.authorizationStatus(for: .contacts) == .authorized
-        let name = hasContacts ? me.userName : "User"
+        await me.requestAccessAndFetchMeCard()
+        let name = me.userName
 
         let seedPrompts = [
             "You again? What now?",
