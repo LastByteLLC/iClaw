@@ -28,5 +28,9 @@
     <string>iClaw needs calendar access to manage events.</string>
     <key>NSAppleEventsUsageDescription</key>
     <string>iClaw needs to control Messages.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>iClaw needs camera access to take photos.</string>
+    <key>NSHealthShareUsageDescription</key>
+    <string>iClaw needs access to your health data to answer health-related questions.</string>
 </dict>
 </plist>

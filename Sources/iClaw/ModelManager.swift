@@ -9,6 +9,93 @@ import CoreLocation
 import Vision
 import PDFKit
 import UniformTypeIdentifiers
+import HealthKit
+import AVFoundation
+
+@MainActor
+class CameraManager: NSObject, AVCapturePhotoCaptureDelegate {
+    static let shared = CameraManager()
+    
+    private var captureSession: AVCaptureSession?
+    private var photoOutput: AVCapturePhotoOutput?
+    private var continuation: CheckedContinuation<URL, Error>?
+
+    func takePhoto() async throws -> URL {
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        if status == .notDetermined {
+            _ = await AVCaptureDevice.requestAccess(for: .video)
+        } else if status == .denied || status == .restricted {
+            throw NSError(domain: "CameraManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Camera access denied."])
+        }
+
+        return try await withCheckedThrowingContinuation { continuation in
+            self.continuation = continuation
+            
+            let session = AVCaptureSession()
+            session.beginConfiguration()
+            
+            guard let videoDevice = AVCaptureDevice.default(for: .video),
+                  let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
+                  session.canAddInput(videoDeviceInput) else {
+                continuation.resume(throwing: NSError(domain: "CameraManager", code: 2, userInfo: [NSLocalizedDescriptionKey: "Could not access camera device."]))
+                return
+            }
+            
+            session.addInput(videoDeviceInput)
+            
+            let output = AVCapturePhotoOutput()
+            guard session.canAddOutput(output) else {
+                continuation.resume(throwing: NSError(domain: "CameraManager", code: 3, userInfo: [NSLocalizedDescriptionKey: "Could not add photo output."]))
+                return
+            }
+            
+            session.addOutput(output)
+            session.commitConfiguration()
+            
+            self.captureSession = session
+            self.photoOutput = output
+            
+            session.startRunning()
+            
+            // Wait a moment for the camera to warm up/adjust exposure
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                let settings = AVCapturePhotoSettings()
+                output.capturePhoto(with: settings, delegate: self)
+            }
+        }
+    }
+
+    nonisolated func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        // photo.fileDataRepresentation() is nonisolated and can be called on the background thread where the delegate is called.
+        // Data is Sendable.
+        let photoData = photo.fileDataRepresentation()
+        
+        Task { @MainActor in
+            self.captureSession?.stopRunning()
+            
+            if let error = error {
+                self.continuation?.resume(throwing: error)
+                self.continuation = nil
+                return
+            }
+            
+            guard let data = photoData else {
+                self.continuation?.resume(throwing: NSError(domain: "CameraManager", code: 4, userInfo: [NSLocalizedDescriptionKey: "Could not get photo data."]))
+                self.continuation = nil
+                return
+            }
+            
+            let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString + ".jpg")
+            do {
+                try data.write(to: tempURL)
+                self.continuation?.resume(returning: tempURL)
+            } catch {
+                self.continuation?.resume(throwing: error)
+            }
+            self.continuation = nil
+        }
+    }
+}
 
 @MainActor
 class LocationManager: NSObject, @preconcurrency CLLocationManagerDelegate {
@@ -932,14 +1019,20 @@ struct PodcastTool: Tool {
     }
 
     private func playEpisode(episodeId: Int) async -> String {
-        // Look up the episode to get the streaming URL
-        guard let url = URL(string: "https://itunes.apple.com/lookup?id=\(episodeId)"),
+        // Look up the ID — could be an episode trackId or a podcast collectionId
+        guard let url = URL(string: "https://itunes.apple.com/lookup?id=\(episodeId)&entity=podcastEpisode&limit=1"),
               let (data, _) = try? await URLSession.shared.data(from: url),
               let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
               let results = json["results"] as? [[String: Any]],
-              let ep = results.first else {
+              !results.isEmpty else {
             return "Could not find episode \(episodeId)."
         }
+
+        // Find the episode object — if the ID was a collectionId, the first result is the
+        // podcast itself and the second is the latest episode. If it was an episodeId,
+        // the first result is the episode directly.
+        let ep = results.first(where: { ($0["wrapperType"] as? String) == "podcastEpisode" })
+            ?? results.first!
 
         let title = ep["trackName"] as? String ?? "Unknown Episode"
         let show = ep["collectionName"] as? String ?? ""
@@ -958,6 +1051,32 @@ struct PodcastTool: Tool {
 
         await PodcastPlayerManager.shared.play(url: streamURL, title: title, show: show)
         return "Now playing '\(title)' from \(show). Use the player controls to pause, scrub, or stop."
+    }
+}
+
+@Generable
+struct CameraInput: ConvertibleFromGeneratedContent {
+    @Guide(description: "What to do: 'take_photo' to capture an image")
+    var action: String
+}
+
+struct CameraTool: Tool {
+    typealias Arguments = CameraInput
+    typealias Output = String
+    
+    let name = "camera"
+    let description = "Take a photo using the Mac's camera and open it in Preview."
+    var parameters: GenerationSchema { Arguments.generationSchema }
+
+    func call(arguments input: CameraInput) async throws -> String {
+        guard input.action == "take_photo" else { return "Unknown camera action." }
+        
+        do {
+            let photoURL = try await CameraManager.shared.takePhoto()
+            return "PHOTO_CAPTURED:\(photoURL.path)"
+        } catch {
+            return "Camera error: \(error.localizedDescription)"
+        }
     }
 }
 
@@ -1012,6 +1131,271 @@ struct CurrencyTool: Tool {
     }
 }
 
+// MARK: - HealthKit Tool
+
+@Generable
+struct HealthInput: ConvertibleFromGeneratedContent {
+    @Guide(description: "What to query: 'steps', 'heart_rate', 'active_energy', 'resting_energy', 'distance', 'flights_climbed', 'exercise_minutes', 'sleep', 'weight', 'body_fat', 'blood_oxygen', 'respiratory_rate', or 'summary' for an overview")
+    var metric: String
+
+    @Guide(description: "Time range: 'today', 'week', or 'month' (default 'today')")
+    var period: String?
+}
+
+struct HealthTool: Tool {
+    typealias Arguments = HealthInput
+    typealias Output = String
+
+    let name = "health"
+    let description = "Query the user's Apple Health data: steps, heart rate, calories, distance, sleep, weight, and more."
+    var parameters: GenerationSchema { Arguments.generationSchema }
+
+    private let store = HKHealthStore()
+
+    func call(arguments input: HealthInput) async throws -> String {
+        let metric = input.metric.lowercased().trimmingCharacters(in: .whitespaces)
+        let period = input.period?.lowercased().trimmingCharacters(in: .whitespaces) ?? "today"
+
+        // Determine date range
+        let now = Date()
+        let calendar = Calendar.current
+        let startDate: Date
+        switch period {
+        case "week":
+            startDate = calendar.date(byAdding: .day, value: -7, to: now)!
+        case "month":
+            startDate = calendar.date(byAdding: .month, value: -1, to: now)!
+        default: // "today"
+            startDate = calendar.startOfDay(for: now)
+        }
+
+        if metric == "summary" {
+            return await fetchSummary(start: startDate, end: now, period: period)
+        }
+
+        guard let typeInfo = healthTypeInfo(for: metric) else {
+            return "Unknown metric '\(metric)'. Try: steps, heart_rate, active_energy, resting_energy, distance, flights_climbed, exercise_minutes, sleep, weight, body_fat, blood_oxygen, respiratory_rate, or summary."
+        }
+
+        // Only request authorization if not already determined
+        if let authResult = await ensureAuthorization(for: [typeInfo.sampleType]) {
+            return authResult
+        }
+
+        if typeInfo.isQuantity, let quantityType = typeInfo.sampleType as? HKQuantityType {
+            if typeInfo.useMostRecent {
+                return await fetchMostRecent(type: quantityType, unit: typeInfo.unit!, label: typeInfo.label)
+            } else {
+                return await fetchCumulativeOrAverage(type: quantityType, unit: typeInfo.unit!, label: typeInfo.label, isCumulative: typeInfo.isCumulative, start: startDate, end: now, period: period)
+            }
+        } else if metric == "sleep", let categoryType = typeInfo.sampleType as? HKCategoryType {
+            return await fetchSleep(type: categoryType, start: startDate, end: now, period: period)
+        }
+
+        return "Could not fetch \(metric) data."
+    }
+
+    /// Returns nil on success, or an error message string if authorization failed.
+    private func ensureAuthorization(for types: Set<HKSampleType>) async -> String? {
+        // Check if all types are already authorized (sharingDenied means "not determined or denied for read",
+        // but HealthKit intentionally hides read denial — so we request if not sharingAuthorized for any type,
+        // which is safe because re-requesting for already-authorized types is a no-op).
+        let needsRequest = types.contains { type in
+            store.authorizationStatus(for: type) != .sharingAuthorized
+        }
+
+        if needsRequest {
+            do {
+                try await store.requestAuthorization(toShare: [], read: types)
+            } catch {
+                return "Health access denied. Grant permission in System Settings > Privacy > Health."
+            }
+        }
+
+        return nil
+    }
+
+    // MARK: - Type Mapping
+
+    private struct HealthTypeMapping {
+        let sampleType: HKSampleType
+        let unit: HKUnit?
+        let label: String
+        let isQuantity: Bool
+        let isCumulative: Bool
+        let useMostRecent: Bool
+    }
+
+    private func healthTypeInfo(for metric: String) -> HealthTypeMapping? {
+        switch metric {
+        case "steps":
+            return HealthTypeMapping(sampleType: HKQuantityType(.stepCount), unit: .count(), label: "Steps", isQuantity: true, isCumulative: true, useMostRecent: false)
+        case "heart_rate":
+            return HealthTypeMapping(sampleType: HKQuantityType(.heartRate), unit: HKUnit.count().unitDivided(by: .minute()), label: "Heart Rate (bpm)", isQuantity: true, isCumulative: false, useMostRecent: false)
+        case "active_energy":
+            return HealthTypeMapping(sampleType: HKQuantityType(.activeEnergyBurned), unit: .kilocalorie(), label: "Active Energy (kcal)", isQuantity: true, isCumulative: true, useMostRecent: false)
+        case "resting_energy":
+            return HealthTypeMapping(sampleType: HKQuantityType(.basalEnergyBurned), unit: .kilocalorie(), label: "Resting Energy (kcal)", isQuantity: true, isCumulative: true, useMostRecent: false)
+        case "distance":
+            return HealthTypeMapping(sampleType: HKQuantityType(.distanceWalkingRunning), unit: .meterUnit(with: .kilo), label: "Distance (km)", isQuantity: true, isCumulative: true, useMostRecent: false)
+        case "flights_climbed":
+            return HealthTypeMapping(sampleType: HKQuantityType(.flightsClimbed), unit: .count(), label: "Flights Climbed", isQuantity: true, isCumulative: true, useMostRecent: false)
+        case "exercise_minutes":
+            return HealthTypeMapping(sampleType: HKQuantityType(.appleExerciseTime), unit: .minute(), label: "Exercise Minutes", isQuantity: true, isCumulative: true, useMostRecent: false)
+        case "weight":
+            return HealthTypeMapping(sampleType: HKQuantityType(.bodyMass), unit: .gramUnit(with: .kilo), label: "Weight (kg)", isQuantity: true, isCumulative: false, useMostRecent: true)
+        case "body_fat":
+            return HealthTypeMapping(sampleType: HKQuantityType(.bodyFatPercentage), unit: .percent(), label: "Body Fat (%)", isQuantity: true, isCumulative: false, useMostRecent: true)
+        case "blood_oxygen":
+            return HealthTypeMapping(sampleType: HKQuantityType(.oxygenSaturation), unit: .percent(), label: "Blood Oxygen (%)", isQuantity: true, isCumulative: false, useMostRecent: true)
+        case "respiratory_rate":
+            return HealthTypeMapping(sampleType: HKQuantityType(.respiratoryRate), unit: HKUnit.count().unitDivided(by: .minute()), label: "Respiratory Rate (breaths/min)", isQuantity: true, isCumulative: false, useMostRecent: true)
+        case "sleep":
+            return HealthTypeMapping(sampleType: HKCategoryType(.sleepAnalysis), unit: nil, label: "Sleep", isQuantity: false, isCumulative: false, useMostRecent: false)
+        default:
+            return nil
+        }
+    }
+
+    // MARK: - Fetchers
+
+    private func fetchCumulativeOrAverage(type: HKQuantityType, unit: HKUnit, label: String, isCumulative: Bool, start: Date, end: Date, period: String) async -> String {
+        let predicate = HKQuery.predicateForSamples(withStart: start, end: end, options: .strictStartDate)
+        let options: HKStatisticsOptions = isCumulative ? .cumulativeSum : .discreteAverage
+
+        return await withCheckedContinuation { continuation in
+            let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: options) { _, stats, error in
+                if let error {
+                    continuation.resume(returning: "Error fetching \(label): \(error.localizedDescription)")
+                    return
+                }
+                guard let stats else {
+                    continuation.resume(returning: "No \(label.lowercased()) data for \(period).")
+                    return
+                }
+
+                let value: Double
+                if isCumulative {
+                    value = stats.sumQuantity()?.doubleValue(for: unit) ?? 0
+                } else {
+                    value = stats.averageQuantity()?.doubleValue(for: unit) ?? 0
+                }
+
+                let formatted = Self.formatNumber(value)
+                let qualifier = isCumulative ? "Total" : "Average"
+                continuation.resume(returning: "\(label) (\(period)): \(qualifier) \(formatted)")
+            }
+            store.execute(query)
+        }
+    }
+
+    private func fetchMostRecent(type: HKQuantityType, unit: HKUnit, label: String) async -> String {
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+
+        return await withCheckedContinuation { continuation in
+            let query = HKSampleQuery(sampleType: type, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) { _, samples, error in
+                if let error {
+                    continuation.resume(returning: "Error fetching \(label): \(error.localizedDescription)")
+                    return
+                }
+                guard let sample = samples?.first as? HKQuantitySample else {
+                    continuation.resume(returning: "No \(label.lowercased()) data recorded.")
+                    return
+                }
+
+                let value = sample.quantity.doubleValue(for: unit)
+                let formatted = Self.formatNumber(value)
+                let date = sample.startDate.formatted(date: .abbreviated, time: .shortened)
+                continuation.resume(returning: "\(label): \(formatted) (recorded \(date))")
+            }
+            store.execute(query)
+        }
+    }
+
+    private func fetchSleep(type: HKCategoryType, start: Date, end: Date, period: String) async -> String {
+        let predicate = HKQuery.predicateForSamples(withStart: start, end: end, options: .strictStartDate)
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+
+        return await withCheckedContinuation { continuation in
+            let query = HKSampleQuery(sampleType: type, predicate: predicate, limit: 50, sortDescriptors: [sortDescriptor]) { _, samples, error in
+                if let error {
+                    continuation.resume(returning: "Error fetching sleep data: \(error.localizedDescription)")
+                    return
+                }
+                guard let samples = samples as? [HKCategorySample], !samples.isEmpty else {
+                    continuation.resume(returning: "No sleep data for \(period).")
+                    return
+                }
+
+                // Sum up time in each sleep stage
+                var asleepSeconds: TimeInterval = 0
+                var inBedSeconds: TimeInterval = 0
+
+                for sample in samples {
+                    let duration = sample.endDate.timeIntervalSince(sample.startDate)
+                    let value = HKCategoryValueSleepAnalysis(rawValue: sample.value)
+                    switch value {
+                    case .inBed:
+                        inBedSeconds += duration
+                    case .asleepUnspecified, .asleepCore, .asleepDeep, .asleepREM:
+                        asleepSeconds += duration
+                    default:
+                        break
+                    }
+                }
+
+                let totalAsleep = Self.formatDuration(asleepSeconds)
+                let totalInBed = Self.formatDuration(inBedSeconds)
+                continuation.resume(returning: "Sleep (\(period)): \(totalAsleep) asleep, \(totalInBed) in bed")
+            }
+            store.execute(query)
+        }
+    }
+
+    private func fetchSummary(start: Date, end: Date, period: String) async -> String {
+        let summaryTypes: Set<HKSampleType> = [
+            HKQuantityType(.stepCount),
+            HKQuantityType(.activeEnergyBurned),
+            HKQuantityType(.distanceWalkingRunning),
+            HKQuantityType(.appleExerciseTime),
+            HKQuantityType(.heartRate),
+            HKCategoryType(.sleepAnalysis),
+        ]
+
+        if let authResult = await ensureAuthorization(for: summaryTypes) {
+            return authResult
+        }
+
+        async let steps = fetchCumulativeOrAverage(type: HKQuantityType(.stepCount), unit: .count(), label: "Steps", isCumulative: true, start: start, end: end, period: period)
+        async let energy = fetchCumulativeOrAverage(type: HKQuantityType(.activeEnergyBurned), unit: .kilocalorie(), label: "Active Energy (kcal)", isCumulative: true, start: start, end: end, period: period)
+        async let distance = fetchCumulativeOrAverage(type: HKQuantityType(.distanceWalkingRunning), unit: .meterUnit(with: .kilo), label: "Distance (km)", isCumulative: true, start: start, end: end, period: period)
+        async let exercise = fetchCumulativeOrAverage(type: HKQuantityType(.appleExerciseTime), unit: .minute(), label: "Exercise Minutes", isCumulative: true, start: start, end: end, period: period)
+        async let heartRate = fetchCumulativeOrAverage(type: HKQuantityType(.heartRate), unit: HKUnit.count().unitDivided(by: .minute()), label: "Heart Rate (bpm)", isCumulative: false, start: start, end: end, period: period)
+        async let sleep = fetchSleep(type: HKCategoryType(.sleepAnalysis), start: start, end: end, period: period)
+
+        let results = await [steps, energy, distance, exercise, heartRate, sleep]
+        return "Health Summary (\(period)):\n" + results.joined(separator: "\n")
+    }
+
+    // MARK: - Helpers
+
+    private static func formatNumber(_ value: Double) -> String {
+        if value == value.rounded() && value < 100000 {
+            return String(format: "%.0f", value)
+        }
+        return String(format: "%.1f", value)
+    }
+
+    private static func formatDuration(_ seconds: TimeInterval) -> String {
+        let hours = Int(seconds) / 3600
+        let minutes = (Int(seconds) % 3600) / 60
+        if hours > 0 {
+            return "\(hours)h \(minutes)m"
+        }
+        return "\(minutes)m"
+    }
+}
+
 // MARK: - ModelManager
 
 @MainActor
@@ -1059,26 +1443,39 @@ class ModelManager {
             PodcastTool(),
             NotesTool(),
             CurrencyTool(),
+            CameraTool(),
+            HealthTool(),
         ]
     }
+
 
     func generateResponse(prompt: String, history: [Memory]) async throws -> String {
         let systemPrompt = generateSystemPrompt()
 
-        var contextMessages = ""
+        // Build a proper Transcript from history to keep turns separated
+        var entries: [Transcript.Entry] = []
+        
+        // 1. Add System Instructions
+        let instructions = Transcript.Instructions(segments: [.text(Transcript.TextSegment(content: systemPrompt))], toolDefinitions: [])
+        entries.append(.instructions(instructions))
+        
+        // 2. Add History as individual turns
         for memory in history.suffix(10) {
-            contextMessages += "\(memory.role): \(memory.content)\n"
+            let segment = Transcript.Segment.text(Transcript.TextSegment(content: memory.content))
+            if memory.role == "user" {
+                let promptEntry = Transcript.Prompt(segments: [segment])
+                entries.append(.prompt(promptEntry))
+            } else if memory.role == "agent" {
+                let responseEntry = Transcript.Response(assetIDs: [], segments: [segment])
+                entries.append(.response(responseEntry))
+            }
         }
 
-        let fullPrompt: String
-        if contextMessages.isEmpty {
-            fullPrompt = prompt
-        } else {
-            fullPrompt = "Previous context:\n\(contextMessages)\nUser: \(prompt)"
-        }
-
-        let session = LanguageModelSession(model: .default, tools: tools, instructions: systemPrompt)
-        let response = try await session.respond(to: fullPrompt)
+        let transcript = Transcript(entries: entries)
+        let session = LanguageModelSession(model: .default, tools: tools, transcript: transcript)
+        
+        // 3. Respond to the latest prompt
+        let response = try await session.respond(to: prompt)
         return response.content
     }
 }

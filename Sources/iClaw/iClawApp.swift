@@ -131,7 +131,6 @@ private let thinkingPhrases: [String] = [
     "Mining the attention map",
     "Querying the knowledge graph",
     "Scanning local files",
-    "Thinking with Apple Silicon",
     "Running locally, staying private",
     "No cloud needed",
     "Processing on-device",
@@ -202,6 +201,14 @@ private let thinkingPhrases: [String] = [
     "Flash attending",
     "KV caching",
     "Quantizing precision",
+    "Searching the dark web",
+    "Raging against the machines",
+    "Asking the AI overlords",
+    "Simulating thought",
+    "Calculating the meaning of life",
+    "Contemplatizating",
+    "Put the key in the ignition",
+    "Engaging the neural thrusters",
 ]
 
 struct ChatView: View {
@@ -310,10 +317,24 @@ struct ChatView: View {
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
 
-                            Text(message.content)
-                                .padding(12)
-                                .background(message.role == "user" ? .blue.opacity(0.2) : .white.opacity(0.1))
-                                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                            if message.content.starts(with: "PHOTO_CAPTURED:"),
+                               let path = message.content.split(separator: ":", maxSplits: 1).last,
+                               let image = NSImage(contentsOfFile: String(path)) {
+                                Image(nsImage: image)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: 240)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                                    .padding(8)
+                                    .background(.white.opacity(0.1))
+                                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                            } else {
+                                Text(markdownAttributed(message.content))
+                                    .textSelection(.enabled)
+                                    .padding(12)
+                                    .background(message.role == "user" ? .blue.opacity(0.2) : .white.opacity(0.1))
+                                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                            }
                         }
                     }
                 }
@@ -431,6 +452,10 @@ struct ChatView: View {
                 .background(.black.opacity(0.2))
             }
         }
+    }
+
+    private func markdownAttributed(_ string: String) -> AttributedString {
+        (try? AttributedString(markdown: string, options: .init(interpretedSyntax: .inlineOnlyPreservingWhitespace))) ?? AttributedString(string)
     }
 
     private func confirmRecording() {
