@@ -102,7 +102,8 @@ class CameraManager: NSObject, AVCapturePhotoCaptureDelegate {
 class LocationManager: NSObject, @preconcurrency CLLocationManagerDelegate {
     static let shared = LocationManager()
     private let manager = CLLocationManager()
-    private var continuation: CheckedContinuation<CLLocation, Error>?
+    private var locationContinuation: CheckedContinuation<CLLocation, Error>?
+    private var authContinuation: CheckedContinuation<CLAuthorizationStatus, Never>?
 
     private override init() {
         super.init()
@@ -110,32 +111,44 @@ class LocationManager: NSObject, @preconcurrency CLLocationManagerDelegate {
     }
 
     func getCurrentLocation() async throws -> CLLocation {
-        let status = manager.authorizationStatus
+        var status = manager.authorizationStatus
         if status == .notDetermined {
-            manager.requestWhenInUseAuthorization()
-            // In a real app, you'd wait for the delegate to signal authorization change.
-            // For now, let's wait a moment and check again or just proceed to requestLocation
-            // which will trigger the system prompt if not yet determined.
-        } else if status == .denied || status == .restricted {
-            throw NSError(domain: "LocationManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Location access denied."])
+            print("[LocationManager] Requesting location authorization...")
+            status = await withCheckedContinuation { continuation in
+                self.authContinuation = continuation
+                manager.requestWhenInUseAuthorization()
+            }
+            print("[LocationManager] Authorization result: \(status.rawValue)")
         }
-        
+
+        if status == .denied || status == .restricted {
+            throw NSError(domain: "LocationManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Location access denied. Grant permission in System Settings > Privacy > Location Services."])
+        }
+
         return try await withCheckedThrowingContinuation { continuation in
-            self.continuation = continuation
+            self.locationContinuation = continuation
             manager.requestLocation()
+        }
+    }
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        let status = manager.authorizationStatus
+        if status != .notDetermined {
+            authContinuation?.resume(returning: status)
+            authContinuation = nil
         }
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            continuation?.resume(returning: location)
-            continuation = nil
+            locationContinuation?.resume(returning: location)
+            locationContinuation = nil
         }
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        continuation?.resume(throwing: error)
-        continuation = nil
+        locationContinuation?.resume(throwing: error)
+        locationContinuation = nil
     }
 }
 
@@ -166,6 +179,26 @@ class MeCardManager {
         } catch {
             // Silently fail — Me Card may not exist
         }
+    }
+}
+
+// MARK: - Tool Logging Wrapper
+
+struct LoggingTool<T: Tool>: Tool where T.Arguments: ConvertibleFromGeneratedContent, T.Output == String {
+    typealias Arguments = T.Arguments
+    typealias Output = String
+
+    let wrapped: T
+    var name: String { wrapped.name }
+    var description: String { wrapped.description }
+    var parameters: GenerationSchema { wrapped.parameters }
+
+    func call(arguments: T.Arguments) async throws -> String {
+        print("[Tool] \(name) called with: \(arguments)")
+        let result = try await wrapped.call(arguments: arguments)
+        let preview = result.count > 200 ? String(result.prefix(200)) + "..." : result
+        print("[Tool] \(name) returned: \(preview)")
+        return result
     }
 }
 
@@ -809,13 +842,12 @@ struct WeatherTool: Tool {
         let (data, _) = try await URLSession.shared.data(from: url)
         guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
               let current = json["current_weather"] as? [String: Any],
-              let temp = current["temperature"] as? Double,
-              let windspeed = current["windspeed"] else {
+              let temp = current["temperature"] as? Double else {
             return "Could not parse weather data for \(resolvedName)."
         }
-        
+
         let roundedTemp = Int(temp.rounded())
-        return "Current weather for \(resolvedName):\n- Temperature: \(roundedTemp)\(unitLabel)\n- Wind Speed: \(windspeed) km/h"
+        return "Current weather for \(resolvedName): \(roundedTemp)\(unitLabel)"
     }
 }
 
@@ -1493,25 +1525,25 @@ class ModelManager {
 
     private var tools: [any Tool] {
         [
-            WebSearchTool(),
-            WikipediaSearchTool(),
-            CalendarTool(),
-            ContactsTool(),
-            SpotlightTool(),
-            ClipboardTool(),
-            RemindersTool(),
-            SystemControlTool(),
-            AppManagerTool(),
-            SummarizeTool(),
-            WeatherTool(),
-            ReadFileTool(),
-            FetchTool(),
-            PodcastTool(),
-            NotesTool(),
-            CurrencyTool(),
-            CameraTool(),
-            HealthTool(),
-            NewsTool(),
+            LoggingTool(wrapped: WebSearchTool()),
+            LoggingTool(wrapped: WikipediaSearchTool()),
+            LoggingTool(wrapped: CalendarTool()),
+            LoggingTool(wrapped: ContactsTool()),
+            LoggingTool(wrapped: SpotlightTool()),
+            LoggingTool(wrapped: ClipboardTool()),
+            LoggingTool(wrapped: RemindersTool()),
+            LoggingTool(wrapped: SystemControlTool()),
+            LoggingTool(wrapped: AppManagerTool()),
+            LoggingTool(wrapped: SummarizeTool()),
+            LoggingTool(wrapped: WeatherTool()),
+            LoggingTool(wrapped: ReadFileTool()),
+            LoggingTool(wrapped: FetchTool()),
+            LoggingTool(wrapped: PodcastTool()),
+            LoggingTool(wrapped: NotesTool()),
+            LoggingTool(wrapped: CurrencyTool()),
+            LoggingTool(wrapped: CameraTool()),
+            LoggingTool(wrapped: HealthTool()),
+            LoggingTool(wrapped: NewsTool()),
         ]
     }
 
@@ -1539,15 +1571,19 @@ class ModelManager {
         }
 
         let transcript = Transcript(entries: entries)
-        let session = LanguageModelSession(model: .default, tools: tools, transcript: transcript)
+        let allTools = tools
+        print("[ModelManager] Registered \(allTools.count) tools: \(allTools.map { $0.name }.joined(separator: ", "))")
+        print("[ModelManager] Prompt: \(prompt)")
+        let session = LanguageModelSession(model: .default, tools: allTools, transcript: transcript)
 
         // 3. Respond to the latest prompt
         do {
             let response = try await session.respond(to: prompt)
+            print("[ModelManager] Response: \(response.content.prefix(300))")
             return response.content
         } catch {
-            print("[ModelManager] Error during tool execution: \(error.localizedDescription)")
-            return "An error occurred during tool execution: \(error.localizedDescription)"
+            print("[ModelManager] Error: \(error)")
+            return "An error occurred: \(error.localizedDescription)"
         }
     }
 
