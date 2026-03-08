@@ -216,9 +216,7 @@ private let thinkingPhrases: [String] = [
 
 struct ChatView: View {
     @State private var input: String = ""
-    @State private var messages: [Message] = [
-        Message(role: "agent", content: "I'm your local AI agent. Ready to help.")
-    ]
+    @State private var messages: [Message] = []
     @State private var t: Float = 0.0
     @State private var isThinking = false
     @State private var thinkingPhrase = thinkingPhrases.randomElement()!
@@ -274,6 +272,14 @@ struct ChatView: View {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     thinkingPhrase = thinkingPhrases.randomElement()!
                 }
+            }
+        }
+        .task {
+            do {
+                let greeting = try await ModelManager.shared.generateGreeting()
+                messages.append(Message(role: "agent", content: greeting))
+            } catch {
+                messages.append(Message(role: "agent", content: "What do you want?"))
             }
         }
     }

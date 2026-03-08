@@ -27,6 +27,7 @@ let package = Package(
             resources: [
                 .copy("Resources/Assets.car"),
                 .copy("Resources/iClaw.icns"),
+                .process("Resources/SOUL.md"),
             ],
             linkerSettings: [
                 .unsafeFlags([

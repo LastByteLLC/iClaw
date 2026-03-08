@@ -1470,8 +1470,8 @@ class ModelManager {
     private var soul: String = ""
 
     private init() {
-        if let soulPath = Bundle.main.path(forResource: "SOUL", ofType: "md"),
-           let content = try? String(contentsOfFile: soulPath, encoding: .utf8) {
+        if let soulURL = Bundle.module.url(forResource: "SOUL", withExtension: "md"),
+           let content = try? String(contentsOf: soulURL, encoding: .utf8) {
             self.soul = content
         } else {
             self.soul = "You are a local macOS AI agent. Be terse, sassy, and direct."
@@ -1566,13 +1566,22 @@ class ModelManager {
         ]
         let basePrompt = seedPrompts.randomElement()!
 
-        let prompt = "Generate a very concise, sassy, and direct one-sentence greeting for the user named \(name). Use the following as inspiration for the tone: '\(basePrompt)'. Do not be helpful or polite. Just acknowledge their presence with a bit of attitude. Return ONLY the greeting text."
+        let prompt = "Greet the user named \(name) in one short sentence. Be sassy and direct. Tone inspiration: '\(basePrompt)'. Output ONLY the greeting itself — no preamble, no quotes, no explanation, no meta-commentary like 'Here is a greeting'. Just the raw greeting sentence."
 
         let instructions = Transcript.Instructions(segments: [.text(Transcript.TextSegment(content: self.soul))], toolDefinitions: [])
         let transcript = Transcript(entries: [.instructions(instructions)])
         let session = LanguageModelSession(model: .default, tools: [], transcript: transcript)
         let response = try await session.respond(to: prompt)
-        return response.content
+        // Strip any quotes or preamble the model might add
+        var text = response.content
+            .trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            .trimmingCharacters(in: CharacterSet(charactersIn: "\"'"))
+        // Drop common preamble patterns like "Here is a greeting:"
+        if let colonRange = text.range(of: ":\n"), text.distance(from: text.startIndex, to: colonRange.lowerBound) < 40 {
+            text = String(text[colonRange.upperBound...]).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                .trimmingCharacters(in: CharacterSet(charactersIn: "\"'"))
+        }
+        return text
     }
 }
 
