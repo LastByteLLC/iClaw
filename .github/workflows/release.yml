@@ -249,17 +249,30 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="${GITHUB_REF#refs/tags/}"
+          VERSION="${TAG#v}"
           # Tags containing a hyphen (e.g. v1.0.0-rc1, v1.0.0-beta) are
           # marked as pre-release so they don't become /releases/latest.
           PRERELEASE_FLAG=""
           if [[ "$TAG" == *-* ]]; then
             PRERELEASE_FLAG="--prerelease"
           fi
-          gh release create "$TAG" \
-            --title "iClaw $TAG" \
-            --generate-notes \
-            $PRERELEASE_FLAG \
-            artifacts/*
+          # Pull notes from CHANGELOG.md; fall back to auto-generated if absent.
+          NOTES_FILE=/tmp/release-notes.md
+          scripts/extract-changelog.sh "$VERSION" > "$NOTES_FILE"
+          if [ -s "$NOTES_FILE" ]; then
+            gh release create "$TAG" \
+              --title "iClaw $TAG" \
+              --notes-file "$NOTES_FILE" \
+              $PRERELEASE_FLAG \
+              artifacts/*
+          else
+            echo "Note: no CHANGELOG entry for $VERSION, using auto-generated notes"
+            gh release create "$TAG" \
+              --title "iClaw $TAG" \
+              --generate-notes \
+              $PRERELEASE_FLAG \
+              artifacts/*
+          fi
 
       - name: Generate Sparkle appcast entry
         if: env.HAS_SPARKLE_KEY == 'true'
@@ -292,6 +305,16 @@ jobs:
           # Sign the DMG with EdDSA
           SIGNATURE=$("$SIGN_UPDATE" "$DMG_PATH" --ed-key-file <(echo "$SPARKLE_EDDSA_KEY") | grep "sparkle:edSignature" | sed 's/.*sparkle:edSignature="\([^"]*\)".*/\1/')
 
+          # Render CHANGELOG section to HTML for the appcast description.
+          NOTES_FILE=/tmp/release-notes.md
+          scripts/extract-changelog.sh "$VERSION" > "$NOTES_FILE"
+          DESCRIPTION_HTML="<h2>iClaw ${VERSION}</h2>"
+          if [ -s "$NOTES_FILE" ]; then
+            RENDERED=$(gh api -X POST /markdown/raw \
+              -H "Content-Type: text/x-markdown" --input "$NOTES_FILE")
+            DESCRIPTION_HTML=$(printf '%s\n%s' "$DESCRIPTION_HTML" "$RENDERED")
+          fi
+
           # Generate appcast.xml
           cat > appcast.xml << APPCAST_EOF
           <?xml version="1.0" encoding="utf-8"?>
@@ -299,6 +322,7 @@ jobs:
             <channel>
               <title>iClaw Updates</title>
               <link>https://geticlaw.com/appcast.xml</link>
+              <description>Most recent changes with links to updates.</description>
               <language>en</language>
               <item>
                 <title>iClaw ${VERSION}</title>
@@ -306,6 +330,9 @@ jobs:
                 <sparkle:version>${BUILD_NUMBER}</sparkle:version>
                 <sparkle:shortVersionString>${VERSION}</sparkle:shortVersionString>
                 <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+                <description><![CDATA[
+          ${DESCRIPTION_HTML}
+                ]]></description>
                 <enclosure
                   url="${DMG_URL}"
                   length="${DMG_SIZE}"
