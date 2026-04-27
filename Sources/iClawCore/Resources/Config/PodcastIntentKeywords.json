@@ -1,0 +1,50 @@
+{
+  "play_intent": {
+    "en": ["play", "listen to", "put on", "queue up", "start playing", "stream", "fire up", "pull up", "throw on"],
+    "es": ["reproduce", "pon", "escuchar", "escucha", "poner", "reproducir", "dale play", "inicia"],
+    "fr": ["lance", "joue", "écoute", "écouter", "mets", "mettre", "lire", "démarre"],
+    "de": ["abspielen", "spiel", "hör", "hören", "starte", "leg auf", "spiel ab", "anhören"],
+    "pt": ["toca", "tocar", "ouvir", "escutar", "põe", "colocar", "reproduzir", "dar play"],
+    "it": ["riproduci", "ascolta", "metti", "ascoltare", "fai partire", "avvia", "suona"],
+    "ja": ["再生", "聞かせて", "聴かせて", "流して", "かけて", "聞きたい", "再生して", "聴きたい"],
+    "zh-Hans": ["播放", "听", "放一下", "来一个", "播一下", "开始播放", "点播", "我想听"],
+    "ko": ["재생", "틀어줘", "들려줘", "듣고 싶어", "재생해", "플레이", "시작해", "켜줘"],
+    "ar": ["شغّل", "استمع", "شغل", "ابدأ", "سمّعني", "اعرض", "افتح", "استمع إلى"]
+  },
+  "recency_intent": {
+    "en": ["latest", "newest", "recent", "today's", "this week's", "new episode", "most recent", "just released", "fresh"],
+    "es": ["último", "última", "más reciente", "nuevo", "nueva", "de hoy", "de esta semana", "reciente"],
+    "fr": ["dernier", "dernière", "récent", "récente", "nouveau", "nouvelle", "du jour", "de cette semaine"],
+    "de": ["neueste", "neuester", "aktuell", "letzte", "letzter", "heutige", "diese woche", "frisch", "ganz neu"],
+    "pt": ["último", "última", "mais recente", "novo", "nova", "de hoje", "desta semana", "recente"],
+    "it": ["ultimo", "ultima", "più recente", "nuovo", "nuova", "di oggi", "di questa settimana", "recente"],
+    "ja": ["最新", "最新の", "新しい", "今日の", "今週の", "新着", "最近の", "最新回"],
+    "zh-Hans": ["最新", "最新的", "最近", "今天的", "本周", "本周的", "新一期", "刚发布"],
+    "ko": ["최신", "최근", "새로운", "오늘의", "이번 주", "최신 에피소드", "방금 나온", "새로 나온"],
+    "ar": ["الأحدث", "الأخير", "الجديد", "اليوم", "هذا الأسبوع", "حلقة جديدة", "مؤخرا", "أحدث"]
+  },
+  "summarize_intent": {
+    "en": ["summarize", "summary", "what was discussed", "key points", "tldr", "recap", "in a nutshell", "main takeaways", "gist"],
+    "es": ["resume", "resumen", "de qué habla", "puntos clave", "en pocas palabras", "síntesis", "lo más importante"],
+    "fr": ["résume", "résumé", "de quoi ça parle", "points clés", "en bref", "synthèse", "l'essentiel"],
+    "de": ["zusammenfassen", "zusammenfassung", "worum geht es", "kernpunkte", "in kürze", "das wichtigste", "kurzfassung"],
+    "pt": ["resuma", "resumo", "sobre o que é", "pontos principais", "em resumo", "síntese", "o mais importante"],
+    "it": ["riassumi", "riassunto", "di cosa parla", "punti chiave", "in breve", "sintesi", "l'essenziale"],
+    "ja": ["要約", "まとめ", "要点", "どんな内容", "ざっくり言うと", "概要", "ポイント"],
+    "zh-Hans": ["总结", "摘要", "讲了什么", "主要内容", "要点", "概括", "简述", "大意"],
+    "ko": ["요약", "무슨 내용", "핵심", "주요 포인트", "간단히", "정리", "개요"],
+    "ar": ["لخّص", "ملخص", "ما الذي نوقش", "النقاط الرئيسية", "باختصار", "خلاصة", "أهم النقاط"]
+  },
+  "describe_intent": {
+    "en": ["describe", "what is", "tell me about", "what's", "info about", "details on", "about this podcast", "what's this"],
+    "es": ["describe", "qué es", "cuéntame sobre", "información sobre", "detalles de", "sobre este podcast", "de qué trata"],
+    "fr": ["décris", "qu'est-ce que", "parle-moi de", "info sur", "détails sur", "à propos de", "c'est quoi"],
+    "de": ["beschreibe", "was ist", "erzähl mir von", "info über", "details zu", "worum geht es", "was ist das"],
+    "pt": ["descreva", "o que é", "me conte sobre", "informações sobre", "detalhes de", "sobre este podcast", "do que trata"],
+    "it": ["descrivi", "cos'è", "parlami di", "info su", "dettagli su", "di cosa si tratta", "cos'è questo"],
+    "ja": ["説明して", "とは", "について教えて", "どんな", "詳細", "これは何", "概要"],
+    "zh-Hans": ["介绍", "是什么", "告诉我", "关于", "详情", "这是什么", "简介"],
+    "ko": ["설명해", "뭐야", "알려줘", "에 대해", "정보", "이게 뭐야", "소개"],
+    "ar": ["صف", "ما هو", "أخبرني عن", "معلومات عن", "تفاصيل", "ما هذا", "نبذة"]
+  }
+}

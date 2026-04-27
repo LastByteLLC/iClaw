@@ -1,0 +1,62 @@
+{
+  "month_view": {
+    "en": ["what day of the month", "show calendar", "this month", "show month", "monthly view", "calendar view", "month at a glance", "full month"],
+    "es": ["qué día del mes", "muestra el calendario", "este mes", "vista mensual", "calendario", "mes completo", "mostrar mes"],
+    "fr": ["quel jour du mois", "afficher le calendrier", "ce mois-ci", "vue mensuelle", "calendrier", "le mois", "mois entier"],
+    "de": ["welcher tag im monat", "kalender anzeigen", "diesen monat", "monatsansicht", "kalender", "ganzer monat", "monat zeigen"],
+    "pt": ["que dia do mês", "mostrar calendário", "este mês", "vista mensal", "calendário", "mês inteiro", "mostrar mês"],
+    "it": ["che giorno del mese", "mostra calendario", "questo mese", "vista mensile", "calendario", "mese intero", "mostrami il mese"],
+    "ja": ["今月の何日", "カレンダー表示", "今月", "月表示", "カレンダー", "月間", "月のカレンダー"],
+    "zh-Hans": ["几号", "显示日历", "这个月", "月视图", "日历", "本月日历", "整月"],
+    "ko": ["이번 달 며칠", "달력 보여줘", "이번 달", "월간 보기", "달력", "한 달", "월별"],
+    "ar": ["أي يوم من الشهر", "أظهر التقويم", "هذا الشهر", "عرض شهري", "التقويم", "الشهر كاملا"]
+  },
+  "week_view": {
+    "en": ["what week", "this week", "show week", "weekly", "week of", "this week's schedule", "weekly view", "week at a glance"],
+    "es": ["qué semana", "esta semana", "muestra la semana", "semanal", "vista semanal", "semana del", "la semana"],
+    "fr": ["quelle semaine", "cette semaine", "afficher la semaine", "hebdomadaire", "vue hebdomadaire", "semaine du"],
+    "de": ["welche woche", "diese woche", "woche anzeigen", "wöchentlich", "wochenansicht", "woche vom"],
+    "pt": ["que semana", "esta semana", "mostrar semana", "semanal", "vista semanal", "semana de"],
+    "it": ["che settimana", "questa settimana", "mostra la settimana", "settimanale", "vista settimanale", "settimana del"],
+    "ja": ["今週", "今週の", "週表示", "週間", "今週何週目", "週のカレンダー"],
+    "zh-Hans": ["第几周", "本周", "这周", "周视图", "周历", "本周安排", "这一周"],
+    "ko": ["몇 주차", "이번 주", "주간 보기", "주 일정", "주별", "이번주"],
+    "ar": ["أي أسبوع", "هذا الأسبوع", "أظهر الأسبوع", "أسبوعي", "عرض أسبوعي", "أسبوع"]
+  },
+  "day_query": {
+    "en": ["what day is it", "what day of the week", "today's date", "current day", "what's today", "what date", "today is"],
+    "es": ["qué día es hoy", "qué día de la semana", "fecha de hoy", "día actual", "qué fecha", "hoy es"],
+    "fr": ["quel jour", "quel jour de la semaine", "date d'aujourd'hui", "jour actuel", "on est quel jour", "aujourd'hui c'est"],
+    "de": ["welcher tag ist heute", "welcher wochentag", "heutiges datum", "aktueller tag", "welches datum", "heute ist"],
+    "pt": ["que dia é hoje", "que dia da semana", "data de hoje", "dia atual", "que data", "hoje é"],
+    "it": ["che giorno è", "che giorno della settimana", "data di oggi", "giorno corrente", "che data è", "oggi è"],
+    "ja": ["今日は何日", "今日は何曜日", "今日の日付", "今日は", "何日", "何曜日"],
+    "zh-Hans": ["今天几号", "今天星期几", "今天日期", "今天是", "几月几号", "今日日期"],
+    "ko": ["오늘 며칠", "오늘 무슨 요일", "오늘 날짜", "오늘은", "며칠이야", "무슨 요일"],
+    "ar": ["ما اليوم", "أي يوم من الأسبوع", "تاريخ اليوم", "اليوم هو", "ما التاريخ", "أي يوم اليوم"]
+  },
+  "date_math": {
+    "en": ["how many days until", "days between", "days from now", "how long until", "days ago", "days left", "count down to"],
+    "es": ["cuántos días hasta", "días entre", "días desde hoy", "cuánto falta para", "hace cuántos días", "días restantes"],
+    "fr": ["combien de jours avant", "jours entre", "jours à partir d'aujourd'hui", "dans combien de temps", "il y a combien de jours", "jours restants"],
+    "de": ["wie viele tage bis", "tage zwischen", "tage ab heute", "wie lange noch bis", "vor wie vielen tagen", "tage übrig"],
+    "pt": ["quantos dias até", "dias entre", "dias a partir de hoje", "quanto falta para", "há quantos dias", "dias restantes"],
+    "it": ["quanti giorni fino a", "giorni tra", "giorni da oggi", "quanto manca a", "quanti giorni fa", "giorni rimanenti"],
+    "ja": ["まで何日", "の間の日数", "今から何日", "あと何日", "何日前", "残り日数"],
+    "zh-Hans": ["还有几天", "相差几天", "从今天起几天", "距离还有多久", "几天前", "剩余天数"],
+    "ko": ["며칠 남았어", "며칠 차이", "며칠 후", "얼마나 남았어", "며칠 전", "남은 일수"],
+    "ar": ["كم يوما حتى", "الأيام بين", "بعد كم يوم", "كم بقي حتى", "قبل كم يوم", "الأيام المتبقية"]
+  },
+  "event_query": {
+    "en": ["meeting", "meetings", "appointment", "appointments", "event", "events", "my calendar", "on my schedule", "upcoming", "my schedule", "what's scheduled", "what do i have"],
+    "es": ["reunión", "reuniones", "cita", "citas", "evento", "eventos", "mi calendario", "mi agenda", "próximos", "qué tengo"],
+    "fr": ["réunion", "réunions", "rendez-vous", "événement", "événements", "mon calendrier", "mon agenda", "à venir", "qu'est-ce que j'ai"],
+    "de": ["besprechung", "termin", "termine", "meeting", "veranstaltung", "mein kalender", "mein terminkalender", "anstehend", "was habe ich"],
+    "pt": ["reunião", "reuniões", "compromisso", "compromissos", "evento", "eventos", "meu calendário", "minha agenda", "próximos", "o que tenho"],
+    "it": ["riunione", "riunioni", "appuntamento", "appuntamenti", "evento", "eventi", "mio calendario", "mia agenda", "prossimi", "cosa ho"],
+    "ja": ["会議", "ミーティング", "予定", "アポ", "イベント", "私のカレンダー", "スケジュール"],
+    "zh-Hans": ["会议", "约会", "预约", "活动", "我的日历", "我的日程", "即将", "我有什么"],
+    "ko": ["회의", "미팅", "약속", "일정", "내 캘린더", "내 일정", "예정", "뭐 있어"],
+    "ar": ["اجتماع", "اجتماعات", "موعد", "مواعيد", "فعالية", "فعاليات", "تقويمي", "جدولي", "قادم", "ماذا لدي"]
+  }
+}

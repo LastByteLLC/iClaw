@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="AppleTitle" content="Privacy &amp; Security" />
+    <meta name="description" content="iClaw runs entirely on-device. Your data never leaves your Mac." />
+    <meta name="KEYWORDS" content="privacy, security, on-device, Apple Intelligence, Ollama, data, local, no cloud, encryption, permissions" />
+    <meta name="robots" content="anchors" />
+    <link rel="stylesheet" href="../sty/help.css" />
+    <title>Privacy &amp; Security</title>
+</head>
+<body>
+    <p class="breadcrumb"><a href="../iClaw.html">iClaw Help</a></p>
+    <h1>Privacy &amp; Security</h1>
+
+    <h2>On-device AI</h2>
+    <p>By default, iClaw uses Apple Intelligence (Foundation Models) for all AI processing. Your conversations, queries, and personal data are processed entirely on your Mac. No data is sent to Anthropic, OpenAI, or any other AI service.</p>
+
+    <h2>Ollama (optional)</h2>
+    <p>iClaw can optionally use <a href="https://ollama.com">Ollama</a> as an alternative AI backend. Ollama runs open-source language models locally on your Mac &mdash; just like Apple Intelligence, all processing stays on-device.</p>
+    <p>When Ollama is selected in Settings &gt; Models:</p>
+    <ul>
+        <li>iClaw communicates with the Ollama server at <code>localhost:11434</code></li>
+        <li>No data leaves your machine &mdash; Ollama runs entirely locally</li>
+        <li>iClaw auto-detects installed models and prefers models already loaded in memory</li>
+        <li>If Ollama is not installed or not running, the option is disabled in Settings</li>
+    </ul>
+    <p>You can switch between Apple Intelligence and Ollama at any time in Settings &gt; Models.</p>
+
+    <h2>Network access</h2>
+    <p>iClaw connects to the internet only when tools need external data:</p>
+    <ul>
+        <li>Weather data from weather services</li>
+        <li>Stock quotes from financial APIs</li>
+        <li>Web search results and page fetching</li>
+        <li>Currency exchange rates</li>
+        <li>News headlines</li>
+        <li>Skill API calls (custom skills are sandboxed to HTTP only)</li>
+    </ul>
+    <p>AI inference never uses the network &mdash; whether you use Apple Intelligence or Ollama.</p>
+
+    <h2>Local storage</h2>
+    <p>Conversation history and long-term memory are stored in a local SQLite database on your Mac. Nothing is synced to the cloud.</p>
+
+    <h2>Permissions</h2>
+    <p>iClaw requests system permissions only when a tool needs them:</p>
+    <ul>
+        <li><strong>Location</strong> &mdash; Weather and location-aware queries</li>
+        <li><strong>Contacts</strong> &mdash; Contact lookups and messaging</li>
+        <li><strong>Calendar &amp; Reminders</strong> &mdash; Event and task management</li>
+        <li><strong>Microphone</strong> &mdash; Voice input and audio transcription</li>
+        <li><strong>Screen Capture</strong> &mdash; Analyzing on-screen content</li>
+        <li><strong>Automation (Apple Events)</strong> &mdash; Controlling other apps</li>
+    </ul>
+    <p>You can review and manage all permissions in Settings &gt; Permissions or in System Settings &gt; Privacy &amp; Security.</p>
+
+    <h2>Action consent</h2>
+    <p>Tools that perform actions (sending messages, creating events, running shortcuts) have a consent policy:</p>
+    <ul>
+        <li><strong>Safe</strong> &mdash; Read-only actions, no confirmation needed</li>
+        <li><strong>Requires Consent</strong> &mdash; Asks before acting (can be auto-approved in Settings)</li>
+        <li><strong>Destructive</strong> &mdash; Always requires explicit confirmation</li>
+    </ul>
+</body>
+</html>

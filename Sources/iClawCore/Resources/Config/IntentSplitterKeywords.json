@@ -1,0 +1,50 @@
+{
+  "stock_domain": {
+    "en": ["stock", "ticker", "share", "shares", "stock price", "quote", "market cap", "share price", "equities"],
+    "es": ["acción", "acciones", "cotización", "bolsa", "precio de la acción", "ticker", "mercado de valores"],
+    "fr": ["action", "actions", "cotation", "bourse", "cours de l'action", "ticker", "titre"],
+    "de": ["aktie", "aktien", "kurs", "börse", "aktienkurs", "ticker", "wertpapier"],
+    "pt": ["ação", "ações", "cotação", "bolsa", "preço da ação", "ticker", "mercado de ações"],
+    "it": ["azione", "azioni", "quotazione", "borsa", "prezzo dell'azione", "ticker", "titolo"],
+    "ja": ["株", "株価", "銘柄", "ティッカー", "株式", "市場", "相場"],
+    "zh-Hans": ["股票", "股价", "代码", "股市", "行情", "报价", "股份"],
+    "ko": ["주식", "주가", "종목", "티커", "시세", "증시", "주식 가격"],
+    "ar": ["سهم", "أسهم", "سعر السهم", "البورصة", "تداول", "رمز السهم", "سوق الأسهم"]
+  },
+  "weather_domain": {
+    "en": ["weather", "forecast", "temperature", "rain", "humidity", "wind", "snow", "sunny", "cloudy", "hot", "cold"],
+    "es": ["tiempo", "clima", "pronóstico", "temperatura", "lluvia", "humedad", "viento", "nieve", "soleado", "nublado"],
+    "fr": ["météo", "temps", "prévisions", "température", "pluie", "humidité", "vent", "neige", "ensoleillé", "nuageux"],
+    "de": ["wetter", "vorhersage", "temperatur", "regen", "luftfeuchtigkeit", "wind", "schnee", "sonnig", "bewölkt"],
+    "pt": ["tempo", "clima", "previsão", "temperatura", "chuva", "umidade", "vento", "neve", "ensolarado", "nublado"],
+    "it": ["meteo", "tempo", "previsioni", "temperatura", "pioggia", "umidità", "vento", "neve", "soleggiato", "nuvoloso"],
+    "ja": ["天気", "天気予報", "気温", "雨", "湿度", "風", "雪", "晴れ", "曇り"],
+    "zh-Hans": ["天气", "天气预报", "气温", "温度", "下雨", "湿度", "风", "雪", "晴天", "多云"],
+    "ko": ["날씨", "일기예보", "기온", "온도", "비", "습도", "바람", "눈", "맑음", "흐림"],
+    "ar": ["الطقس", "توقعات الطقس", "درجة الحرارة", "مطر", "رطوبة", "رياح", "ثلج", "مشمس", "غائم"]
+  },
+  "news_domain": {
+    "en": ["news", "headlines", "current events", "latest news", "breaking news", "top stories", "what's happening"],
+    "es": ["noticias", "titulares", "actualidad", "últimas noticias", "noticias de última hora", "lo que pasa"],
+    "fr": ["actualités", "infos", "nouvelles", "titres", "dernières nouvelles", "actu", "ce qui se passe"],
+    "de": ["nachrichten", "schlagzeilen", "neuigkeiten", "aktuelles", "eilmeldungen", "news", "was ist passiert"],
+    "pt": ["notícias", "manchetes", "últimas notícias", "atualidades", "notícias de última hora", "o que está acontecendo"],
+    "it": ["notizie", "titoli", "ultime notizie", "attualità", "ultim'ora", "cronaca", "cosa succede"],
+    "ja": ["ニュース", "見出し", "最新ニュース", "時事", "速報", "トップニュース"],
+    "zh-Hans": ["新闻", "头条", "时事", "最新新闻", "突发新闻", "要闻"],
+    "ko": ["뉴스", "헤드라인", "속보", "최신 뉴스", "시사", "주요 뉴스"],
+    "ar": ["أخبار", "عناوين", "آخر الأخبار", "أخبار عاجلة", "ما يحدث", "أبرز الأخبار"]
+  },
+  "translate_domain": {
+    "en": ["translate", "in spanish", "in french", "in japanese", "to english", "how do you say", "translation"],
+    "es": ["traduce", "traducir", "en inglés", "en francés", "en japonés", "cómo se dice", "traducción"],
+    "fr": ["traduis", "traduire", "en anglais", "en espagnol", "en japonais", "comment dit-on", "traduction"],
+    "de": ["übersetze", "übersetzen", "auf englisch", "auf spanisch", "auf japanisch", "wie sagt man", "übersetzung"],
+    "pt": ["traduza", "traduzir", "em inglês", "em espanhol", "em japonês", "como se diz", "tradução"],
+    "it": ["traduci", "tradurre", "in inglese", "in spagnolo", "in giapponese", "come si dice", "traduzione"],
+    "ja": ["翻訳", "英語で", "スペイン語で", "日本語で", "なんて言う", "訳して"],
+    "zh-Hans": ["翻译", "用英语", "用西班牙语", "用日语", "怎么说", "译成"],
+    "ko": ["번역", "영어로", "스페인어로", "일본어로", "뭐라고 해", "번역해줘"],
+    "ar": ["ترجم", "بالإنجليزية", "بالفرنسية", "باليابانية", "كيف أقول", "الترجمة"]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "current_time": {
+    "en": ["current time", "what time is it", "what's the time", "what is the time", "local time", "time now", "got the time", "do you have the time"],
+    "es": ["hora actual", "qué hora es", "qué horas son", "hora local", "la hora", "me dices la hora", "tienes hora"],
+    "fr": ["heure actuelle", "quelle heure est-il", "quelle heure il est", "heure locale", "l'heure", "tu as l'heure", "il est quelle heure"],
+    "de": ["aktuelle uhrzeit", "wie spät ist es", "wie viel uhr", "ortszeit", "die uhrzeit", "hast du die uhrzeit", "wie spät"],
+    "pt": ["hora atual", "que horas são", "que horas", "hora local", "as horas", "tem as horas", "me diz as horas"],
+    "it": ["ora attuale", "che ora è", "che ore sono", "ora locale", "l'ora", "hai l'ora", "mi dici l'ora"],
+    "ja": ["今何時", "現在の時刻", "時刻", "現在時刻", "何時ですか", "いま何時", "時間"],
+    "zh-Hans": ["现在几点", "当前时间", "几点了", "现在时间", "几点", "当地时间", "时间"],
+    "ko": ["지금 몇 시", "현재 시간", "몇 시야", "현지 시간", "시간", "지금 시간", "몇 시입니까"],
+    "ar": ["الوقت الآن", "كم الساعة", "ما الساعة", "التوقيت المحلي", "الوقت", "الساعة كم"]
+  },
+  "timer_action": {
+    "en": ["set a timer", "start timer", "countdown", "alarm in", "remind me in", "timer for", "wake me in", "in X minutes"],
+    "es": ["pon un temporizador", "inicia un temporizador", "cuenta regresiva", "alarma en", "recuérdame en", "temporizador de", "despiértame en"],
+    "fr": ["mets un minuteur", "lance un minuteur", "compte à rebours", "alarme dans", "rappelle-moi dans", "minuteur de", "réveille-moi dans"],
+    "de": ["timer stellen", "timer starten", "countdown", "wecker in", "erinnere mich in", "timer für", "weck mich in"],
+    "pt": ["põe um timer", "iniciar temporizador", "contagem regressiva", "alarme em", "me lembre em", "temporizador de", "me acorde em"],
+    "it": ["imposta un timer", "avvia un timer", "conto alla rovescia", "sveglia tra", "ricordami tra", "timer di", "svegliami tra"],
+    "ja": ["タイマー", "タイマーをセット", "カウントダウン", "後にアラーム", "分後に教えて", "タイマー開始", "分のタイマー"],
+    "zh-Hans": ["设个定时器", "启动计时器", "倒计时", "分钟后提醒", "提醒我", "计时", "闹钟设在"],
+    "ko": ["타이머 설정", "타이머 시작", "카운트다운", "분 후에 알려줘", "알람 맞춰", "타이머", "분 뒤에 깨워줘"],
+    "ar": ["ضع مؤقت", "ابدأ المؤقت", "العد التنازلي", "منبه بعد", "ذكرني بعد", "مؤقت لمدة", "أيقظني بعد"]
+  },
+  "time_in_zone": {
+    "en": ["time in", "what time in", "current time in", "what time is it in", "local time in", "time zone in"],
+    "es": ["hora en", "qué hora es en", "hora actual en", "qué hora en", "hora local en"],
+    "fr": ["heure à", "quelle heure à", "heure actuelle à", "il est quelle heure à", "heure locale à"],
+    "de": ["uhrzeit in", "wie spät in", "aktuelle zeit in", "wie spät ist es in", "ortszeit in"],
+    "pt": ["hora em", "que horas em", "hora atual em", "que horas são em", "hora local em"],
+    "it": ["ora a", "che ora a", "ora attuale a", "che ore sono a", "ora locale a"],
+    "ja": ["の時間", "は今何時", "の現在時刻", "の時刻", "での時間"],
+    "zh-Hans": ["的时间", "现在几点在", "当前时间在", "的当地时间", "那里几点"],
+    "ko": ["시간", "지금 몇 시야", "현지 시간은", "의 시간", "은 몇 시"],
+    "ar": ["الوقت في", "كم الساعة في", "الوقت الحالي في", "التوقيت في"]
+  }
+}

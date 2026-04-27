@@ -1,0 +1,98 @@
+{
+  "battery": {
+    "en": ["battery level", "charging status", "how much charge", "battery percentage", "is it charging", "battery life", "power left"],
+    "es": ["nivel de batería", "estado de carga", "cuánta batería queda", "porcentaje de batería", "se está cargando", "autonomía"],
+    "fr": ["niveau de batterie", "état de charge", "combien de batterie", "pourcentage de batterie", "en charge", "autonomie"],
+    "de": ["akkustand", "ladezustand", "wie viel akku", "akku prozent", "lädt es", "batterie", "restlaufzeit"],
+    "pt": ["nível da bateria", "status de carga", "quanta bateria", "porcentagem de bateria", "está carregando", "carga restante"],
+    "it": ["livello batteria", "stato di carica", "quanta batteria", "percentuale batteria", "sta caricando", "autonomia"],
+    "ja": ["バッテリー残量", "充電状況", "バッテリーの残り", "バッテリー何パーセント", "充電中", "電池残量"],
+    "zh-Hans": ["电池电量", "充电状态", "还有多少电", "电池百分比", "在充电吗", "剩余电量"],
+    "ko": ["배터리 잔량", "충전 상태", "배터리 얼마나", "배터리 퍼센트", "충전 중인가", "남은 배터리"],
+    "ar": ["مستوى البطارية", "حالة الشحن", "كم بطارية متبقية", "نسبة البطارية", "هل يشحن", "عمر البطارية"]
+  },
+  "wifi": {
+    "en": ["wifi signal", "internet connection", "network status", "am i connected", "wifi strength", "online", "network name"],
+    "es": ["señal wifi", "conexión a internet", "estado de la red", "estoy conectado", "fuerza wifi", "en línea", "nombre de red"],
+    "fr": ["signal wifi", "connexion internet", "état du réseau", "je suis connecté", "force du wifi", "en ligne", "nom du réseau"],
+    "de": ["wlan signal", "internetverbindung", "netzwerkstatus", "bin ich online", "wlan stärke", "verbunden", "netzwerkname"],
+    "pt": ["sinal wifi", "conexão com a internet", "status da rede", "estou conectado", "força do wifi", "online", "nome da rede"],
+    "it": ["segnale wifi", "connessione internet", "stato della rete", "sono connesso", "potenza wifi", "online", "nome della rete"],
+    "ja": ["wifi電波", "インターネット接続", "ネットワーク状態", "接続しているか", "wifi強度", "オンライン", "ネットワーク名"],
+    "zh-Hans": ["wifi信号", "网络连接", "网络状态", "联网了吗", "wifi强度", "在线", "网络名称"],
+    "ko": ["와이파이 신호", "인터넷 연결", "네트워크 상태", "연결됐어", "와이파이 세기", "온라인", "네트워크 이름"],
+    "ar": ["إشارة الواي فاي", "الاتصال بالإنترنت", "حالة الشبكة", "هل أنا متصل", "قوة الواي فاي", "اسم الشبكة"]
+  },
+  "bluetooth": {
+    "en": ["bluetooth devices", "paired devices", "airpods", "connected devices", "bluetooth status", "what's paired"],
+    "es": ["dispositivos bluetooth", "dispositivos emparejados", "airpods", "dispositivos conectados", "estado bluetooth"],
+    "fr": ["appareils bluetooth", "appareils appairés", "airpods", "appareils connectés", "état bluetooth"],
+    "de": ["bluetooth geräte", "gekoppelte geräte", "airpods", "verbundene geräte", "bluetooth status"],
+    "pt": ["dispositivos bluetooth", "dispositivos pareados", "airpods", "dispositivos conectados", "status do bluetooth"],
+    "it": ["dispositivi bluetooth", "dispositivi accoppiati", "airpods", "dispositivi connessi", "stato bluetooth"],
+    "ja": ["bluetoothデバイス", "ペアリング済みデバイス", "airpods", "接続中のデバイス", "bluetooth状態"],
+    "zh-Hans": ["蓝牙设备", "已配对设备", "airpods", "已连接设备", "蓝牙状态"],
+    "ko": ["블루투스 기기", "페어링된 기기", "에어팟", "연결된 기기", "블루투스 상태"],
+    "ar": ["أجهزة البلوتوث", "الأجهزة المقترنة", "إيربودز", "الأجهزة المتصلة", "حالة البلوتوث"]
+  },
+  "disk": {
+    "en": ["disk space", "storage left", "free space", "how much storage", "available space", "disk usage", "hard drive"],
+    "es": ["espacio en disco", "almacenamiento restante", "espacio libre", "cuánto almacenamiento", "espacio disponible"],
+    "fr": ["espace disque", "stockage restant", "espace libre", "combien de stockage", "espace disponible"],
+    "de": ["speicherplatz", "freier speicher", "wie viel speicher", "verfügbarer speicher", "festplattenbelegung"],
+    "pt": ["espaço em disco", "armazenamento restante", "espaço livre", "quanto armazenamento", "espaço disponível"],
+    "it": ["spazio su disco", "spazio rimanente", "spazio libero", "quanto spazio", "spazio disponibile"],
+    "ja": ["ディスク容量", "空き容量", "ストレージ残量", "残り容量", "使用可能な容量", "ハードディスク"],
+    "zh-Hans": ["磁盘空间", "剩余存储", "可用空间", "还剩多少空间", "硬盘空间", "存储空间"],
+    "ko": ["디스크 용량", "저장공간 남은", "빈 공간", "사용 가능한 용량", "저장공간", "하드디스크"],
+    "ar": ["مساحة القرص", "المساحة المتبقية", "المساحة الحرة", "كم مساحة", "المساحة المتاحة"]
+  },
+  "memory": {
+    "en": ["memory usage", "RAM available", "memory pressure", "how much ram", "free memory", "memory free", "RAM usage"],
+    "es": ["uso de memoria", "RAM disponible", "presión de memoria", "cuánta ram", "memoria libre"],
+    "fr": ["utilisation de la mémoire", "RAM disponible", "pression mémoire", "combien de ram", "mémoire libre"],
+    "de": ["speichernutzung", "freier arbeitsspeicher", "ram verfügbar", "wie viel ram", "speicherauslastung"],
+    "pt": ["uso de memória", "RAM disponível", "pressão de memória", "quanta ram", "memória livre"],
+    "it": ["uso della memoria", "RAM disponibile", "pressione di memoria", "quanta ram", "memoria libera"],
+    "ja": ["メモリ使用量", "空きメモリ", "RAM残量", "メモリ残り", "使用可能なメモリ"],
+    "zh-Hans": ["内存使用", "可用内存", "内存压力", "剩余内存", "RAM占用"],
+    "ko": ["메모리 사용량", "사용 가능한 램", "메모리 여유", "램 사용량", "남은 메모리"],
+    "ar": ["استخدام الذاكرة", "الرام المتاح", "ضغط الذاكرة", "كم رام", "الذاكرة الحرة"]
+  },
+  "cpu_thermal": {
+    "en": ["CPU usage", "is my mac hot", "running slow", "processor usage", "why is it slow", "thermal state", "overheating"],
+    "es": ["uso de CPU", "mi mac está caliente", "va lento", "uso del procesador", "por qué va lento", "sobrecalentamiento"],
+    "fr": ["utilisation du CPU", "mon mac chauffe", "ça rame", "utilisation du processeur", "pourquoi c'est lent", "surchauffe"],
+    "de": ["CPU auslastung", "mein mac ist heiß", "läuft langsam", "prozessorauslastung", "warum ist es langsam", "überhitzung"],
+    "pt": ["uso da CPU", "meu mac está quente", "está lento", "uso do processador", "por que está lento", "superaquecimento"],
+    "it": ["uso della CPU", "il mio mac è caldo", "va lento", "uso del processore", "perché è lento", "surriscaldamento"],
+    "ja": ["CPU使用率", "macが熱い", "動作が遅い", "プロセッサ使用率", "なぜ遅い", "発熱"],
+    "zh-Hans": ["CPU使用率", "我的mac很烫", "运行慢", "处理器使用率", "为什么这么慢", "过热"],
+    "ko": ["CPU 사용량", "맥이 뜨거워", "느려", "프로세서 사용량", "왜 느려", "과열"],
+    "ar": ["استخدام المعالج", "الماك ساخن", "بطيء", "استخدام CPU", "لماذا بطيء", "السخونة"]
+  },
+  "uptime": {
+    "en": ["uptime", "since last restart", "how long has it been on", "last reboot", "booted up", "running time"],
+    "es": ["tiempo de actividad", "desde el último reinicio", "cuánto tiempo encendido", "último reinicio", "tiempo en marcha"],
+    "fr": ["temps de fonctionnement", "depuis le dernier redémarrage", "allumé depuis", "dernier redémarrage", "uptime"],
+    "de": ["laufzeit", "seit dem letzten neustart", "wie lange an", "letzter neustart", "betriebszeit"],
+    "pt": ["tempo ligado", "desde o último reinício", "há quanto tempo ligado", "último reboot", "tempo de atividade"],
+    "it": ["tempo di attività", "dall'ultimo riavvio", "acceso da quanto", "ultimo riavvio", "uptime"],
+    "ja": ["稼働時間", "前回の再起動から", "どのくらい起動している", "最後の再起動", "起動時間"],
+    "zh-Hans": ["运行时间", "上次重启后", "开机多久了", "上次启动", "运行了多久"],
+    "ko": ["가동 시간", "마지막 재시작 이후", "얼마나 켜져 있어", "마지막 부팅", "켜진 지"],
+    "ar": ["مدة التشغيل", "منذ آخر إعادة تشغيل", "منذ متى مشغل", "آخر إقلاع", "وقت التشغيل"]
+  },
+  "apps": {
+    "en": ["what apps installed", "list of applications", "installed apps", "which apps", "all apps", "what's installed"],
+    "es": ["qué aplicaciones instaladas", "lista de aplicaciones", "aplicaciones instaladas", "qué apps", "todas las apps"],
+    "fr": ["quelles applications installées", "liste des applications", "applications installées", "quelles apps", "toutes les apps"],
+    "de": ["welche apps installiert", "liste der anwendungen", "installierte apps", "welche programme", "alle apps"],
+    "pt": ["quais aplicativos instalados", "lista de aplicativos", "apps instalados", "quais apps", "todos os apps"],
+    "it": ["quali app installate", "lista delle applicazioni", "app installate", "quali applicazioni", "tutte le app"],
+    "ja": ["インストールされているアプリ", "アプリ一覧", "アプリのリスト", "どんなアプリ", "全アプリ"],
+    "zh-Hans": ["安装了什么应用", "应用列表", "已安装的应用", "哪些应用", "所有应用"],
+    "ko": ["설치된 앱", "앱 목록", "설치된 애플리케이션", "어떤 앱", "모든 앱"],
+    "ar": ["ما التطبيقات المثبتة", "قائمة التطبيقات", "التطبيقات المثبتة", "أي تطبيقات", "كل التطبيقات"]
+  }
+}

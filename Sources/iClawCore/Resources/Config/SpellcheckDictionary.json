@@ -1,0 +1,15 @@
+{
+  "skipWords": [
+    "wordle", "sudoku", "sokoban",
+    "podcast", "podcasts",
+    "bitcoin", "ethereum", "crypto",
+    "webapp", "webhook", "websocket",
+    "iClaw", "macOS", "iOS", "iPadOS",
+    "ChatGPT", "OpenAI", "Siri",
+    "wifi", "bluetooth", "airplay", "airdrop",
+    "emoji", "gif", "meme",
+    "todo", "todos",
+    "dns", "vpn", "ssh", "api", "url",
+    "lorem", "ipsum"
+  ]
+}

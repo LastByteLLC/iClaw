@@ -1,0 +1,20 @@
+{
+    "Apple": "AAPL", "Microsoft": "MSFT", "Google": "GOOGL", "Alphabet": "GOOGL",
+    "Amazon": "AMZN", "Tesla": "TSLA", "Meta": "META", "Facebook": "META",
+    "Netflix": "NFLX", "Nvidia": "NVDA", "AMD": "AMD",
+    "Intel": "INTC", "IBM": "IBM", "Oracle": "ORCL", "Salesforce": "CRM",
+    "Adobe": "ADBE", "PayPal": "PYPL", "Uber": "UBER", "Airbnb": "ABNB",
+    "Spotify": "SPOT", "Disney": "DIS", "Coca-Cola": "KO", "Pepsi": "PEP",
+    "Nike": "NKE", "Starbucks": "SBUX", "McDonalds": "MCD",
+    "Walmart": "WMT", "Costco": "COST", "Target": "TGT",
+    "JPMorgan": "JPM", "Goldman Sachs": "GS", "Morgan Stanley": "MS",
+    "Bank of America": "BAC", "Wells Fargo": "WFC", "Citigroup": "C",
+    "Visa": "V", "Mastercard": "MA", "American Express": "AXP",
+    "Boeing": "BA", "Lockheed Martin": "LMT", "Ford": "F",
+    "General Motors": "GM", "Toyota": "TM", "Rivian": "RIVN",
+    "Lucid": "LCID", "NIO": "NIO", "BYD": "BYDDY",
+    "Samsung": "SSNLF", "Sony": "SONY", "Nintendo": "NTDOY",
+    "Berkshire Hathaway": "BRK.B", "Johnson & Johnson": "JNJ",
+    "Procter & Gamble": "PG", "ExxonMobil": "XOM", "Chevron": "CVX",
+    "Pfizer": "PFE", "Moderna": "MRNA"
+}

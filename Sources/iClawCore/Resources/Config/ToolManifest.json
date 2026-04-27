@@ -1,0 +1,493 @@
+{
+  "tools": {
+    "Weather": {
+      "category": "online",
+      "chipName": "weather",
+      "icon": "cloud.sun",
+      "slots": [
+        { "name": "location", "type": "location" },
+        { "name": "date", "type": "date" }
+      ],
+      "entityPrefixes": ["weather in ", "weather for ", "forecast for ", "forecast in ", "temperature in ", "in ", "for ", "at "],
+      "extractionSchema": "Weather"
+    },
+    "Time": {
+      "category": "online",
+      "chipName": "time",
+      "icon": "clock",
+      "slots": [
+        { "name": "location", "type": "location" },
+        { "name": "duration", "type": "time" }
+      ],
+      "entityPrefixes": ["time in ", "time at ", "time for ", "in ", "for ", "at "],
+      "extractionSchema": "Timer"
+    },
+    "Maps": {
+      "category": "online",
+      "chipName": "maps",
+      "icon": "map",
+      "slots": [
+        { "name": "destination", "type": "location" },
+        { "name": "origin", "type": "location" }
+      ],
+      "entityPrefixes": ["directions to ", "navigate to ", "route to ", "eta to ", "distance to ", "how far to ", "to ", "near "],
+      "extractionSchema": "Maps"
+    },
+    "maps": {
+      "category": "online",
+      "chipName": "maps",
+      "icon": "map",
+      "slots": [
+        { "name": "location", "type": "location" }
+      ],
+      "entityPrefixes": ["nearby ", "near ", "find ", "search for ", "around "],
+      "extractionSchema": null
+    },
+    "News": {
+      "category": "online",
+      "chipName": "news",
+      "icon": "newspaper",
+      "slots": [
+        { "name": "topic", "type": "query" }
+      ],
+      "entityPrefixes": ["news about ", "news on ", "headlines about ", "latest on "],
+      "extractionSchema": null
+    },
+    "Stocks": {
+      "category": "online",
+      "chipName": "stocks",
+      "icon": "chart.line.uptrend.xyaxis",
+      "slots": [
+        { "name": "ticker", "type": "entity" },
+        { "name": "company", "type": "query" }
+      ],
+      "entityPrefixes": ["$", "price of", "stock", "shares", "ticker", "market cap"],
+      "extractionSchema": "Stock"
+    },
+    "ReadEmail": {
+      "category": "offline",
+      "chipName": "reademail",
+      "icon": "envelope",
+      "slots": [
+        { "name": "sender", "type": "person" },
+        { "name": "query", "type": "query" },
+        { "name": "count", "type": "number" }
+      ],
+      "entityPrefixes": ["emails about ", "email about ", "search for ", "find ", "email from "],
+      "extractionSchema": "ReadEmail"
+    },
+    "Email": {
+      "category": "offline",
+      "chipName": "email",
+      "icon": "envelope",
+      "slots": [
+        { "name": "recipient", "type": "person" },
+        { "name": "subject", "type": "query" }
+      ],
+      "entityPrefixes": ["email about ", "email regarding ", "send email about "],
+      "extractionSchema": "Email"
+    },
+    "Translate": {
+      "category": "offline",
+      "chipName": "translate",
+      "icon": "globe",
+      "slots": [
+        { "name": "targetLanguage", "type": "entity" },
+        { "name": "text", "type": "query" }
+      ],
+      "entityPrefixes": [],
+      "extractionSchema": null
+    },
+    "Dictionary": {
+      "category": "offline",
+      "chipName": null,
+      "icon": "text.book.closed",
+      "slots": [
+        { "name": "word", "type": "query" }
+      ],
+      "entityPrefixes": ["define ", "definition of ", "meaning of "],
+      "extractionSchema": null
+    },
+    "Convert": {
+      "category": "online",
+      "chipName": "convert",
+      "icon": "arrow.left.arrow.right",
+      "slots": [
+        { "name": "value", "type": "number" },
+        { "name": "fromUnit", "type": "unit" }
+      ],
+      "entityPrefixes": [],
+      "extractionSchema": null
+    },
+    "Calculator": {
+      "category": "offline",
+      "chipName": "calculator",
+      "icon": "function",
+      "timeout": 5,
+      "slots": [
+        { "name": "expression", "type": "query" }
+      ],
+      "entityPrefixes": [],
+      "extractionSchema": null
+    },
+    "Research": {
+      "category": "online",
+      "chipName": "research",
+      "icon": "magnifyingglass",
+      "timeout": 30,
+      "slots": [
+        { "name": "topic", "type": "query" }
+      ],
+      "entityPrefixes": ["research ", "investigate ", "deep dive into ", "learn about ", "teach me about ", "explain ", "comprehensive analysis of "],
+      "extractionSchema": null,
+      "modeConfig": {
+        "displayName": "Research",
+        "systemPrompt": "You are in a focused research session. The user is investigating a topic across multiple turns.\n- Synthesize findings from search results, fetched pages, and files\n- Highlight key facts, contradictions, and gaps\n- Keep a running thread of what's been established vs. what's still uncertain\n- At the END of your response, suggest 2-3 follow-up directions as short phrases (3-6 words each), each on its own line starting with >>  Do NOT mention follow-ups in your response text.",
+        "allowedTools": ["Research", "web_search", "WebFetch", "WikipediaSearch", "read_file"],
+        "exitPhrases": ["done researching", "stop researching", "end research", "i'm done", "im done", "that's enough", "wrap it up"],
+        "entryPhrases": ["research mode", "start researching"],
+        "tintColor": "#4A90D9"
+      }
+    },
+    "Rewrite": {
+      "category": "offline",
+      "chipName": "rewrite",
+      "icon": "pencil.circle",
+      "showsInUI": false,
+      "slots": [
+        { "name": "text", "type": "query" }
+      ],
+      "entityPrefixes": ["rewrite ", "edit ", "improve "],
+      "extractionSchema": null,
+      "modeConfig": {
+        "displayName": "Rewrite",
+        "systemPrompt": "You are in an editing session. Help the user refine their writing.\n- Clarify tone and style preferences\n- Suggest revisions iteratively\n- Keep responses to 1-2 sentences per turn",
+        "allowedTools": ["Rewrite"],
+        "exitPhrases": ["done editing", "stop rewriting", "i'm done", "im done", "looks good"],
+        "entryPhrases": ["editing session", "rewrite mode", "help me edit"],
+        "tintColor": "#50C878"
+      }
+    },
+    "web_search": {
+      "category": "online",
+      "chipName": "search",
+      "icon": "safari",
+      "slots": [
+        { "name": "query", "type": "query" }
+      ],
+      "entityPrefixes": ["google ", "search for ", "search ", "look up ", "find "],
+      "extractionSchema": null
+    },
+    "WikipediaSearch": {
+      "category": "online",
+      "chipName": "wiki",
+      "icon": "book.closed",
+      "displayName": "Wikipedia",
+      "slots": [
+        { "name": "topic", "type": "query" }
+      ],
+      "entityPrefixes": ["wikipedia ", "wiki ", "tell me about ", "who is ", "who was ", "what is ", "what are "],
+      "extractionSchema": null
+    },
+    "Podcast": {
+      "category": "online",
+      "chipName": "podcast",
+      "icon": "headphones",
+      "timeout": 20,
+      "slots": [
+        { "name": "query", "type": "query" }
+      ],
+      "entityPrefixes": ["podcast about ", "podcast on ", "search podcast ", "find podcast ", "play podcast ", "play "],
+      "extractionSchema": "Podcast"
+    },
+    "Create": {
+      "category": "async",
+      "chipName": null,
+      "icon": "paintbrush",
+      "slots": [
+        { "name": "prompt", "type": "query" }
+      ],
+      "entityPrefixes": [],
+      "extractionSchema": null,
+      "showsInUI": false
+    },
+    "Contacts": {
+      "category": "offline",
+      "chipName": "contacts",
+      "icon": "person.crop.circle",
+      "slots": [
+        { "name": "name", "type": "person" }
+      ],
+      "entityPrefixes": ["contact ", "look up "],
+      "extractionSchema": "Contacts"
+    },
+    "Messages": {
+      "category": "offline",
+      "chipName": "messages",
+      "icon": "message",
+      "slots": [
+        { "name": "recipient", "type": "person" },
+        { "name": "body", "type": "query" }
+      ],
+      "entityPrefixes": ["text ", "message ", "send message to "],
+      "extractionSchema": "Messages"
+    },
+    "read_file": {
+      "category": "offline",
+      "chipName": "read",
+      "icon": "doc",
+      "slots": [
+        { "name": "path", "type": "entity" }
+      ],
+      "entityPrefixes": [],
+      "extractionSchema": null
+    },
+    "Reminders": {
+      "category": "offline",
+      "chipName": "reminders",
+      "icon": "checklist",
+      "slots": [
+        { "name": "text", "type": "query" },
+        { "name": "date", "type": "date" }
+      ],
+      "entityPrefixes": ["remind me to ", "reminder to ", "reminder: ", "add reminder "],
+      "extractionSchema": "Reminders"
+    },
+    "CalendarEvent": {
+      "category": "offline",
+      "chipName": "calendar",
+      "icon": "calendar",
+      "slots": [
+        { "name": "date", "type": "date" },
+        { "name": "title", "type": "query" }
+      ],
+      "entityPrefixes": ["schedule ", "create event ", "add event ", "new event ", "meeting "],
+      "extractionSchema": "CalendarEvent"
+    },
+    "Random": {
+      "category": "offline",
+      "chipName": "random",
+      "icon": "dice",
+      "timeout": 5,
+      "slots": [
+        { "name": "type", "type": "entity" },
+        { "name": "range", "type": "number" }
+      ],
+      "entityPrefixes": [],
+      "extractionSchema": "Random"
+    },
+    "Transcribe": {
+      "category": "async",
+      "chipName": "transcribe",
+      "icon": "waveform",
+      "timeout": 30,
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null
+    },
+    "SystemInfo": {
+      "category": "offline",
+      "chipName": "systeminfo",
+      "icon": "info.circle",
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null
+    },
+    "Screenshot": {
+      "category": "offline",
+      "chipName": "screenshot",
+      "icon": "camera.viewfinder",
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null
+    },
+    "Today": {
+      "category": "online",
+      "chipName": "today",
+      "icon": "calendar.day.timeline.leading",
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null
+    },
+    "Automate": {
+      "category": "offline",
+      "chipName": "automate",
+      "icon": "gearshape.2",
+      "timeout": 30,
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null,
+      "modeConfig": {
+        "displayName": "Automate",
+        "systemPrompt": "You are in an AppleScript automation session. Help the user design their automation step by step.\n- Ask which apps are involved\n- Clarify triggers and conditions\n- Confirm the exact actions before generating\n- When requirements are clear, tell the user to run #automate <description> to generate the script\n- Keep responses to 2-3 sentences per turn",
+        "allowedTools": [],
+        "exitPhrases": ["done automating", "stop automating", "cancel", "never mind", "i'm done", "im done"],
+        "entryPhrases": ["automate mode", "scripting session", "help me automate"],
+        "tintColor": "#FF8C00"
+      }
+    },
+    "Help": {
+      "category": "offline",
+      "chipName": "help",
+      "icon": "questionmark.circle",
+      "slots": [],
+      "entityPrefixes": ["help with ", "how to ", "how do i ", "what can you "],
+      "extractionSchema": null
+    },
+    "Feedback": {
+      "category": "offline",
+      "chipName": "feedback",
+      "icon": "hand.thumbsup",
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null
+    },
+    "Calendar": {
+      "category": "offline",
+      "chipName": "calendar",
+      "icon": "calendar",
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null
+    },
+    "WebFetch": {
+      "category": "online",
+      "chipName": "fetch",
+      "icon": "globe",
+      "timeout": 20,
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null,
+      "showsInUI": false
+    },
+    "camera": {
+      "category": "offline",
+      "chipName": "camera",
+      "icon": "camera",
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null,
+      "showsInUI": false
+    },
+    "clipboard": {
+      "category": "offline",
+      "chipName": "clipboard",
+      "icon": "doc.on.clipboard",
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null,
+      "showsInUI": false
+    },
+    "health": {
+      "category": "offline",
+      "chipName": "health",
+      "icon": "heart",
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null,
+      "showsInUI": false
+    },
+    "Notes": {
+      "category": "offline",
+      "chipName": "notes",
+      "icon": "note.text",
+      "slots": [],
+      "entityPrefixes": ["note about ", "create note "],
+      "extractionSchema": "Notes",
+      "showsInUI": false
+    },
+    "spotlight": {
+      "category": "offline",
+      "chipName": "spotlight",
+      "icon": "magnifyingglass",
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null,
+      "showsInUI": false
+    },
+    "system_control": {
+      "category": "offline",
+      "chipName": "system",
+      "icon": "slider.horizontal.3",
+      "slots": [
+        { "name": "appName", "type": "entity" }
+      ],
+      "entityPrefixes": ["open ", "launch ", "start ", "quit ", "close ", "switch to "],
+      "extractionSchema": null,
+      "showsInUI": false
+    },
+    "shortcuts": {
+      "category": "offline",
+      "chipName": "shortcuts",
+      "icon": "bolt.circle",
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null,
+      "showsInUI": false
+    },
+    "TechSupport": {
+      "category": "offline",
+      "chipName": "techsupport",
+      "icon": "wrench.and.screwdriver",
+      "timeout": 25,
+      "slots": [],
+      "entityPrefixes": ["fix ", "troubleshoot ", "diagnose "],
+      "extractionSchema": null,
+      "modeConfig": {
+        "displayName": "Tech Support",
+        "systemPrompt": "You are in an interactive tech support session. Help diagnose and fix the user's Mac issues.\n- Always start by running TechSupport with relevant keywords to gather diagnostics\n- Ask clarifying questions before taking destructive actions\n- Suggest the least disruptive fix first, escalating only if needed\n- For actions that affect apps or system state (force quit, etc.), always confirm with the user\n- Reference exact menu paths for System Settings (macOS Ventura+ uses System Settings, not System Preferences)\n- At the END of your response, suggest 2-3 follow-up actions as short phrases (3-6 words each), each on its own line starting with >>  Do NOT mention follow-ups in your response text.",
+        "allowedTools": ["TechSupport", "SystemInfo"],
+        "exitPhrases": ["done troubleshooting", "problem solved", "thanks for the help", "stop tech support", "i'm done", "im done", "fixed it"],
+        "entryPhrases": ["tech support", "tech support mode", "help me fix", "troubleshoot", "my mac is", "something's wrong with my"],
+        "tintColor": "#FF6B35"
+      }
+    },
+    "RubberDuck": {
+      "category": "offline",
+      "chipName": "rubberduck",
+      "icon": "bird",
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null,
+      "modeConfig": {
+        "displayName": "Rubber Duck",
+        "systemPrompt": "You are a rubber duck debugging companion. The user is thinking out loud.\n- Reflect what they said in plain, concise language\n- Ask one clarifying question to help them dig deeper\n- Never solve the problem directly — help them find their own answer\n- Keep responses to 1-3 sentences",
+        "allowedTools": [],
+        "exitPhrases": ["stop rubber ducking", "i'm done", "im done", "exit rubber duck", "done thinking", "stop ducking"],
+        "entryPhrases": ["rubber duck", "let me think out loud", "rubber ducking", "help me debug my thinking", "think through something"],
+        "tintColor": "#FFCC00"
+      }
+    },
+    "Import": {
+      "category": "offline",
+      "chipName": "import",
+      "icon": "square.and.arrow.down",
+      "slots": [],
+      "entityPrefixes": [],
+      "extractionSchema": null,
+      "showsInUI": false
+    },
+    "Automation": {
+      "category": "offline",
+      "chipName": "automation",
+      "icon": "arrow.clockwise.circle",
+      "slots": [
+        { "name": "query", "type": "query" },
+        { "name": "interval", "type": "duration" }
+      ],
+      "entityPrefixes": ["schedule ", "automate ", "every "],
+      "extractionSchema": "Automation"
+    },
+    "Compute": {
+      "category": "offline",
+      "chipName": "compute",
+      "icon": "chevron.left.forwardslash.chevron.right",
+      "timeout": 8,
+      "slots": [
+        { "name": "expression", "type": "query" }
+      ],
+      "entityPrefixes": [],
+      "extractionSchema": null
+    }
+  }
+}

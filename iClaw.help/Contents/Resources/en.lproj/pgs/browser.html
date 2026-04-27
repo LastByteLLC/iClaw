@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="AppleTitle" content="Browser Extension" />
+    <meta name="description" content="Connect iClaw to your browser for authenticated web access." />
+    <meta name="KEYWORDS" content="browser, extension, Chrome, Firefox, Safari, cookies, login, authenticated, web fetch, bridge" />
+    <meta name="robots" content="anchors" />
+    <link rel="stylesheet" href="../sty/help.css" />
+    <title>Browser Extension</title>
+</head>
+<body>
+    <p class="breadcrumb"><a href="../iClaw.html">iClaw Help</a></p>
+    <h1>Browser Extension</h1>
+
+    <p>The optional browser extension lets iClaw fetch web pages using your browser's real cookies and sessions. This means iClaw can access pages that require login, such as paywalled articles or authenticated dashboards.</p>
+
+    <h2>How it works</h2>
+    <p>When the extension is connected:</p>
+    <ol>
+        <li>iClaw sends a URL to the extension via a local Unix socket</li>
+        <li>The extension fetches the page in your browser (with your cookies)</li>
+        <li>The page content is sent back to iClaw for processing</li>
+    </ol>
+    <p>Without the extension, iClaw falls back to a built-in web view or plain HTTP requests.</p>
+
+    <h2>Supported browsers</h2>
+    <ul>
+        <li>Google Chrome</li>
+        <li>Mozilla Firefox</li>
+        <li>Safari (via App Extension)</li>
+    </ul>
+
+    <h2>Setup</h2>
+    <p>Enable the browser bridge in Settings &gt; General &gt; Browser Bridge. The connection status indicator shows whether the extension is connected.</p>
+
+    <div class="tip">All communication between iClaw and the browser extension happens locally on your Mac via a Unix socket. No data is sent to any server.</div>
+</body>
+</html>

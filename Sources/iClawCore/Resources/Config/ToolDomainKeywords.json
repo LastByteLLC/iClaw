@@ -1,0 +1,22 @@
+{
+    "SystemInfo": ["system", "mac", "macbook", "battery", "disk", "storage", "memory", "ram", "cpu", "processor", "uptime", "wifi", "network", "bluetooth", "apps", "installed", "os", "macos", "version"],
+    "Calculator": ["calculate", "math", "plus", "minus", "times", "divided", "percent", "percentage", "mortgage", "interest", "loan", "sqrt", "square root", "factorial", "tip", "split the bill"],
+    "Convert": ["convert", "how many", "to", "celsius", "fahrenheit", "miles", "kilometers", "pounds", "kilograms", "gallons", "liters", "currency", "exchange rate"],
+    "Random": ["random", "dice", "coin", "flip", "roll", "draw a card", "pick a card", "heads or tails", "number between"],
+    "Time": ["what time", "current time", "local time", "time zone", "time in", "time is it", "clock", "timer", "countdown", "alarm", "minutes", "seconds", "remind me in", "time left", "time is left", "time remaining", "how long left", "how much time"],
+    "Translate": ["translate", "translation", "in french", "in spanish", "in german", "in japanese", "in chinese", "say in", "how do you say"],
+    "Automation": ["automate", "automation", "schedule", "recurring", "every hour", "every day", "daily", "monitor", "track", "alert me"],
+    "Compute": ["compute", "statistics", "stddev", "standard deviation", "variance", "median", "matrix", "determinant", "base64", "encode", "decode", "regex", "sort", "filter", "hash", "sha", "hex", "permutations", "combinations"],
+    "Help": ["help", "iclaw", "about", "yourself", "features", "capabilities", "purpose", "who are you", "what can you do", "how to use"],
+    "News": ["news", "headline", "headlines", "breaking", "latest news", "current events", "what happened"],
+    "Stocks": ["stock", "stocks", "share price", "market", "portfolio", "ticker", "trading", "earnings"],
+    "Weather": ["weather", "forecast", "temperature", "rain", "snow", "sunny", "cloudy", "humidity", "wind"],
+    "Maps": ["map", "directions", "navigate", "route", "how to get to", "distance to", "nearby"],
+    "Calendar": ["calendar", "event", "meeting", "schedule", "appointment", "busy", "free time"],
+    "Email": ["email", "inbox", "mail", "message", "send email", "compose"],
+    "Podcast": ["podcast", "episode", "listen", "show", "series"],
+    "WikipediaSearch": ["wikipedia", "wiki", "who is", "what is", "who was", "where was", "when was", "when did", "how did", "define", "biography", "born", "died", "founded", "history of", "known for"],
+    "web_search": ["search", "look up", "find", "google"],
+    "Research": ["research", "paper", "study", "journal", "academic"],
+    "Dictionary": ["dictionary", "definition", "meaning", "synonym", "antonym", "thesaurus"]
+}

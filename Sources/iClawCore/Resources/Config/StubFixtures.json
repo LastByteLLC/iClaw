@@ -1,0 +1,40 @@
+{
+  "comment": "Deterministic fixtures used by HeadlessStubs. Reference data only — no hardcoded English in code. All names, emails, subjects are fictional; specifically not real-person data.",
+  "contacts": [
+    { "name": "Alex Rivera",    "phone": "(555) 201-3456", "email": "alex.rivera@example.com",    "relationship": "friend" },
+    { "name": "Jamie Chen",     "phone": "(555) 202-7711", "email": "jamie.chen@example.com",     "relationship": "colleague" },
+    { "name": "Sam Patel",      "phone": "(555) 203-9040", "email": "sam.patel@example.com",      "relationship": "family" },
+    { "name": "Jordan Lee",     "phone": "(555) 204-1122", "email": "jordan.lee@example.com",     "relationship": "friend" },
+    { "name": "Morgan Kim",     "phone": "(555) 205-6688", "email": "morgan.kim@example.com",     "relationship": "manager" },
+    { "name": "Priya Sharma",   "phone": "(555) 206-4477", "email": "priya.sharma@example.com",   "relationship": "friend" },
+    { "name": "Chris Nakamura", "phone": "(555) 207-3399", "email": "chris.nakamura@example.com", "relationship": "colleague" },
+    { "name": "Taylor Brooks",  "phone": "(555) 208-2211", "email": "taylor.brooks@example.com",  "relationship": "friend" },
+    { "name": "Maya Johnson",   "phone": "(555) 209-5050", "email": "maya.johnson@example.com",   "relationship": "family" },
+    { "name": "Elena Martinez", "phone": "(555) 210-8822", "email": "elena.martinez@example.com", "relationship": "colleague" },
+    { "name": "Noah Williams",  "phone": "(555) 211-1800", "email": "noah.williams@example.com",  "relationship": "friend" },
+    { "name": "Aisha Patel",    "phone": "(555) 212-9933", "email": "aisha.patel@example.com",    "relationship": "neighbor" }
+  ],
+  "emails": [
+    { "from": "Alex Rivera",     "subject": "Updated project timeline",       "date_offset_hours": -2,  "snippet": "Hey, I moved the kickoff to Thursday. Let me know if that works." },
+    { "from": "Jamie Chen",      "subject": "Thanks for the notes",            "date_offset_hours": -22, "snippet": "Really useful, I'll pass them along to the team." },
+    { "from": "noreply@weekly",  "subject": "Weekly digest — top 5 stories",   "date_offset_hours": -32, "snippet": "This week: AI policy, markets, climate." },
+    { "from": "Morgan Kim",      "subject": "1:1 follow-ups",                  "date_offset_hours": -46, "snippet": "Action items from our last sync." },
+    { "from": "Taylor Brooks",   "subject": "Dinner this weekend?",            "date_offset_hours": -50, "snippet": "Up for Saturday? I'm thinking 7pm at the usual place." },
+    { "from": "billing@service", "subject": "Your receipt",                    "date_offset_hours": -70, "snippet": "Thank you for your payment of $29.99." }
+  ],
+  "notes": [
+    { "title": "Grocery list",            "body": "Milk, eggs, spinach, olive oil, lemons"},
+    { "title": "Book recommendations",    "body": "Pragmatic Programmer, Designing Data-Intensive Applications, Deep Work"},
+    { "title": "Meeting prep — Q3 plan",  "body": "Revenue targets, hiring plan, infra migration timeline"},
+    { "title": "Workout routine",         "body": "Mon: push. Wed: pull. Fri: legs. 45 min cardio weekends."},
+    { "title": "Ideas",                   "body": "1. Browser extension for price history. 2. Focus-mode Pomodoro with habit chain."}
+  ],
+  "calendar_events": [
+    { "title": "Sync with Jamie",           "hours_from_now": 2,    "duration_min": 30, "attendees": ["Jamie Chen"] },
+    { "title": "Design review",             "hours_from_now": 5,    "duration_min": 60, "attendees": ["Morgan Kim", "Alex Rivera"] },
+    { "title": "1:1 with Alex",             "hours_from_now": 24,   "duration_min": 30, "attendees": ["Alex Rivera"] },
+    { "title": "Team retro",                "hours_from_now": 48,   "duration_min": 60, "attendees": ["Team"] },
+    { "title": "Dentist appointment",       "hours_from_now": 72,   "duration_min": 45, "attendees": [] },
+    { "title": "Board dinner",              "hours_from_now": 120,  "duration_min": 120, "attendees": ["Board"] }
+  ]
+}

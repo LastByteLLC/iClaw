@@ -1,0 +1,1736 @@
+[
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.7571199613570708,
+    "expected_label" : "Calendar",
+    "text" : "do i have anything penciled in for next thursday afternoon around 3pm"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.33647586384345995,
+    "expected_label" : "Calendar",
+    "text" : "shedule"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.5947432710707635,
+    "expected_label" : "Calendar",
+    "text" : "put a dentist appointment on the books for march 20th at 2:30 and make sure it doesn't conflict with anything else"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.6352297320069311,
+    "expected_label" : "Calendar",
+    "text" : "am i double booked on friday"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.9565730100591721,
+    "expected_label" : "Calendar",
+    "text" : "nuke my 4pm meeting"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.7990979761553166,
+    "expected_label" : "Calendar",
+    "text" : "slide my morning standup to 10:15 instead of 10"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.9703362514975118,
+    "expected_label" : "Calendar",
+    "text" : "block off the entire afternoon for deep work and mark it as busy so nobody schedules over it"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.9757495295240862,
+    "expected_label" : "Calendar",
+    "text" : "any gaps in my schedule tomorrow where I could squeeze in a 30 minute call"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.9955985099805816,
+    "expected_label" : "Calendar",
+    "text" : "throw a recurring weekly sync on wednesdays at 9am starting next week"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.5764925706352296,
+    "expected_label" : "Calendar",
+    "text" : "schedule stuff"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.5324057630589341,
+    "expected_label" : "Calendar",
+    "text" : "book 2 hours for project work on monday"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.38679132058392374,
+    "expected_label" : "Calendar",
+    "text" : "is next tuesday looking busy or chill"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.5082007643518108,
+    "expected_label" : "Calendar",
+    "text" : "my calendar for this month"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.84850283337126,
+    "expected_label" : "Calendar",
+    "text" : "add an all-day event called vacation on the 15th"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.3522189683533051,
+    "expected_label" : "Calendar",
+    "text" : "agenda"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.2698061908129934,
+    "expected_label" : "Calendar",
+    "text" : "show me march"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.7969365868534222,
+    "expected_label" : "Calendar",
+    "text" : "any appointments coming up in the next 48 hours"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.8745389363796344,
+    "expected_label" : "Calendar",
+    "text" : "calender overview"
+  },
+  {
+    "actual_label" : "Weather",
+    "confidence" : 0.44665171912571644,
+    "expected_label" : "Time",
+    "text" : "is it morning or afternoon in singapore right now"
+  },
+  {
+    "actual_label" : "Timer",
+    "confidence" : 0.8361924206652537,
+    "expected_label" : "Time",
+    "text" : "hours minutes seconds right now"
+  },
+  {
+    "actual_label" : "Weather",
+    "confidence" : 0.4150380952064288,
+    "expected_label" : "Time",
+    "text" : "is it daytime in australia currently because I don't want to call them if they're sleeping"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.21764144883266112,
+    "expected_label" : "Time",
+    "text" : "o'clock"
+  },
+  {
+    "actual_label" : "shortcuts",
+    "confidence" : 0.39806822833599614,
+    "expected_label" : "Timer",
+    "text" : "pomodoro"
+  },
+  {
+    "actual_label" : "app_manager",
+    "confidence" : 0.745594160747238,
+    "expected_label" : "Timer",
+    "text" : "kill the timer"
+  },
+  {
+    "actual_label" : "Time",
+    "confidence" : 0.6811420553666346,
+    "expected_label" : "Timer",
+    "text" : "remind me when 10 mins is up"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.36604908965960836,
+    "expected_label" : "Timer",
+    "text" : "pause timer"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.9729366073190043,
+    "expected_label" : "Timer",
+    "text" : "restart the countdown"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.18240974985113342,
+    "expected_label" : "Timer",
+    "text" : "cancel all timers"
+  },
+  {
+    "actual_label" : "Calendar",
+    "confidence" : 0.22349845428623333,
+    "expected_label" : "Timer",
+    "text" : "i need exactly 2 hours timed"
+  },
+  {
+    "actual_label" : "Calculator",
+    "confidence" : 0.5881088862915268,
+    "expected_label" : "Timer",
+    "text" : "count down 180 seconds starting now"
+  },
+  {
+    "actual_label" : "Podcast",
+    "confidence" : 0.09553128712632597,
+    "expected_label" : "Timer",
+    "text" : "tmier for cooking"
+  },
+  {
+    "actual_label" : "reminders",
+    "confidence" : 0.6897647198705136,
+    "expected_label" : "Random",
+    "text" : "heads or tails"
+  },
+  {
+    "actual_label" : "contacts",
+    "confidence" : 0.377021649833854,
+    "expected_label" : "Random",
+    "text" : "shuffle these: alice bob charlie dave"
+  },
+  {
+    "actual_label" : "Timer",
+    "confidence" : 0.2256904377628067,
+    "expected_label" : "Random",
+    "text" : "magic 8 ball"
+  },
+  {
+    "actual_label" : "messages",
+    "confidence" : 0,
+    "expected_label" : "Random",
+    "text" : "eeny meeny miny moe"
+  },
+  {
+    "actual_label" : "notes",
+    "confidence" : 0.380041188435585,
+    "expected_label" : "Random",
+    "text" : "randomize the order of these 5 items: apple banana cherry date elderberry"
+  },
+  {
+    "actual_label" : "contacts",
+    "confidence" : 0.7132264935745134,
+    "expected_label" : "Random",
+    "text" : "randum number"
+  },
+  {
+    "actual_label" : "Random",
+    "confidence" : 0.3074670824779996,
+    "expected_label" : "Rewrite",
+    "text" : "reword this so a 5 year old could understand it"
+  },
+  {
+    "actual_label" : "shortcuts",
+    "confidence" : 0.2899204060028996,
+    "expected_label" : "Rewrite",
+    "text" : "this sounds too formal, make it casual"
+  },
+  {
+    "actual_label" : "Translate",
+    "confidence" : 0.9717138746513572,
+    "expected_label" : "Rewrite",
+    "text" : "say this differently"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.21571921985834788,
+    "expected_label" : "Rewrite",
+    "text" : "make it snappier"
+  },
+  {
+    "actual_label" : "Dictionary",
+    "confidence" : 0.9756389039238755,
+    "expected_label" : "Rewrite",
+    "text" : "same meaning different words"
+  },
+  {
+    "actual_label" : "Read",
+    "confidence" : 0.6322051741953565,
+    "expected_label" : "Rewrite",
+    "text" : "too wordy. tighten it up"
+  },
+  {
+    "actual_label" : "Transcribe",
+    "confidence" : 0.2696701116379016,
+    "expected_label" : "Rewrite",
+    "text" : "spin this text"
+  },
+  {
+    "actual_label" : "Read",
+    "confidence" : 0.45644902237839435,
+    "expected_label" : "Rewrite",
+    "text" : "improve the readability of this passage"
+  },
+  {
+    "actual_label" : "read_file",
+    "confidence" : 0.5828992959549405,
+    "expected_label" : "Read",
+    "text" : "read"
+  },
+  {
+    "actual_label" : "Screenshot",
+    "confidence" : 0.5172068782598075,
+    "expected_label" : "Read",
+    "text" : "yo read me whatever's on my screen rn"
+  },
+  {
+    "actual_label" : "app_manager",
+    "confidence" : 0.5112399654368026,
+    "expected_label" : "Read",
+    "text" : "i have this document open and I need you to go through it and pull out the key points because I don't have time to read the whole thing"
+  },
+  {
+    "actual_label" : "read_file",
+    "confidence" : 0.5828992959549405,
+    "expected_label" : "Read",
+    "text" : "read aloud"
+  },
+  {
+    "actual_label" : "Translate",
+    "confidence" : 0.6999890000509884,
+    "expected_label" : "Read",
+    "text" : "what does this say"
+  },
+  {
+    "actual_label" : "Screenshot",
+    "confidence" : 0.38533774522647946,
+    "expected_label" : "Read",
+    "text" : "scan this page for me"
+  },
+  {
+    "actual_label" : "health",
+    "confidence" : 0.3368453061468356,
+    "expected_label" : "Read",
+    "text" : "digest this article"
+  },
+  {
+    "actual_label" : "Translate",
+    "confidence" : 0.4052813957396574,
+    "expected_label" : "Read",
+    "text" : "read the text in this image"
+  },
+  {
+    "actual_label" : "read_file",
+    "confidence" : 0.5304764799514399,
+    "expected_label" : "Read",
+    "text" : "parse this document"
+  },
+  {
+    "actual_label" : "Timer",
+    "confidence" : 0.16238163717381512,
+    "expected_label" : "Read",
+    "text" : "tl;dr this for me"
+  },
+  {
+    "actual_label" : "Transcribe",
+    "confidence" : 0.3000495767917037,
+    "expected_label" : "Read",
+    "text" : "summarize what I'm looking at"
+  },
+  {
+    "actual_label" : "Timer",
+    "confidence" : 0.10503260541914355,
+    "expected_label" : "Read",
+    "text" : "reed this to me"
+  },
+  {
+    "actual_label" : "Screenshot",
+    "confidence" : 0.6627657946564423,
+    "expected_label" : "Read",
+    "text" : "extract the text from the screen"
+  },
+  {
+    "actual_label" : "Transcribe",
+    "confidence" : 0.5432932723967597,
+    "expected_label" : "Read",
+    "text" : "interpret this text"
+  },
+  {
+    "actual_label" : "Screenshot",
+    "confidence" : 0.8156091385180307,
+    "expected_label" : "Read",
+    "text" : "can you make sense of this wall of text on my screen"
+  },
+  {
+    "actual_label" : "Transcribe",
+    "confidence" : 0.11541629000183427,
+    "expected_label" : "Read",
+    "text" : "peruse this"
+  },
+  {
+    "actual_label" : "Research",
+    "confidence" : 0.26624831625046463,
+    "expected_label" : "Read",
+    "text" : "break down this article"
+  },
+  {
+    "actual_label" : "wikipedia",
+    "confidence" : 0.7675600757937575,
+    "expected_label" : "Read",
+    "text" : "look at what's on screen and summarize"
+  },
+  {
+    "actual_label" : "Transcribe",
+    "confidence" : 0.9213145014780418,
+    "expected_label" : "Read",
+    "text" : "process this document"
+  },
+  {
+    "actual_label" : "Screenshot",
+    "confidence" : 0.15395874844700133,
+    "expected_label" : "Read",
+    "text" : "OCR this"
+  },
+  {
+    "actual_label" : "Dictionary",
+    "confidence" : 0.3005883015161589,
+    "expected_label" : "Read",
+    "text" : "give me the gist of what this says"
+  },
+  {
+    "actual_label" : "Transcribe",
+    "confidence" : 0.1118469998365727,
+    "expected_label" : "Read",
+    "text" : "comprehend this passage"
+  },
+  {
+    "actual_label" : "Time",
+    "confidence" : 0.21139061205695,
+    "expected_label" : "Read",
+    "text" : "skim this and tell me the important parts"
+  },
+  {
+    "actual_label" : "read_file",
+    "confidence" : 0.41364279134216525,
+    "expected_label" : "Read",
+    "text" : "read through the text on my display"
+  },
+  {
+    "actual_label" : "Calendar",
+    "confidence" : 0.4040859567308247,
+    "expected_label" : "Read",
+    "text" : "what am i looking at here"
+  },
+  {
+    "actual_label" : "Translate",
+    "confidence" : 0.794184892755847,
+    "expected_label" : "Read",
+    "text" : "i can barely read this tiny font, what does it say"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.3012929410754276,
+    "expected_label" : "Write",
+    "text" : "yo write me a sick cover letter for this software dev gig"
+  },
+  {
+    "actual_label" : "clipboard",
+    "confidence" : 0.9481404071639108,
+    "expected_label" : "Write",
+    "text" : "write copy for my website's about page"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.3759696261371684,
+    "expected_label" : "Write",
+    "text" : "put together a job posting for a senior designer"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.30532460653738575,
+    "expected_label" : "Write",
+    "text" : "create content for my newsletter"
+  },
+  {
+    "actual_label" : "Read",
+    "confidence" : 0.47888032295777944,
+    "expected_label" : "Write",
+    "text" : "writing help"
+  },
+  {
+    "actual_label" : "wikipedia",
+    "confidence" : 0.8640204615774397,
+    "expected_label" : "Write",
+    "text" : "bang out a quick paragraph about climate change"
+  },
+  {
+    "actual_label" : "Dictionary",
+    "confidence" : 0.26157231433855316,
+    "expected_label" : "Write",
+    "text" : "draft terms and conditions"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.5357258133905869,
+    "expected_label" : "Write",
+    "text" : "type up an announcement for the team"
+  },
+  {
+    "actual_label" : "Write",
+    "confidence" : 0.22346232114574882,
+    "expected_label" : "Email",
+    "text" : "emal draft"
+  },
+  {
+    "actual_label" : "messages",
+    "confidence" : 0.9652296700453225,
+    "expected_label" : "Email",
+    "text" : "fire off a quick message to the team about tomorrow's meeting"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.6095521989731052,
+    "expected_label" : "Email",
+    "text" : "mail"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.9815078563136451,
+    "expected_label" : "Email",
+    "text" : "inbox check"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.9963656058745948,
+    "expected_label" : "Email",
+    "text" : "unread messages in mail"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.6093869150354518,
+    "expected_label" : "Email",
+    "text" : "electronic mail"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.20943277273656222,
+    "expected_label" : "Email",
+    "text" : "correspondence"
+  },
+  {
+    "actual_label" : "Time",
+    "confidence" : 0.8637478474882404,
+    "expected_label" : "Email",
+    "text" : "i gotta email the vendor about the late shipment before end of day"
+  },
+  {
+    "actual_label" : "app_manager",
+    "confidence" : 0.9968123441121659,
+    "expected_label" : "Email",
+    "text" : "open mail app"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.4724335423789463,
+    "expected_label" : "Convert",
+    "text" : "i'm baking and the recipe says 350 fahrenheit but my oven is in celsius so what temperature do I need to set it to"
+  },
+  {
+    "actual_label" : "Calculator",
+    "confidence" : 0.632084444440731,
+    "expected_label" : "Convert",
+    "text" : "tablespoons in a quarter cup"
+  },
+  {
+    "actual_label" : "Calculator",
+    "confidence" : 0.6006332549999747,
+    "expected_label" : "Convert",
+    "text" : "180 cm to feet and inches"
+  },
+  {
+    "actual_label" : "messages",
+    "confidence" : 0,
+    "expected_label" : "Calculator",
+    "text" : "mathmatics"
+  },
+  {
+    "actual_label" : "shortcuts",
+    "confidence" : 0.08817724886609742,
+    "expected_label" : "Calculator",
+    "text" : "quick maths"
+  },
+  {
+    "actual_label" : "Create",
+    "confidence" : 0.2506350206505492,
+    "expected_label" : "Calculator",
+    "text" : "hypotenuse of a 3-4-5 triangle"
+  },
+  {
+    "actual_label" : "messages",
+    "confidence" : 0,
+    "expected_label" : "Calculator",
+    "text" : "arithmetic"
+  },
+  {
+    "actual_label" : "Dictionary",
+    "confidence" : 0.5378325020441104,
+    "expected_label" : "Translate",
+    "text" : "what does bonjour mean"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.7257070562877801,
+    "expected_label" : "Transcribe",
+    "text" : "convert audio to text"
+  },
+  {
+    "actual_label" : "notes",
+    "confidence" : 0.3415775786558587,
+    "expected_label" : "Transcribe",
+    "text" : "i spoke something, write it down"
+  },
+  {
+    "actual_label" : "read_file",
+    "confidence" : 0.6311448267053956,
+    "expected_label" : "Transcribe",
+    "text" : "speech-to-text this file"
+  },
+  {
+    "actual_label" : "health",
+    "confidence" : 0.5088061167163348,
+    "expected_label" : "Weather",
+    "text" : "pollen count today"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.18034415841988263,
+    "expected_label" : "Weather",
+    "text" : "barometric pressure"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.8622507435380681,
+    "expected_label" : "Weather",
+    "text" : "i'm flying to denver on thursday, what's the forecast there because I need to know what to pack"
+  },
+  {
+    "actual_label" : "messages",
+    "confidence" : 0,
+    "expected_label" : "stocks",
+    "text" : "stonks"
+  },
+  {
+    "actual_label" : "Read",
+    "confidence" : 0.08434933867147631,
+    "expected_label" : "stocks",
+    "text" : "stoks check"
+  },
+  {
+    "actual_label" : "Screenshot",
+    "confidence" : 0.5303986103805091,
+    "expected_label" : "stocks",
+    "text" : "PE ratio of microsoft"
+  },
+  {
+    "actual_label" : "Random",
+    "confidence" : 0.4177068696374925,
+    "expected_label" : "stocks",
+    "text" : "wall street update"
+  },
+  {
+    "actual_label" : "Random",
+    "confidence" : 0.4301122438744092,
+    "expected_label" : "stocks",
+    "text" : "is it a red or green day"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.954502332163221,
+    "expected_label" : "stocks",
+    "text" : "what's bitcoin doing"
+  },
+  {
+    "actual_label" : "Random",
+    "confidence" : 0.29272340827578225,
+    "expected_label" : "stocks",
+    "text" : "how much is one share of disney right now"
+  },
+  {
+    "actual_label" : "messages",
+    "confidence" : 0,
+    "expected_label" : "Dictionary",
+    "text" : "dictonary"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.3399476408648906,
+    "expected_label" : "Dictionary",
+    "text" : "vocab help"
+  },
+  {
+    "actual_label" : "Screenshot",
+    "confidence" : 0.09384653104742711,
+    "expected_label" : "Dictionary",
+    "text" : "deffinition of"
+  },
+  {
+    "actual_label" : "messages",
+    "confidence" : 0,
+    "expected_label" : "SystemInfo",
+    "text" : "sysinfo"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.5508897065649615,
+    "expected_label" : "SystemInfo",
+    "text" : "battery"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.6761503059139634,
+    "expected_label" : "SystemInfo",
+    "text" : "battery cycle count"
+  },
+  {
+    "actual_label" : "messages",
+    "confidence" : 0,
+    "expected_label" : "Screenshot",
+    "text" : "screensht"
+  },
+  {
+    "actual_label" : "camera",
+    "confidence" : 0.6166823198745963,
+    "expected_label" : "Screenshot",
+    "text" : "take a snapshot"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.2673265229884813,
+    "expected_label" : "Screenshot",
+    "text" : "show me what you see on my display"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.7721054108861909,
+    "expected_label" : "Screenshot",
+    "text" : "freeze frame my screen"
+  },
+  {
+    "actual_label" : "SystemInfo",
+    "confidence" : 0.6378751092491,
+    "expected_label" : "app_manager",
+    "text" : "which apps are running right now"
+  },
+  {
+    "actual_label" : "SystemInfo",
+    "confidence" : 0.9377368287506626,
+    "expected_label" : "app_manager",
+    "text" : "what applications do I have installed"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.48334415855456386,
+    "expected_label" : "app_manager",
+    "text" : "close background apps"
+  },
+  {
+    "actual_label" : "SystemInfo",
+    "confidence" : 0.9857323432994534,
+    "expected_label" : "app_manager",
+    "text" : "list running processes"
+  },
+  {
+    "actual_label" : "SystemInfo",
+    "confidence" : 0.45215598219010317,
+    "expected_label" : "app_manager",
+    "text" : "what's using the most resources right now"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.5600536459057364,
+    "expected_label" : "app_manager",
+    "text" : "show me what's open on my dock"
+  },
+  {
+    "actual_label" : "SystemInfo",
+    "confidence" : 0.7682766170047272,
+    "expected_label" : "app_manager",
+    "text" : "nuke chrome it's being a memory hog again"
+  },
+  {
+    "actual_label" : "Calendar",
+    "confidence" : 0.9999583128407836,
+    "expected_label" : "calendar_events",
+    "text" : "i want to see all the events I have coming up in the next two weeks because I need to figure out which days I can take off without missing anything important"
+  },
+  {
+    "actual_label" : "Calendar",
+    "confidence" : 0.12231514384404177,
+    "expected_label" : "calendar_events",
+    "text" : "upcoming"
+  },
+  {
+    "actual_label" : "SystemInfo",
+    "confidence" : 0.1719432278770177,
+    "expected_label" : "calendar_events",
+    "text" : "pull my schedule details"
+  },
+  {
+    "actual_label" : "Calendar",
+    "confidence" : 0.7997401813040119,
+    "expected_label" : "calendar_events",
+    "text" : "do I have any events after 5pm today"
+  },
+  {
+    "actual_label" : "wikipedia",
+    "confidence" : 0.14454823095831984,
+    "expected_label" : "calendar_events",
+    "text" : "what's on the docket for monday"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.21713781917993422,
+    "expected_label" : "calendar_events",
+    "text" : "scheduled activities today"
+  },
+  {
+    "actual_label" : "news",
+    "confidence" : 0.5299729294208693,
+    "expected_label" : "calendar_events",
+    "text" : "give me a rundown of this week's events"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.758315651306433,
+    "expected_label" : "calendar_events",
+    "text" : "pending calendar items"
+  },
+  {
+    "actual_label" : "Calendar",
+    "confidence" : 0.43844372380444924,
+    "expected_label" : "calendar_events",
+    "text" : "check what I have on for saturday"
+  },
+  {
+    "actual_label" : "notes",
+    "confidence" : 0.19391853825673835,
+    "expected_label" : "calendar_events",
+    "text" : "my itinerary for today"
+  },
+  {
+    "actual_label" : "news",
+    "confidence" : 0.5232020932107778,
+    "expected_label" : "calendar_events",
+    "text" : "are there any events I should know about before end of this week"
+  },
+  {
+    "actual_label" : "Screenshot",
+    "confidence" : 0.5128442485018255,
+    "expected_label" : "camera",
+    "text" : "camra shot"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.44330166498565315,
+    "expected_label" : "contacts",
+    "text" : "find mike's email"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.20928420833669348,
+    "expected_label" : "contacts",
+    "text" : "contacs lookup"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.20928420833669348,
+    "expected_label" : "contacts",
+    "text" : "rolodex lookup"
+  },
+  {
+    "actual_label" : "maps",
+    "confidence" : 0.8001119984069512,
+    "expected_label" : "health",
+    "text" : "how far did I walk"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.2100876924298751,
+    "expected_label" : "health",
+    "text" : "helth stats"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.09325474044061909,
+    "expected_label" : "health",
+    "text" : "VO2 max"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.8100381179257339,
+    "expected_label" : "news",
+    "text" : "what's trending today"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.08819842375606837,
+    "expected_label" : "news",
+    "text" : "newz today"
+  },
+  {
+    "actual_label" : "wikipedia",
+    "confidence" : 0.29586458161878615,
+    "expected_label" : "news",
+    "text" : "what happened today"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.28913870875630976,
+    "expected_label" : "news",
+    "text" : "daily briefing"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.7061659534786591,
+    "expected_label" : "news",
+    "text" : "hot off the press"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.17749421993227749,
+    "expected_label" : "news",
+    "text" : "what should I know about today"
+  },
+  {
+    "actual_label" : "Transcribe",
+    "confidence" : 0.2822583808170074,
+    "expected_label" : "news",
+    "text" : "today's paper"
+  },
+  {
+    "actual_label" : "messages",
+    "confidence" : 0,
+    "expected_label" : "news",
+    "text" : "newswire"
+  },
+  {
+    "actual_label" : "app_manager",
+    "confidence" : 0.9619428686995055,
+    "expected_label" : "notes",
+    "text" : "open my notes app"
+  },
+  {
+    "actual_label" : "app_manager",
+    "confidence" : 0.8876787892888169,
+    "expected_label" : "notes",
+    "text" : "noets app"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.9638641425478359,
+    "expected_label" : "notes",
+    "text" : "search my notes for 'project ideas'"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.4765242290731453,
+    "expected_label" : "notes",
+    "text" : "edit my meeting notes"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.6894387414388462,
+    "expected_label" : "notes",
+    "text" : "show all notes"
+  },
+  {
+    "actual_label" : "Transcribe",
+    "confidence" : 0.7032672215889443,
+    "expected_label" : "notes",
+    "text" : "what does my recipe note say"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.6256279417521181,
+    "expected_label" : "notes",
+    "text" : "organize my notes by folder"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.7816689104187513,
+    "expected_label" : "notes",
+    "text" : "my notes folder"
+  },
+  {
+    "actual_label" : "Transcribe",
+    "confidence" : 0.5905453889793721,
+    "expected_label" : "notes",
+    "text" : "log this information for later"
+  },
+  {
+    "actual_label" : "Transcribe",
+    "confidence" : 0.9490224806089906,
+    "expected_label" : "notes",
+    "text" : "i keep losing my thoughts so just take a note of everything I'm about to say"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.8705865264622228,
+    "expected_label" : "read_file",
+    "text" : "yo open that text file on my desktop"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.9976813843167829,
+    "expected_label" : "read_file",
+    "text" : "i have a CSV file in my downloads folder called expenses.csv and I need you to read it and tell me what's in it because I can't remember what format I used"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.33634993862771484,
+    "expected_label" : "read_file",
+    "text" : "show me what's in config.json"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.4846920869907462,
+    "expected_label" : "read_file",
+    "text" : "look at this file for me"
+  },
+  {
+    "actual_label" : "notes",
+    "confidence" : 0.38122795561700895,
+    "expected_label" : "read_file",
+    "text" : "dump the contents of notes.txt"
+  },
+  {
+    "actual_label" : "SystemInfo",
+    "confidence" : 0.36633138351866423,
+    "expected_label" : "read_file",
+    "text" : "show me the source code in main.swift"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.988939166058913,
+    "expected_label" : "read_file",
+    "text" : "i dropped a file on my desktop called todo.txt, can you read it and tell me what tasks are left because I can't find my glasses"
+  },
+  {
+    "actual_label" : "notes",
+    "confidence" : 0.22994319979098155,
+    "expected_label" : "reminders",
+    "text" : "remindrs list"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.6094998797417214,
+    "expected_label" : "reminders",
+    "text" : "create a reminder for the meeting on friday"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.7768671620214336,
+    "expected_label" : "reminders",
+    "text" : "show all incomplete reminders"
+  },
+  {
+    "actual_label" : "notes",
+    "confidence" : 0.2486484867906875,
+    "expected_label" : "reminders",
+    "text" : "nag me about this later"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.4890157740496699,
+    "expected_label" : "reminders",
+    "text" : "what am I forgetting"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.26823106295463645,
+    "expected_label" : "reminders",
+    "text" : "things I need to do"
+  },
+  {
+    "actual_label" : "Calendar",
+    "confidence" : 0.41365987645056873,
+    "expected_label" : "reminders",
+    "text" : "i have the memory of a goldfish so set a reminder for literally everything I'm about to tell you"
+  },
+  {
+    "actual_label" : "SystemInfo",
+    "confidence" : 0.9093147621983229,
+    "expected_label" : "system_control",
+    "text" : "system"
+  },
+  {
+    "actual_label" : "shortcuts",
+    "confidence" : 0.28693385209869143,
+    "expected_label" : "system_control",
+    "text" : "sytem control"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.47958499794619824,
+    "expected_label" : "web_search",
+    "text" : "search"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.9594498250771913,
+    "expected_label" : "web_search",
+    "text" : "i need to find out whether it's true that you can charge a phone faster by putting it in airplane mode because my friend told me that and I'm skeptical"
+  },
+  {
+    "actual_label" : "wikipedia",
+    "confidence" : 0.6490818609015939,
+    "expected_label" : "web_search",
+    "text" : "find information about quantum computing"
+  },
+  {
+    "actual_label" : "Research",
+    "confidence" : 0.7693119197057806,
+    "expected_label" : "web_search",
+    "text" : "what does the internet say about intermittent fasting"
+  },
+  {
+    "actual_label" : "Research",
+    "confidence" : 0.5697196920311359,
+    "expected_label" : "web_search",
+    "text" : "research this topic for me"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.6168336349155166,
+    "expected_label" : "web_search",
+    "text" : "i saw something weird and I want to know if it's normal so search for it"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.47958499794619824,
+    "expected_label" : "wikipedia",
+    "text" : "wikepedia search"
+  },
+  {
+    "actual_label" : "Research",
+    "confidence" : 0.8528494264303934,
+    "expected_label" : "wikipedia",
+    "text" : "tell me everything about the titanic"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.358133074155203,
+    "expected_label" : "wikipedia",
+    "text" : "look up the battle of waterloo"
+  },
+  {
+    "actual_label" : "Research",
+    "confidence" : 0.9911454896700561,
+    "expected_label" : "wikipedia",
+    "text" : "deep dive into the ottoman empire"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.441928188846689,
+    "expected_label" : "messages",
+    "text" : "check my messages"
+  },
+  {
+    "actual_label" : "Email",
+    "confidence" : 0.6322867148601173,
+    "expected_label" : "messages",
+    "text" : "reply to that text from sarah"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.6559702827385488,
+    "expected_label" : "messages",
+    "text" : "any new messages"
+  },
+  {
+    "actual_label" : "reminders",
+    "confidence" : 0.4649002931715129,
+    "expected_label" : "messages",
+    "text" : "text jake: meeting moved to 3pm"
+  },
+  {
+    "actual_label" : "Read",
+    "confidence" : 0.08434933867147631,
+    "expected_label" : "messages",
+    "text" : "mesages check"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.4676735496497526,
+    "expected_label" : "messages",
+    "text" : "what did jenny text me"
+  },
+  {
+    "actual_label" : "app_manager",
+    "confidence" : 0.7633584384021029,
+    "expected_label" : "messages",
+    "text" : "conversations in messages app"
+  },
+  {
+    "actual_label" : "wikipedia",
+    "confidence" : 0.35852388305993377,
+    "expected_label" : "messages",
+    "text" : "who texted me"
+  },
+  {
+    "actual_label" : "app_manager",
+    "confidence" : 0.9825400785118267,
+    "expected_label" : "messages",
+    "text" : "open messages app"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.8663668810809081,
+    "expected_label" : "maps",
+    "text" : "traffic conditions on highway 101"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.6281731743140326,
+    "expected_label" : "maps",
+    "text" : "what's near me"
+  },
+  {
+    "actual_label" : "notes",
+    "confidence" : 0.22994319979098155,
+    "expected_label" : "shortcuts",
+    "text" : "shortcus list"
+  },
+  {
+    "actual_label" : "Calendar",
+    "confidence" : 0.2487063514762362,
+    "expected_label" : "shortcuts",
+    "text" : "which automations do I have set up"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.8155330475063801,
+    "expected_label" : "shortcuts",
+    "text" : "quick action: resize images"
+  },
+  {
+    "actual_label" : "app_manager",
+    "confidence" : 0.5309984839048164,
+    "expected_label" : "shortcuts",
+    "text" : "my custom workflows"
+  },
+  {
+    "actual_label" : "app_manager",
+    "confidence" : 0.8050625095516287,
+    "expected_label" : "shortcuts",
+    "text" : "invoke my custom automation for organizing screenshots"
+  },
+  {
+    "actual_label" : "health",
+    "confidence" : 0.4340162036784809,
+    "expected_label" : "maps",
+    "text" : "distance from here to walmart"
+  },
+  {
+    "actual_label" : "Email",
+    "confidence" : 0.2816350565938174,
+    "expected_label" : "ReadEmail",
+    "text" : "CHECK MY EMAIL NOW"
+  },
+  {
+    "actual_label" : "camera",
+    "confidence" : 0.5770945699067498,
+    "expected_label" : "Create",
+    "text" : "genrate a picture of mountains"
+  },
+  {
+    "actual_label" : "contacts",
+    "confidence" : 0.4408081705235436,
+    "expected_label" : "Game",
+    "text" : "fire up that number merging thing"
+  },
+  {
+    "actual_label" : "messages",
+    "confidence" : 0,
+    "expected_label" : "Game",
+    "text" : "wrdl"
+  },
+  {
+    "actual_label" : "Random",
+    "confidence" : 0.773418271236526,
+    "expected_label" : "Game",
+    "text" : "anything fun to play?"
+  },
+  {
+    "actual_label" : "Create",
+    "confidence" : 0.29979600297019987,
+    "expected_label" : "Game",
+    "text" : "PLAY A GAME RIGHT NOW"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.9632579951829605,
+    "expected_label" : "Research",
+    "text" : "what does the research say about code reviews"
+  },
+  {
+    "actual_label" : "wikipedia",
+    "confidence" : 0.8594251614153227,
+    "expected_label" : "Research",
+    "text" : "look into the impact of AI on healthcare"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.9422157451346728,
+    "expected_label" : "Research",
+    "text" : "what are the arguments for open source AI models"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.40713321822484,
+    "expected_label" : "Research",
+    "text" : "i'm curious about how quantum error correction works"
+  },
+  {
+    "actual_label" : "Create",
+    "confidence" : 0.31308558649252277,
+    "expected_label" : "Research",
+    "text" : "RESEARCH THE IMPACT OF AUTOMATION ON EMPLOYMENT"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.5206226087961136,
+    "expected_label" : "stocks",
+    "text" : "aapl price"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.9088292948290118,
+    "expected_label" : "WebFetch",
+    "text" : "find me recent covid stats"
+  },
+  {
+    "actual_label" : "Random",
+    "confidence" : 0.5717022349239794,
+    "expected_label" : "general",
+    "text" : "🤷 idk just do something"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.5210666390208788,
+    "expected_label" : "stocks",
+    "text" : "check fb and amzn prices"
+  },
+  {
+    "actual_label" : "Time",
+    "confidence" : 0.34524069297597243,
+    "expected_label" : "Weather",
+    "text" : "🌧️ london?"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.887965913890482,
+    "expected_label" : "stocks",
+    "text" : "💰 btc price now"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.5275813518519139,
+    "expected_label" : "stocks",
+    "text" : "aapl and tsla price pls"
+  },
+  {
+    "actual_label" : "Calculator",
+    "confidence" : 0.9097320166668033,
+    "expected_label" : "Convert",
+    "text" : "convert 3.5 stone to kg and also convert 12 inches to cm and tell me both pls"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.5206226087961136,
+    "expected_label" : "stocks",
+    "text" : "aapl price"
+  },
+  {
+    "actual_label" : "Timer",
+    "confidence" : 0.9731972304154723,
+    "expected_label" : "Weather",
+    "text" : "is it gonna rain in seattle today and also set a 10 min timer"
+  },
+  {
+    "actual_label" : "Translate",
+    "confidence" : 0.5891095634464578,
+    "expected_label" : "Dictionary",
+    "text" : "define “facetious” and also translate it to french"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.9944622905850784,
+    "expected_label" : "Weather",
+    "text" : "will it snow tomorrow in chicago and also convert 32 fahrenheit to celsius pls"
+  },
+  {
+    "actual_label" : "Translate",
+    "confidence" : 0.9374121940969002,
+    "expected_label" : "Dictionary",
+    "text" : "what does “quixotic” mean and also use it in a sentence and translate to german"
+  },
+  {
+    "actual_label" : "Translate",
+    "confidence" : 0.9996104193013485,
+    "expected_label" : "Dictionary",
+    "text" : "what does “enigmatic” mean and also translate to spanish"
+  },
+  {
+    "actual_label" : "Dictionary",
+    "confidence" : 0.6102696651814505,
+    "expected_label" : "Translate",
+    "text" : "um like how do u say “wtf” in french and also define “wtf”"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.14681021458605029,
+    "expected_label" : "Calendar",
+    "text" : "UGH DELETE ALL MY EVENTS FOR NEXT WEEK I DONT CARE"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.7590147255389956,
+    "expected_label" : "Calendar",
+    "text" : "what’s on my calendar today"
+  },
+  {
+    "actual_label" : "Write",
+    "confidence" : 0.2052460596612214,
+    "expected_label" : "Calendar",
+    "text" : "CANCEL ALL EVENTS FOR FRIDAY AND TELL ME WHY YOU CANT"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.3044702758296078,
+    "expected_label" : "maps",
+    "text" : "FIND ME A PARKING SPOT NEAR THE MALL LIKE RIGHT NOW"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.32036627385577227,
+    "expected_label" : "Calendar",
+    "text" : "RESCHEDULE MY MEETING FROM 3 TO 5 PM AND CONFIRM IT"
+  },
+  {
+    "actual_label" : "SystemInfo",
+    "confidence" : 0.27411452443322715,
+    "expected_label" : "maps",
+    "text" : "SHOW ME THE TRAFFIC CONDITIONS ON MY ROUTE HOME WTF"
+  },
+  {
+    "actual_label" : "reminders",
+    "confidence" : 0.7272371174714878,
+    "expected_label" : "Calendar",
+    "text" : "WHY DID YOU NOT REMIND ME ABOUT THE MEETING THIS MORNING"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.7449478356015599,
+    "expected_label" : "Calendar",
+    "text" : "what’s my next appointment"
+  },
+  {
+    "actual_label" : "Time",
+    "confidence" : 0.816080792272673,
+    "expected_label" : "Calendar",
+    "text" : "CHANGE MY MEETING TIME TO 2PM AND TELL ME IF IT’S OK"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.970595578947592,
+    "expected_label" : "Email",
+    "text" : "read my last 3 unread emails and summarize them pls"
+  },
+  {
+    "actual_label" : "reminders",
+    "confidence" : 0.7962853631969655,
+    "expected_label" : "Calendar",
+    "text" : "schedule a call with jane next wed at 11am and remind me"
+  },
+  {
+    "actual_label" : "Translate",
+    "confidence" : 0.9850303326239458,
+    "expected_label" : "Time",
+    "text" : "qué hora es in tokyo rn?"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.3846451536825676,
+    "expected_label" : "stocks",
+    "text" : "aapl price rn?"
+  },
+  {
+    "actual_label" : "Read",
+    "confidence" : 0.3856025825986402,
+    "expected_label" : "stocks",
+    "text" : "yo whats aapl at rn"
+  },
+  {
+    "actual_label" : "Random",
+    "confidence" : 0.5717022349239794,
+    "expected_label" : "general",
+    "text" : "🤷 idk just do something"
+  },
+  {
+    "actual_label" : "maps",
+    "confidence" : 0.6745747014262748,
+    "expected_label" : "WebFetch",
+    "text" : "find me the best pizza place nearby"
+  },
+  {
+    "actual_label" : "wikipedia",
+    "confidence" : 0.7147223852670112,
+    "expected_label" : "Research",
+    "text" : "who invented the lightbulb?"
+  },
+  {
+    "actual_label" : "news",
+    "confidence" : 0.9999892305853066,
+    "expected_label" : "Read",
+    "text" : "read me the news headlines"
+  },
+  {
+    "actual_label" : "Calendar",
+    "confidence" : 0.7903570955220424,
+    "expected_label" : "Today",
+    "text" : "what day is it today?"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.9271658860012058,
+    "expected_label" : "spotlight",
+    "text" : "search for “best movies 2023”"
+  },
+  {
+    "actual_label" : "Time",
+    "confidence" : 0.6010334882738024,
+    "expected_label" : "maps",
+    "text" : "how far is it from here to the thing you know what I mean"
+  },
+  {
+    "actual_label" : "Email",
+    "confidence" : 0.9989907966797881,
+    "expected_label" : "ReadEmail",
+    "text" : "read last unread email but not the spam one"
+  },
+  {
+    "actual_label" : "wikipedia",
+    "confidence" : 0.9992621220352504,
+    "expected_label" : "Research",
+    "text" : "who was the first person on the moon and what year?"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.9889187581619951,
+    "expected_label" : "Calendar",
+    "text" : "add event tomorrow 2pm and remind me 1 hour before"
+  },
+  {
+    "actual_label" : "Calendar",
+    "confidence" : 0.948563983604345,
+    "expected_label" : "Today",
+    "text" : "what day is it again? i forgot lol"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.583120964692754,
+    "expected_label" : "Feedback",
+    "text" : "ugh why you so slow sometimes? fix pls"
+  },
+  {
+    "actual_label" : "Translate",
+    "confidence" : 0.9896066680809954,
+    "expected_label" : "Time",
+    "text" : "qué hora es in tokyo rn"
+  },
+  {
+    "actual_label" : "Read",
+    "confidence" : 0.7184925431678376,
+    "expected_label" : "stocks",
+    "text" : "yo whats aapl at rn and also check tsla pls"
+  },
+  {
+    "actual_label" : "Time",
+    "confidence" : 0.9835949199718208,
+    "expected_label" : "general",
+    "text" : "ugh why wont you tell me the time already"
+  },
+  {
+    "actual_label" : "Weather",
+    "confidence" : 0.9894093799850578,
+    "expected_label" : "Time",
+    "text" : "and the weather there?"
+  },
+  {
+    "actual_label" : "stocks",
+    "confidence" : 0.22924552833577785,
+    "expected_label" : "game",
+    "text" : "give me a hint for the last move"
+  },
+  {
+    "actual_label" : "Weather",
+    "confidence" : 0.9894093799850578,
+    "expected_label" : "maps",
+    "text" : "and the weather there?"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.7457847864332917,
+    "expected_label" : "stocks",
+    "text" : "ok now what about stocks in google?"
+  },
+  {
+    "actual_label" : "messages",
+    "confidence" : 0.45448727687989016,
+    "expected_label" : "Email",
+    "text" : "no that's not what I asked, change it to say I'll arrive early"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.6319346281610232,
+    "expected_label" : "general",
+    "text" : "UGH JUST CONVERT IT"
+  },
+  {
+    "actual_label" : "Dictionary",
+    "confidence" : 0.6696800422885157,
+    "expected_label" : "Translate",
+    "text" : "translate “good night” to russian and also what’s the dictionary meaning of “спокойной ночи”"
+  },
+  {
+    "actual_label" : "Translate",
+    "confidence" : 0.94587549963418,
+    "expected_label" : "general",
+    "text" : "🤷 idk just do something with translate and convert and dictionary"
+  },
+  {
+    "actual_label" : "reminders",
+    "confidence" : 0.5793726289361437,
+    "expected_label" : "Calendar",
+    "text" : "ADD THE MEETING FOR TOMORROW 3PM NO WAIT 4PM DAMN IT"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.7130050949747995,
+    "expected_label" : "maps",
+    "text" : "WHERE THE HELL IS THAT PLACE I ASKED FOR LIKE SERIOUSLY"
+  },
+  {
+    "actual_label" : "Read",
+    "confidence" : 0.4095913463649649,
+    "expected_label" : "Email",
+    "text" : "OPEN MY INBOX AND READ THE LAST DAMN EMAIL NOW"
+  },
+  {
+    "actual_label" : "Weather",
+    "confidence" : 0.23565750526670062,
+    "expected_label" : "maps",
+    "text" : "SHOW ME THE ROUTE TO WORK WITHOUT TRAFFIC OR WHATEVER"
+  },
+  {
+    "actual_label" : "calendar_events",
+    "confidence" : 0.9179780731830576,
+    "expected_label" : "Calendar",
+    "text" : "add a reminder for my doc appointment next fri at 10am"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.9936127186491668,
+    "expected_label" : "Email",
+    "text" : "read my unread emails from yesterday and mark them read"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.8760791840183915,
+    "expected_label" : "Email",
+    "text" : "check inbox for john"
+  },
+  {
+    "actual_label" : "ReadEmail",
+    "confidence" : 0.9835615661446632,
+    "expected_label" : "Email",
+    "text" : "check new emails from today"
+  },
+  {
+    "actual_label" : "Create",
+    "confidence" : 0.3128554299059259,
+    "expected_label" : "maps",
+    "text" : "FIND ME A ROUTE THAT DOESN’T SUCK LIKE SERIOUSLY"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.7850631549724328,
+    "expected_label" : "stocks",
+    "text" : "btc price and also aapl and tsla pls"
+  },
+  {
+    "actual_label" : "spotlight",
+    "confidence" : 0.4948189247619726,
+    "expected_label" : "WebFetch",
+    "text" : "find me stuff about that one actor you know"
+  },
+  {
+    "actual_label" : "Time",
+    "confidence" : 0.4387612443510533,
+    "expected_label" : "SystemInfo",
+    "text" : "why wont you tell me the time and battery pls"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.9287537946748073,
+    "expected_label" : "maps",
+    "text" : "hey can you find me the nearest coffee shop scratch that pizza place"
+  },
+  {
+    "actual_label" : "system_control",
+    "confidence" : 0.8412970790645729,
+    "expected_label" : "Timer",
+    "text" : "5 min pls no wait cancel that set 2 min then stop"
+  },
+  {
+    "actual_label" : "contacts",
+    "confidence" : 0.2919487296969131,
+    "expected_label" : "news",
+    "text" : "more details on the last one"
+  },
+  {
+    "actual_label" : "web_search",
+    "confidence" : 0.3912420432783974,
+    "expected_label" : "news",
+    "text" : "why is that happening?"
+  },
+  {
+    "actual_label" : "Convert",
+    "confidence" : 0.09669544216557756,
+    "expected_label" : "stocks",
+    "text" : "compare it to Ford"
+  },
+  {
+    "actual_label" : "Rewrite",
+    "confidence" : 0.9732197743266647,
+    "expected_label" : "Dictionary",
+    "text" : "rewrite that sentence simpler"
+  },
+  {
+    "actual_label" : "contacts",
+    "confidence" : 0.40829748315962744,
+    "expected_label" : "maps",
+    "text" : "show me the last one on the list"
+  },
+  {
+    "actual_label" : "Calendar",
+    "confidence" : 0.8483130210697551,
+    "expected_label" : "Weather",
+    "text" : "what about those weekend days?"
+  },
+  {
+    "actual_label" : "SystemInfo",
+    "confidence" : 0.6090606145295818,
+    "expected_label" : "stocks",
+    "text" : "more details on google's performance"
+  }
+]

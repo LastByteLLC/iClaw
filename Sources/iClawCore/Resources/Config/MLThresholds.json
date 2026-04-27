@@ -1,0 +1,26 @@
+{
+    "followUp": {
+        "pivotThreshold": 0.5,
+        "retryThreshold": 0.3,
+        "nonPivotThreshold": 0.85,
+        "boostedNonPivotThreshold": 0.3,
+        "metaThreshold": 0.7,
+        "crossValidationThreshold": 0.3,
+        "confidenceMarginWithCoherence": 0.3,
+        "confidenceMarginWithout": 0.1
+    },
+    "routing": {
+        "highConfidence": 0.75,
+        "mediumConfidence": 0.35,
+        "shortInputThreshold": 0.7,
+        "disambiguationGap": 0.1
+    },
+    "autoRecall": {
+        "similarityThreshold": 0.70,
+        "maxResults": 2
+    },
+    "knowledgeRetrieval": {
+        "cosineSimilarityFloor": 0.4,
+        "relevanceThreshold": 0.45
+    }
+}

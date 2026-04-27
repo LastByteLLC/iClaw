@@ -1,0 +1,1 @@
+{"action":"create|list|cancel|pause|resume","query":"string?","interval":"string?","id":"int?"}

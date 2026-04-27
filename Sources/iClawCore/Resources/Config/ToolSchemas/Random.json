@@ -1,0 +1,1 @@
+{"intent":"coin|dice|card|number|date|color","sides":"int?","count":"int?","min":"int?","max":"int?"}

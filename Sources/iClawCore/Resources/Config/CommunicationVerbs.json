@@ -1,0 +1,14 @@
+{
+  "send_action": {
+    "en": ["send", "text", "message", "tell", "shoot", "drop", "ping", "DM", "email", "write", "reply", "forward", "contact"],
+    "es": ["envía", "enviar", "manda", "mandar", "escribe", "escribir", "mensaje a", "textea", "avisa", "contacta", "responde"],
+    "fr": ["envoie", "envoyer", "écris", "écrire", "message à", "texto", "contacter", "répondre", "prévenir"],
+    "de": ["sende", "senden", "schick", "schicken", "schreib", "schreiben", "nachricht an", "mail", "kontaktiere", "antworte"],
+    "pt": ["envie", "enviar", "manda", "mandar", "escreva", "escrever", "mensagem para", "textar", "avise", "responder"],
+    "it": ["invia", "inviare", "manda", "mandare", "scrivi", "scrivere", "messaggio a", "contatta", "rispondi"],
+    "ja": ["送って", "送信", "メッセージ", "メールして", "連絡して", "伝えて", "返信", "ラインして"],
+    "zh-Hans": ["发", "发送", "发信息", "发消息", "告诉", "通知", "联系", "回复", "转发", "发邮件"],
+    "ko": ["보내", "전송", "문자", "메시지", "알려줘", "연락해", "답장", "이메일 보내", "전해줘"],
+    "ar": ["أرسل", "ابعث", "رسالة إلى", "راسل", "اكتب", "أبلغ", "اتصل", "رد", "حوّل"]
+  }
+}

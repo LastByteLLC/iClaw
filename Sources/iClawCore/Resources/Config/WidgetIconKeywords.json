@@ -1,0 +1,17 @@
+{
+  "rules": [
+    { "icon": "arrow.left.arrow.right", "keywords": ["vs", "versus", "comparison"] },
+    { "icon": "car.fill", "keywords": ["car", "vehicle", "tesla", "ford", "bmw", "audi", "toyota", "honda", "chevrolet", "porsche", "mercedes", "nissan", "hyundai", "kia", "volvo", "subaru", "jeep", "rivian", "lucid", "volkswagen", "mazda", "polestar", "mustang", "camaro", "prius", "cybertruck", "model 3", "model s", "model x", "model y", "suv", "sedan", "truck", "ev", "electric vehicle"] },
+    { "icon": "globe", "keywords": ["country", "nation", "population", "gdp", "capital", "language", "continent", "region", "africa", "europe", "asia"] },
+    { "icon": "building.2", "keywords": ["city", "town", "metro", "urban", "district", "company", "inc", "corp", "revenue", "stock", "financial", "market", "nasdaq", "nyse", "earnings"] },
+    { "icon": "person.fill", "keywords": ["biography", "bio", "career", "born", "actor", "actress", "athlete", "scientist", "president", "ceo"] },
+    { "icon": "fork.knife", "keywords": ["food", "nutrition", "calorie", "recipe", "diet", "protein", "vitamin", "meal"] },
+    { "icon": "heart.fill", "keywords": ["health", "symptom", "treatment", "disease", "medical", "bmi", "diagnosis"] },
+    { "icon": "sportscourt", "keywords": ["sport", "nba", "nfl", "fifa", "olympic", "championship", "league", "tournament", "medal", "goal"] },
+    { "icon": "cpu", "keywords": ["tech", "software", "hardware", "processor", "chip", "ai", "playstation", "xbox", "macbook", "iphone", "pixel", "samsung", "spec", "feature"] },
+    { "icon": "atom", "keywords": ["science", "element", "periodic", "physics", "chemistry", "biology", "quantum", "molecule"] },
+    { "icon": "book.fill", "keywords": ["history", "historical", "ancient", "war", "empire", "dynasty", "century", "timeline"] },
+    { "icon": "banknote", "keywords": ["finance", "investment", "budget", "economy", "inflation", "interest rate", "bank"] }
+  ],
+  "defaultIcon": "info.circle"
+}

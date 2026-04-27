@@ -1,0 +1,22 @@
+{
+    "keywords": [
+        "standard deviation", "stddev", "variance", "median", "mean of",
+        "percentile", "regression", "correlation",
+        "matrix", "determinant", "transpose", "eigenvalue",
+        "base64", "encode", "decode", "sha256", "sha1", "md5", "hash",
+        "hex to", "to hex", "rgb to", "to rgb",
+        "regex", "match pattern", "test pattern",
+        "sort", "filter", "reverse", "unique", "deduplicate",
+        "factorial of", "fibonacci", "prime factors",
+        "permutations", "combinations",
+        "business days", "working days",
+        "largest number", "smallest number", "biggest number",
+        "maximum of", "minimum of", "sum of", "average of", "average", "count of",
+        "largest in", "smallest in", "biggest in",
+        "sort this", "rank these", "order these", "order this"
+    ],
+    "patterns": [
+        "\\[.*,.*\\]",
+        "\\d+\\s*,\\s*\\d+\\s*,\\s*\\d+"
+    ]
+}

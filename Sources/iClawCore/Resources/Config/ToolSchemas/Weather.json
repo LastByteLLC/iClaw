@@ -1,0 +1,1 @@
+{"intent":"current|forecast|detail|comparison|search","location":"string?","detailField":"humidity|wind|uv|feelsLike|pressure|visibility|clouds|precipitation|moon|sunrise|sunset|airQuality?","forecastDays":"int?","comparisonCity":"string?","temperatureUnit":"celsius|fahrenheit?","date":"string?","searchCondition":"string?"}

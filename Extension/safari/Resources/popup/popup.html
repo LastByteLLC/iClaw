@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=320">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img class="logo" src="../icon-48.png" alt="iClaw" width="32" height="32">
+      <h1>iClaw</h1>
+      <span id="status" class="status" title="Checking...">⏳</span>
+    </div>
+
+    <div id="tab-info" class="tab-info">
+      <div class="tab-title" id="tab-title">—</div>
+      <div class="tab-url" id="tab-url">—</div>
+    </div>
+
+    <div class="actions">
+      <button id="btn-send" class="btn btn-primary" disabled>
+        Send Page to iClaw
+      </button>
+    </div>
+
+    <div id="message" class="message"></div>
+
+    <div id="help" class="help hidden">
+      <div class="help-title">Troubleshooting</div>
+      <ul>
+        <li>Make sure iClaw is running</li>
+        <li>Enable Browser Bridge in iClaw &gt; Settings</li>
+        <li>Click Refresh in iClaw &gt; Settings &gt; Browser Bridge</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <span id="version"></span>
+    </div>
+  </div>
+
+  <script src="../compat.js"></script>
+  <script src="../protocol.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

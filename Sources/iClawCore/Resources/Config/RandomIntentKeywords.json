@@ -1,0 +1,62 @@
+{
+  "coin_flip": {
+    "en": ["coin", "flip", "flip a coin", "heads or tails", "coin flip", "toss a coin", "coin toss", "flip it"],
+    "es": ["lanza una moneda", "cara o cruz", "lanzar moneda", "tirar una moneda", "echar a suertes", "cara o sello"],
+    "fr": ["pile ou face", "lance une pièce", "tirer à pile ou face", "jeter une pièce", "lancer de pièce"],
+    "de": ["münze werfen", "kopf oder zahl", "münzwurf", "eine münze werfen", "wirf eine münze"],
+    "pt": ["cara ou coroa", "jogar moeda", "lançar uma moeda", "tirar cara ou coroa"],
+    "it": ["testa o croce", "lancia una moneta", "lancio della moneta", "tirare una moneta"],
+    "ja": ["コインを投げて", "表か裏", "コイントス", "コインを振って", "裏表"],
+    "zh-Hans": ["抛硬币", "正面还是反面", "投硬币", "扔硬币"],
+    "ko": ["동전 던져", "앞면 뒷면", "동전 던지기", "동전 토스"],
+    "ar": ["ارم عملة", "صورة أم كتابة", "رمي العملة", "قذف عملة"]
+  },
+  "dice_roll": {
+    "en": ["roll", "dice", "die", "roll a die", "roll a dice", "throw a dice", "roll dice", "roll the dice", "roll 2d6", "roll d20"],
+    "es": ["lanza un dado", "tira un dado", "tirar dados", "lanzar dados", "rodar dados"],
+    "fr": ["lance un dé", "jette un dé", "lancer de dé", "lancer les dés", "jeter les dés"],
+    "de": ["würfeln", "würfel werfen", "einen würfel werfen", "würfel rollen"],
+    "pt": ["jogar um dado", "rolar um dado", "lançar dados", "jogar os dados", "rolar dados"],
+    "it": ["lancia un dado", "tira un dado", "tirare i dadi", "lanciare i dadi"],
+    "ja": ["サイコロを振って", "さいころを振る", "ダイスロール", "サイコロ"],
+    "zh-Hans": ["掷骰子", "扔骰子", "摇骰子", "投骰子"],
+    "ko": ["주사위 굴려", "주사위 던져", "주사위 굴리기"],
+    "ar": ["ارم نردا", "ارم الزهر", "رمي النرد", "ارم زهرا"]
+  },
+  "card_draw": {
+    "en": ["card", "draw", "draw a card", "pick a card", "deal a card", "random card", "deal me a card"],
+    "es": ["saca una carta", "elige una carta", "reparte una carta", "carta aleatoria", "dame una carta"],
+    "fr": ["tire une carte", "pioche une carte", "distribue une carte", "carte aléatoire", "donne-moi une carte"],
+    "de": ["ziehe eine karte", "karte ziehen", "eine karte geben", "zufällige karte"],
+    "pt": ["tire uma carta", "escolha uma carta", "distribua uma carta", "carta aleatória", "me dê uma carta"],
+    "it": ["pesca una carta", "scegli una carta", "distribuisci una carta", "carta casuale"],
+    "ja": ["カードを引いて", "カードを一枚", "ランダムなカード", "カードを選んで"],
+    "zh-Hans": ["抽一张牌", "抽牌", "发一张牌", "随机一张牌"],
+    "ko": ["카드 뽑아", "카드 한 장", "랜덤 카드", "카드 뽑기"],
+    "ar": ["اسحب بطاقة", "اختر بطاقة", "بطاقة عشوائية", "وزع بطاقة"]
+  },
+  "random_number": {
+    "en": ["random number", "random int", "pick a number", "between X and Y", "give me a number", "number between", "number", "between"],
+    "es": ["número aleatorio", "número al azar", "elige un número", "entre X e Y", "dame un número", "un número entre"],
+    "fr": ["nombre aléatoire", "un nombre au hasard", "choisis un nombre", "entre X et Y", "donne-moi un nombre", "nombre entre"],
+    "de": ["zufallszahl", "zufällige zahl", "wähle eine zahl", "zwischen X und Y", "gib mir eine zahl", "eine zahl zwischen"],
+    "pt": ["número aleatório", "número ao acaso", "escolha um número", "entre X e Y", "me dê um número", "número entre"],
+    "it": ["numero casuale", "numero a caso", "scegli un numero", "tra X e Y", "dammi un numero", "numero tra"],
+    "ja": ["ランダムな数字", "数字をランダムに", "数を選んで", "からまでの数", "適当な数字"],
+    "zh-Hans": ["随机数", "随便一个数", "给个数字", "之间的数", "随机选个数"],
+    "ko": ["랜덤 숫자", "무작위 숫자", "숫자 하나", "사이의 숫자", "숫자 아무거나"],
+    "ar": ["رقم عشوائي", "عدد عشوائي", "اختر رقما", "بين X و Y", "أعطني رقما"]
+  },
+  "random_pick": {
+    "en": ["pick from", "choose between", "pick one of", "shuffle", "pick randomly", "choose one", "random pick"],
+    "es": ["elige entre", "escoge entre", "elige uno de", "baraja", "elige al azar", "escoge uno"],
+    "fr": ["choisis entre", "choisis parmi", "prends un de", "mélange", "choisir au hasard", "sélectionne un"],
+    "de": ["wähle zwischen", "wähle eine von", "mische", "zufällig wählen", "such dir eine aus"],
+    "pt": ["escolha entre", "selecione entre", "escolha um de", "embaralhe", "escolha aleatoriamente"],
+    "it": ["scegli tra", "scegli uno di", "mescola", "scegli a caso", "selezionane uno"],
+    "ja": ["から選んで", "どれか選んで", "シャッフル", "ランダムに選んで", "一つ選んで"],
+    "zh-Hans": ["从中选", "选一个", "随机选", "洗牌", "挑一个"],
+    "ko": ["중에 골라", "하나 골라", "무작위로 골라", "섞어", "아무거나 골라"],
+    "ar": ["اختر من", "اختر بين", "اختر واحدا من", "اخلط", "اختر عشوائيا"]
+  }
+}

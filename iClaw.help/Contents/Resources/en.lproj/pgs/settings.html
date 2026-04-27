@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="AppleTitle" content="Settings" />
+    <meta name="description" content="Configure iClaw's personality, model backend, notifications, permissions, and more." />
+    <meta name="KEYWORDS" content="settings, preferences, personality, models, ollama, apple intelligence, notifications, automations, permissions, history, about, email, continuity" />
+    <meta name="robots" content="anchors" />
+    <link rel="stylesheet" href="../sty/help.css" />
+    <title>Settings</title>
+</head>
+<body>
+    <p class="breadcrumb"><a href="../iClaw.html">iClaw Help</a></p>
+    <h1>Settings</h1>
+
+    <p>Open Settings from the iClaw menu bar icon or by asking <em>"open settings"</em>.</p>
+
+    <h2>General</h2>
+    <ul>
+        <li><strong>Personality</strong> &mdash; Choose how iClaw communicates: Full (terse and sassy), Moderate, Neutral, or Custom (your own description, up to 280 characters)</li>
+        <li><strong>Browser Bridge</strong> &mdash; Connect the browser extension for authenticated web access</li>
+        <li><strong>Screen Context</strong> &mdash; Allow iClaw to capture screen content when asked</li>
+        <li><strong>Action Consent</strong> &mdash; Control whether iClaw asks before performing actions. Destructive actions always require confirmation</li>
+        <li><strong>Speech</strong> &mdash; Configure voice input and text-to-speech options</li>
+    </ul>
+
+    <h2>Models</h2>
+    <p>Choose which AI backend iClaw uses for language understanding and response generation:</p>
+    <ul>
+        <li><strong>Apple Intelligence</strong> &mdash; Built-in, no setup required. Uses Apple&rsquo;s on-device Foundation Models</li>
+        <li><strong>Ollama</strong> &mdash; Uses locally-running open-source models via <a href="https://ollama.com">Ollama</a>. Ollama must be installed and running. iClaw auto-detects available models and prefers ones already loaded in memory. Disabled when Ollama is not available</li>
+    </ul>
+    <p>Both backends run entirely on-device. Your selection is remembered across launches.</p>
+
+    <h2>Notifications</h2>
+    <p>Three levels: Off, Basic, or Full. Controls heartbeat notifications for events, weather alerts, and memory maintenance reminders.</p>
+
+    <h2>Automations</h2>
+    <p>View, create, and manage scheduled recurring queries. Automations run on a schedule and deliver results via notification.</p>
+
+    <h2>Skills</h2>
+    <p>Enable or disable built-in and custom skills. Custom skills are loaded from <code>~/Documents/AgentSkills/</code>.</p>
+
+    <h2>Email</h2>
+    <p>Configure Mail.app integration, including read and compose permissions.</p>
+
+    <h2>Permissions</h2>
+    <p>Dashboard showing the status of system permissions: Location, Contacts, Calendar, Reminders, Microphone, and more. Tap any permission to open the relevant System Settings pane.</p>
+
+    <h2>History</h2>
+    <p>Search and browse your conversation history. Messages are stored locally on your Mac.</p>
+
+    <h2>About</h2>
+    <p>App version, build information, and links.</p>
+</body>
+</html>

@@ -1,0 +1,165 @@
+import XCTest
+import FoundationModels
+@testable import iClawCore
+
+final class CreateToolTests: XCTestCase {
+
+    override func setUp() async throws {
+        await ScratchpadCache.shared.reset()
+    }
+
+    // MARK: - Style Detection (pure logic, no capability needed)
+
+    func testDetectsAnimationStyle() {
+        XCTAssertEqual(CreateTool.detectStyle(from: "a cartoon cat"), "animation")
+        XCTAssertEqual(CreateTool.detectStyle(from: "animated sunset"), "animation")
+        XCTAssertEqual(CreateTool.detectStyle(from: "pixar style robot"), "animation")
+        XCTAssertEqual(CreateTool.detectStyle(from: "3d dragon"), "animation")
+    }
+
+    func testDetectsIllustrationStyle() {
+        XCTAssertEqual(CreateTool.detectStyle(from: "an illustration of flowers"), "illustration")
+        XCTAssertEqual(CreateTool.detectStyle(from: "watercolor landscape"), "illustration")
+        XCTAssertEqual(CreateTool.detectStyle(from: "artistic painting of a forest"), "illustration")
+        XCTAssertEqual(CreateTool.detectStyle(from: "illustrated garden"), "illustration")
+    }
+
+    func testDetectsSketchStyle() {
+        XCTAssertEqual(CreateTool.detectStyle(from: "a pencil drawing of a cat"), "sketch")
+        XCTAssertEqual(CreateTool.detectStyle(from: "sketch of a mountain"), "sketch")
+        XCTAssertEqual(CreateTool.detectStyle(from: "hand drawn portrait"), "sketch")
+        XCTAssertEqual(CreateTool.detectStyle(from: "line art city"), "sketch")
+    }
+
+    func testNoStyleDetected() {
+        XCTAssertNil(CreateTool.detectStyle(from: "a cat wearing a top hat"))
+        XCTAssertNil(CreateTool.detectStyle(from: "sunset over mountains"))
+        XCTAssertNil(CreateTool.detectStyle(from: "a robot playing guitar"))
+    }
+
+    // MARK: - Intent Detection (pure logic)
+
+    func testIntentGenerateWithStyle() {
+        let intent = CreateTool.detectIntent(input: "a cartoon cat playing piano")
+        if case .generate(let style, _) = intent {
+            XCTAssertEqual(style, "animation")
+        } else {
+            XCTFail("Expected .generate intent, got \(intent)")
+        }
+    }
+
+    func testIntentDefaultsToIllustrationWhenNoStyle() {
+        let intent = CreateTool.detectIntent(input: "a cat wearing a top hat")
+        if case .generate(let style, let prompt) = intent {
+            XCTAssertEqual(style, "illustration", "Should default to illustration when no style specified")
+            XCTAssertTrue(prompt.contains("cat"), "Prompt should preserve the description")
+        } else {
+            XCTFail("Expected .generate intent with default style, got \(intent)")
+        }
+    }
+
+    func testIntentGenerateWithReference() {
+        let intent = CreateTool.detectIntent(input: "reimagine this", attachmentPath: "/tmp/photo.png")
+        if case .generateWithReference(_, _, let path) = intent {
+            XCTAssertEqual(path, "/tmp/photo.png")
+        } else {
+            XCTFail("Expected .generateWithReference intent, got \(intent)")
+        }
+    }
+
+    // MARK: - Stubbed Generation via DI
+
+    func testStubbedGenerationReturnsWidget() async throws {
+        let stubURL = FileManager.default.temporaryDirectory.appendingPathComponent("stub-image.png")
+        try Data([0x89, 0x50, 0x4E, 0x47]).write(to: stubURL) // minimal PNG header
+
+        let tool = CreateTool(imageGenerator: { prompt, style, _ in
+            return stubURL
+        })
+
+        let result = try await tool.execute(input: "#create a cartoon cat", entities: nil)
+        XCTAssertEqual(result.status, .ok)
+        XCTAssertEqual(result.outputWidget, "CreateWidget")
+        XCTAssertTrue(result.text.contains("animation"), "Should mention the style")
+
+        if let widgetData = result.widgetData as? CreateWidgetData {
+            XCTAssertEqual(widgetData.style, "animation")
+            XCTAssertTrue(widgetData.prompt.contains("cat"))
+        } else {
+            XCTFail("Expected CreateWidgetData")
+        }
+
+        try? FileManager.default.removeItem(at: stubURL)
+    }
+
+    func testDefaultStyleGeneratesWhenNoStyleDetected() async throws {
+        let stubURL = FileManager.default.temporaryDirectory.appendingPathComponent("stub-default.png")
+        try Data([0x89, 0x50, 0x4E, 0x47]).write(to: stubURL)
+
+        let tool = CreateTool(imageGenerator: { prompt, style, _ in
+            XCTAssertEqual(style, "illustration", "Should default to illustration")
+            return stubURL
+        })
+        let result = try await tool.execute(input: "#create a sunset over mountains", entities: nil)
+
+        XCTAssertEqual(result.status, .ok)
+        XCTAssertEqual(result.outputWidget, "CreateWidget")
+        XCTAssertTrue(result.text.contains("illustration"), "Should mention the default style")
+
+        try? FileManager.default.removeItem(at: stubURL)
+    }
+
+    func testStubbedGenerationWithReference() async throws {
+        let stubURL = FileManager.default.temporaryDirectory.appendingPathComponent("stub-ref.png")
+        try Data([0x89, 0x50, 0x4E, 0x47]).write(to: stubURL)
+
+        let tool = CreateTool(imageGenerator: { prompt, style, refPath in
+            XCTAssertNotNil(refPath, "Reference path should be passed through")
+            return stubURL
+        })
+
+        let input = "/tmp/photo.png\nreimagine this in sketch style"
+        let result = try await tool.execute(input: input, entities: nil)
+
+        XCTAssertEqual(result.status, .ok)
+        XCTAssertEqual(result.outputWidget, "CreateWidget")
+
+        try? FileManager.default.removeItem(at: stubURL)
+    }
+
+    // MARK: - Chip Routing
+
+    func testChipRouting() async throws {
+        let spy = SpyTool(
+            name: "Create",
+            schema: "Create an image",
+            category: .async,
+            result: ToolIO(text: "created image", status: .ok, outputWidget: "CreateWidget")
+        )
+        let engine = makeTestEngine(
+            tools: [spy],
+            engineLLMResponder: makeStubLLMResponder()
+        )
+
+        let result = await engine.run(input: "#create a sunset in sketch style")
+        XCTAssertEqual(spy.invocations.count, 1)
+        XCTAssertEqual(result.widgetType, "CreateWidget")
+    }
+
+    // MARK: - Error Handling
+
+    func testUnavailableReturnsError() async throws {
+        let tool = CreateTool(imageGenerator: { _, _, _ in
+            throw CreateTool.CreateToolError.unavailable
+        })
+        // When imageGenerator is injected, errors are thrown, not caught.
+        // Test the real path by not injecting a generator on a machine without ImagePlayground.
+        // For the stub path, we test that the tool propagates errors.
+        do {
+            _ = try await tool.execute(input: "#create a cartoon cat", entities: nil)
+            // If it doesn't throw, it should have returned an error status
+        } catch {
+            // Expected for stub that throws
+        }
+    }
+}

@@ -1,0 +1,118 @@
+{
+  "Weather": {
+    "description": "Current conditions, multi-day forecasts, sunrise/sunset, golden hour, moon phases, and air quality for any city worldwide.",
+    "examples": ["weather in Tokyo", "7 day forecast London", "sunrise today", "golden hour this evening"]
+  },
+  "Time": {
+    "description": "Current time in any city or timezone, and countdown timers with optional labels. Shows UTC offset and time difference for remote locations. Notifies you when timers complete.",
+    "examples": ["time in London", "what time is it in Tokyo", "set a 5 minute timer", "timer 30 seconds"]
+  },
+  "Maps": {
+    "description": "Directions, ETA, and distance between locations. Opens step-by-step navigation in Apple Maps.",
+    "examples": ["directions to the airport", "how far is NYC from Boston", "ETA to downtown"]
+  },
+  "News": {
+    "description": "Latest headlines from 17 RSS sources including BBC, Reuters, Ars Technica, and The Verge. Filter by topic.",
+    "examples": ["latest tech news", "news about AI", "what's happening in science"]
+  },
+  "Stocks": {
+    "description": "Real-time stock quotes, daily change, and key metrics. Use $TICKER notation or company names.",
+    "examples": ["$AAPL", "how is Tesla stock doing", "Microsoft stock price"]
+  },
+  "ReadEmail": {
+    "description": "Read and search your Mail.app inbox. Filter by sender, subject, or keyword.",
+    "examples": ["check my email", "emails from John", "search inbox for invoices"]
+  },
+  "Email": {
+    "description": "Compose and send emails via Mail.app. Specify recipient, subject, and body.",
+    "examples": ["email Sarah about the meeting", "send email to team about deadline"]
+  },
+  "Translate": {
+    "description": "Translate text between languages using Apple's on-device translation. Supports major world languages.",
+    "examples": ["translate hello to Japanese", "how do you say goodbye in French", "translate this to Spanish"]
+  },
+  "Dictionary": {
+    "description": "Look up word definitions, usage, and etymology using the built-in macOS dictionary.",
+    "examples": ["define ubiquitous", "meaning of ephemeral", "what does serendipity mean"]
+  },
+  "Convert": {
+    "description": "Convert between units (length, weight, temperature, currency) and encode/decode formats (base64, hex, URL).",
+    "examples": ["convert 5 miles to km", "100 USD to EUR", "72°F to celsius"]
+  },
+  "Calculator": {
+    "description": "Evaluate math expressions including arithmetic, percentages, trigonometry, and exponents. Shows LaTeX-rendered steps.",
+    "examples": ["what is 15% of 340", "sqrt(144) + 3^2", "sin(45 degrees)", "15% tip on $86"]
+  },
+  "Research": {
+    "description": "Multi-turn deep research mode. Searches the web, fetches pages, and synthesizes findings across turns. Type #research to enter.",
+    "examples": ["#research quantum computing", "research the history of AI", "deep dive into climate policy"]
+  },
+  "web_search": {
+    "description": "Search the web via DuckDuckGo, Brave, and Google (fallback chain). Returns top results with snippets.",
+    "examples": ["search for best Mac apps 2025", "google Swift concurrency patterns", "look up WWDC schedule"]
+  },
+  "WikipediaSearch": {
+    "description": "Direct Wikipedia article lookup. Returns article summary and key sections.",
+    "examples": ["wiki Alan Turing", "wikipedia black holes", "tell me about the Roman Empire"]
+  },
+  "Podcast": {
+    "description": "Search Apple Podcasts for shows and episodes. Open results directly in Podcasts.app.",
+    "examples": ["find podcasts about tech", "podcast Lex Fridman", "search podcasts about history"]
+  },
+  "Random": {
+    "description": "Generate random numbers, roll dice, flip coins, draw cards, or pick from a list.",
+    "examples": ["roll 2d6", "flip a coin", "random number between 1 and 100", "pick a card"]
+  },
+  "Transcribe": {
+    "description": "Transcribe audio files or voice recordings using on-device speech recognition.",
+    "examples": ["transcribe this audio", "transcribe recording"]
+  },
+  "SystemInfo": {
+    "description": "Mac system diagnostics: battery, storage, RAM, CPU, Wi-Fi, Bluetooth, uptime, and macOS version.",
+    "examples": ["battery status", "how much storage do I have", "check my system info", "what macOS am I running"]
+  },
+  "Screenshot": {
+    "description": "Analyze the current screen content. Captures and reads what's visible on your display.",
+    "examples": ["what's on my screen", "screenshot", "analyze my screen"]
+  },
+  "Today": {
+    "description": "Daily briefing: weather, calendar events, reminders, and trending headlines in a single glance.",
+    "examples": ["today", "daily briefing", "what's my day look like"]
+  },
+  "Calendar": {
+    "description": "View, search, and create calendar events. Shows upcoming schedule and event details.",
+    "examples": ["what's on my calendar", "schedule meeting Friday at 2pm", "events this week"]
+  },
+  "Contacts": {
+    "description": "Look up contacts by name. Shows phone numbers, email addresses, and other details.",
+    "examples": ["find John Smith", "show contact for Sarah", "what's Mom's phone number"]
+  },
+  "Messages": {
+    "description": "Send iMessages and SMS via Messages.app. Specify the recipient and message body.",
+    "examples": ["message Sarah I'm running late", "text John about dinner plans"]
+  },
+  "Reminders": {
+    "description": "Create, view, and manage reminders in the Reminders app. Supports due dates and times.",
+    "examples": ["remind me to buy milk", "show my reminders", "add reminder: call dentist tomorrow"]
+  },
+  "Automate": {
+    "description": "Generate and run AppleScript automations. Describe what you want to automate in plain English. Type #automate to enter mode.",
+    "examples": ["#automate resize all images in a folder", "automate renaming files", "script to toggle dark mode"]
+  },
+  "TechSupport": {
+    "description": "Interactive Mac diagnostics. Checks Wi-Fi, battery, storage, RAM, Bluetooth, login items, and can force-quit apps. Type #techsupport to enter mode.",
+    "examples": ["my wifi keeps dropping", "mac running slow", "check what's using battery"]
+  },
+  "Compute": {
+    "description": "Advanced computation: statistics, matrix operations, combinatorics, hashing, base64/hex encoding, and regex testing.",
+    "examples": ["standard deviation of 4 8 15 16 23 42", "sha256 hash of hello", "base64 encode this text"]
+  },
+  "Automation": {
+    "description": "Schedule recurring queries that run automatically at set intervals. Monitor stocks, weather, or any repeating check.",
+    "examples": ["check AAPL every hour", "monitor weather daily", "schedule news check every morning"]
+  },
+  "Help": {
+    "description": "Browse tools, take a guided tour, or learn about capabilities and limitations.",
+    "examples": ["what can you do?", "give me a tour", "tell me about search tools", "what can't you do?"]
+  }
+}

@@ -1,0 +1,97 @@
+name: Bug Report
+description: Report a bug in iClaw
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug. Please fill out the fields below to help us investigate.
+
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS Version
+      description: Which version of macOS are you running?
+      placeholder: "e.g., macOS 26.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Provide a clear sequence of steps to reproduce the issue.
+      placeholder: |
+        1. Open iClaw from the menu bar
+        2. Type "..."
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, attach screenshots to help illustrate the problem.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: chip
+    attributes:
+      label: Apple Silicon Chip
+      description: Which chip does your Mac have?
+      options:
+        - M1
+        - M1 Pro
+        - M1 Max
+        - M1 Ultra
+        - M2
+        - M2 Pro
+        - M2 Max
+        - M2 Ultra
+        - M3
+        - M3 Pro
+        - M3 Max
+        - M3 Ultra
+        - M4
+        - M4 Pro
+        - M4 Max
+        - M4 Ultra
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: ram
+    attributes:
+      label: RAM
+      description: How much unified memory does your Mac have?
+      placeholder: "e.g., 16 GB"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other information that might be relevant (logs, related issues, etc.).
+    validations:
+      required: false

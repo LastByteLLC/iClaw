@@ -1,0 +1,122 @@
+{
+  "anaphora": {
+    "en": ["that", "this", "it", "those", "these", "there", "them"],
+    "es": ["eso", "esto", "ello", "esos", "esas", "aquello", "lo", "los", "allí"],
+    "fr": ["ça", "ce", "cela", "celle", "celles", "ceux", "le", "la", "les", "y", "là"],
+    "de": ["das", "es", "diese", "jene", "dort", "diese", "sie", "ihnen"],
+    "pt": ["isso", "isto", "aquilo", "esses", "essas", "lá", "ali"],
+    "it": ["quello", "questo", "ciò", "quelli", "quelle", "esso", "lì", "là"],
+    "ja": ["それ", "これ", "あれ", "その", "この", "あの"],
+    "zh-Hans": ["那", "这", "它", "那些", "这些", "它们"],
+    "ko": ["그", "이", "저", "그것", "이것", "저것", "그것들", "이것들"],
+    "ar": ["ذلك", "هذا", "ذلك", "تلك", "هذه", "هؤلاء"]
+  },
+  "anaphora_context": {
+    "en": ["about", "from", "with", "regarding", "concerning"],
+    "es": ["sobre", "de", "con", "respecto a", "acerca de"],
+    "fr": ["à propos", "de", "avec", "concernant", "sur"],
+    "de": ["über", "von", "mit", "bezüglich"],
+    "pt": ["sobre", "de", "com", "acerca"],
+    "it": ["su", "di", "con", "riguardo"],
+    "ja": ["について", "から", "と", "に関して"],
+    "zh-Hans": ["关于", "从", "跟", "对于"],
+    "ko": ["에 대해", "에서", "와 함께", "에 관한"],
+    "ar": ["عن", "من", "مع", "بخصوص"]
+  },
+  "referential_nouns": {
+    "en": ["article", "story", "one", "headline", "link", "result", "page", "item", "entry", "place", "location", "city"],
+    "es": ["artículo", "historia", "uno", "titular", "enlace", "resultado", "página", "elemento", "lugar", "ciudad"],
+    "fr": ["article", "histoire", "un", "titre", "lien", "résultat", "page", "élément", "endroit", "lieu", "ville"],
+    "de": ["artikel", "geschichte", "eins", "schlagzeile", "link", "ergebnis", "seite", "ort", "stadt"],
+    "pt": ["artigo", "história", "um", "manchete", "link", "resultado", "página", "item", "lugar", "cidade"],
+    "it": ["articolo", "storia", "uno", "titolo", "link", "risultato", "pagina", "elemento", "luogo", "città"],
+    "ja": ["記事", "話", "見出し", "リンク", "結果", "ページ", "項目", "場所", "都市"],
+    "zh-Hans": ["文章", "故事", "一个", "标题", "链接", "结果", "页面", "项目", "地点", "城市"],
+    "ko": ["기사", "이야기", "하나", "헤드라인", "링크", "결과", "페이지", "항목", "장소", "도시"],
+    "ar": ["مقال", "قصة", "عنوان", "رابط", "نتيجة", "صفحة", "عنصر", "مكان", "مدينة"]
+  },
+  "action_verbs": {
+    "en": ["summarize", "summarise", "summary", "explain", "elaborate", "expand", "detail", "details", "read", "fetch", "open", "visit", "compare", "contrast"],
+    "es": ["resume", "resumir", "resumen", "explica", "explicar", "detalla", "detallar", "amplía", "ampliar", "lee", "leer", "abre", "abrir", "visita", "visitar", "compara", "comparar"],
+    "fr": ["résume", "résumer", "explique", "expliquer", "détaille", "détailler", "développe", "développer", "lis", "lire", "ouvre", "ouvrir", "visite", "visiter", "compare", "comparer"],
+    "de": ["zusammenfassen", "erkläre", "erklären", "detail", "erweitern", "lese", "lesen", "öffne", "öffnen", "besuche", "besuchen", "vergleiche", "vergleichen"],
+    "pt": ["resume", "resumir", "resumo", "explica", "explicar", "detalha", "detalhar", "expande", "expandir", "lê", "ler", "abre", "abrir", "visita", "visitar", "compara", "comparar"],
+    "it": ["riassumi", "riassumere", "spiega", "spiegare", "dettaglia", "dettagliare", "espandi", "espandere", "leggi", "leggere", "apri", "aprire", "visita", "visitare", "confronta", "confrontare"],
+    "ja": ["要約", "説明", "詳しく", "拡張", "読む", "開く", "訪問", "比較"],
+    "zh-Hans": ["总结", "概括", "解释", "详细", "展开", "阅读", "打开", "访问", "比较"],
+    "ko": ["요약", "설명", "자세히", "확장", "읽기", "열기", "방문", "비교"],
+    "ar": ["لخص", "اشرح", "تفصيل", "وسع", "اقرأ", "افتح", "قم بزيارة", "قارن"]
+  },
+  "follow_up_phrases": {
+    "en": ["what about", "how about", "more on", "more about", "tell me more", "go deeper", "any more on", "anything else on", "anything on", "any update on", "what happened with", "back to", "returning to", "going back to", "and what about", "and how about", "what else about"],
+    "es": ["qué pasa con", "qué hay de", "más sobre", "cuéntame más", "profundiza", "algo más sobre", "volviendo a", "regresando a", "y qué hay de"],
+    "fr": ["et", "qu'en est-il", "et à propos", "plus sur", "dis-moi en plus", "approfondis", "revenons à", "en revenant à", "et quoi d'autre"],
+    "de": ["was ist mit", "wie wäre es mit", "mehr über", "erzähl mir mehr", "geh tiefer", "zurück zu", "und was ist mit"],
+    "pt": ["e sobre", "que tal", "mais sobre", "conte mais", "aprofunde", "voltando a", "regressando a"],
+    "it": ["che ne dici", "più su", "dimmi di più", "approfondisci", "tornando a"],
+    "ja": ["はどうですか", "についてもっと", "もっと詳しく", "に戻って"],
+    "zh-Hans": ["怎么样", "更多关于", "告诉我更多", "深入", "回到"],
+    "ko": ["어때", "에 대해 더", "더 자세히", "더 깊이", "돌아가서"],
+    "ar": ["ماذا عن", "أخبرني المزيد", "توسع", "عد إلى"]
+  },
+  "ordinals_0": {
+    "en": ["first", "1st", "#1"],
+    "es": ["primero", "primera", "1o", "1a"],
+    "fr": ["premier", "première", "1er", "1ère"],
+    "de": ["erste", "erster", "1."],
+    "pt": ["primeiro", "primeira", "1o", "1a"],
+    "it": ["primo", "prima", "1o", "1a"],
+    "ja": ["最初", "一番目", "1番目"],
+    "zh-Hans": ["第一", "第一个", "首个"],
+    "ko": ["첫번째", "첫째", "1번"],
+    "ar": ["الأول", "الأولى"]
+  },
+  "ordinals_1": {
+    "en": ["second", "2nd", "#2"],
+    "es": ["segundo", "segunda", "2o", "2a"],
+    "fr": ["deuxième", "seconde", "2e", "2ème"],
+    "de": ["zweite", "zweiter", "2."],
+    "pt": ["segundo", "segunda", "2o", "2a"],
+    "it": ["secondo", "seconda", "2o", "2a"],
+    "ja": ["二番目", "2番目"],
+    "zh-Hans": ["第二", "第二个"],
+    "ko": ["두번째", "둘째", "2번"],
+    "ar": ["الثاني", "الثانية"]
+  },
+  "ordinals_2": {
+    "en": ["third", "3rd", "#3"],
+    "es": ["tercero", "tercera", "3o", "3a"],
+    "fr": ["troisième", "3e", "3ème"],
+    "de": ["dritte", "dritter", "3."],
+    "pt": ["terceiro", "terceira", "3o", "3a"],
+    "it": ["terzo", "terza", "3o", "3a"],
+    "ja": ["三番目", "3番目"],
+    "zh-Hans": ["第三", "第三个"],
+    "ko": ["세번째", "셋째", "3번"],
+    "ar": ["الثالث", "الثالثة"]
+  },
+  "ordinals_3": {
+    "en": ["fourth", "4th", "#4"],
+    "es": ["cuarto", "cuarta", "4o", "4a"],
+    "fr": ["quatrième", "4e", "4ème"],
+    "de": ["vierte", "vierter", "4."],
+    "pt": ["quarto", "quarta", "4o", "4a"],
+    "it": ["quarto", "quarta", "4o", "4a"],
+    "ja": ["四番目", "4番目"],
+    "zh-Hans": ["第四", "第四个"],
+    "ko": ["네번째", "넷째", "4번"],
+    "ar": ["الرابع", "الرابعة"]
+  },
+  "ordinals_4": {
+    "en": ["fifth", "5th", "#5"],
+    "es": ["quinto", "quinta", "5o", "5a"],
+    "fr": ["cinquième", "5e", "5ème"],
+    "de": ["fünfte", "fünfter", "5."],
+    "pt": ["quinto", "quinta", "5o", "5a"],
+    "it": ["quinto", "quinta", "5o", "5a"],
+    "ja": ["五番目", "5番目"],
+    "zh-Hans": ["第五", "第五个"],
+    "ko": ["다섯번째", "5번"],
+    "ar": ["الخامس", "الخامسة"]
+  }
+}

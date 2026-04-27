@@ -1,0 +1,16 @@
+{
+  "comment": "Per-tool fallback ladder. When ToolOutputClassifier verdicts `.failed` or `.offTopic`, the engine tries the next tool in the ladder. Cap at 1 fallback per turn. Add the special name `conversational` to fall through to the LLM-only path.",
+  "ladders": {
+    "Compute":         ["Calculator", "conversational"],
+    "Calculator":      ["Compute", "conversational"],
+    "ReadEmail":       ["Email", "conversational"],
+    "Email":           ["Messages", "conversational"],
+    "Messages":        ["Email", "conversational"],
+    "WikipediaSearch": ["WebFetch", "WebSearch", "conversational"],
+    "News":            ["WebFetch", "WebSearch", "conversational"],
+    "Contacts":        ["conversational"],
+    "Notes":           ["conversational"],
+    "Stocks":          ["WebSearch", "conversational"],
+    "Weather":         ["WebSearch", "conversational"]
+  }
+}

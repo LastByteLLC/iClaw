@@ -1,0 +1,30 @@
+{
+    "macOS": [
+        { "keywords": ["screen recording", "screen capture", "screenshot"], "label": "Open Screen Recording Settings", "url": "x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture" },
+        { "keywords": ["location", "gps"], "label": "Open Location Settings", "url": "x-apple.systempreferences:com.apple.preference.security?Privacy_LocationServices" },
+        { "keywords": ["camera"], "label": "Open Camera Settings", "url": "x-apple.systempreferences:com.apple.preference.security?Privacy_Camera" },
+        { "keywords": ["microphone", "audio input"], "label": "Open Microphone Settings", "url": "x-apple.systempreferences:com.apple.preference.security?Privacy_Microphone" },
+        { "keywords": ["speech recognition"], "label": "Open Speech Settings", "url": "x-apple.systempreferences:com.apple.preference.security?Privacy_SpeechRecognition" },
+        { "keywords": ["contacts"], "label": "Open Contacts Settings", "url": "x-apple.systempreferences:com.apple.preference.security?Privacy_Contacts" },
+        { "keywords": ["calendar"], "label": "Open Calendar Settings", "url": "x-apple.systempreferences:com.apple.preference.security?Privacy_Calendars" },
+        { "keywords": ["reminders"], "label": "Open Reminders Settings", "url": "x-apple.systempreferences:com.apple.preference.security?Privacy_Reminders" },
+        { "keywords": ["full disk access", "disk access"], "label": "Open Full Disk Access", "url": "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles" },
+        { "keywords": ["accessibility"], "label": "Open Accessibility Settings", "url": "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility" },
+        { "keywords": ["automation", "applescript", "apple events"], "label": "Open Automation Settings", "url": "x-apple.systempreferences:com.apple.preference.security?Privacy_Automation" },
+        { "keywords": ["notification"], "label": "Open Notification Settings", "url": "x-apple.systempreferences:com.apple.preference.notifications" },
+        { "keywords": ["health"], "label": "Open Health Settings", "url": "x-apple.systempreferences:com.apple.preference.security?Privacy_Health" },
+        { "keywords": ["network", "internet", "offline", "connection"], "label": "Open Network Settings", "url": "x-apple.systempreferences:com.apple.preference.network" }
+    ],
+    "iOS": [
+        { "keywords": ["location", "gps"], "label": "Open Settings", "url": "app-settings:" },
+        { "keywords": ["camera"], "label": "Open Settings", "url": "app-settings:" },
+        { "keywords": ["microphone", "audio input"], "label": "Open Settings", "url": "app-settings:" },
+        { "keywords": ["speech recognition"], "label": "Open Settings", "url": "app-settings:" },
+        { "keywords": ["contacts"], "label": "Open Settings", "url": "app-settings:" },
+        { "keywords": ["calendar"], "label": "Open Settings", "url": "app-settings:" },
+        { "keywords": ["reminders"], "label": "Open Settings", "url": "app-settings:" },
+        { "keywords": ["notification"], "label": "Open Settings", "url": "app-settings:" },
+        { "keywords": ["health"], "label": "Open Settings", "url": "app-settings:" },
+        { "keywords": ["network", "internet", "offline", "connection"], "label": "Open Settings", "url": "App-prefs:WIFI" }
+    ]
+}

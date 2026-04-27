@@ -1,0 +1,20 @@
+[
+  {
+    "tool": "Messages",
+    "displayName": "iMessage",
+    "icon": "message.fill",
+    "chip": "messages",
+    "keywords": ["text", "imessage", "sms", "iMessage"],
+    "patterns": ["phone_number"],
+    "mlLabels": ["messages.send", "messages.read", "messages.search"]
+  },
+  {
+    "tool": "Email",
+    "displayName": "Email",
+    "icon": "envelope.fill",
+    "chip": "email",
+    "keywords": ["email", "mail", "e-mail"],
+    "patterns": ["email_address"],
+    "mlLabels": ["email.compose", "email.read", "email.search"]
+  }
+]

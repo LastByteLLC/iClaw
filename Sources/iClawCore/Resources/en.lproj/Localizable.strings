@@ -1,0 +1,595 @@
+/* iClaw Localizable Strings — English (Development Language) */
+
+/* Help Menu */
+"iClaw Website" = "iClaw Website";
+"Contact Support…" = "Contact Support…";
+"Contact Support" = "Contact Support";
+"Send Feedback…" = "Send Feedback…";
+
+/* Productivity widget strings */
+"Added to Reminders" = "Added to Reminders";
+"Open Reminders" = "Open Reminders";
+"Saved to Notes" = "Saved to Notes";
+"Copy & Open Notes" = "Copy & Open Notes";
+"Added to Contacts" = "Added to Contacts";
+"Add to Contacts" = "Add to Contacts";
+"Sent" = "Sent";
+"Open in Messages" = "Open in Messages";
+"Open Calendar" = "Open Calendar";
+"Add to Calendar" = "Add to Calendar";
+"Added to Calendar" = "Added to Calendar";
+"Event added" = "Event added";
+"Open Mail" = "Open Mail";
+"Open in Mail" = "Open in Mail";
+"Send email" = "Send email";
+"Email sent" = "Email sent";
+"Copy body" = "Copy body";
+"To: %@" = "To: %@";
+
+/* Accessibility Labels */
+"Search result: %@ — iClaw: %@" = "Search result: %@ — iClaw: %@";
+"Runs this as a new query" = "Runs this as a new query";
+"Off" = "Off";
+"On" = "On";
+
+/* Empty states */
+"No matches for \"%@\"" = "No matches for \"%@\"";
+"Clear search" = "Clear search";
+"Tool category suggestions" = "Tool category suggestions";
+"Tool suggestions" = "Tool suggestions";
+"Ticker suggestions" = "Ticker suggestions";
+"Recording. Speak now." = "Recording. Speak now.";
+"Recording stopped" = "Recording stopped";
+"Open %@ in System Settings" = "Open %@ in System Settings";
+"Remove %@" = "Remove %@";
+"Pause automation" = "Pause automation";
+"Resume automation" = "Resume automation";
+"Delete automation" = "Delete automation";
+"Refresh connection status" = "Refresh connection status";
+"Playback position" = "Playback position";
+"analog clock, %@" = "analog clock, %@";
+"You" = "You";
+"Open in Maps" = "Open in Maps";
+"Opens %@" = "Opens %@";
+"Ask about this article" = "Ask about this article";
+"Unread" = "Unread";
+"Copy" = "Copy";
+"Delete" = "Delete";
+"Retry" = "Retry";
+"Reply to this message" = "Reply to this message";
+"Send feedback about this message" = "Send feedback about this message";
+
+/* ============================================================
+   MARK: - Widget Strings
+   ============================================================ */
+
+/* TOSWidgetView */
+"Before we begin" = "Before we begin";
+"iClaw uses on-device Apple Intelligence. AI can make mistakes." = "iClaw uses on-device Apple Intelligence. AI can make mistakes.";
+"We only collect data you share using the #feedback tool." = "We only collect data you share using the #feedback tool.";
+"Read our Terms of Service" = "Read our Terms of Service";
+"I Understand" = "I Understand";
+
+/* PermissionWidgetView */
+"Permission Needed" = "Permission Needed";
+"Not Now" = "Not Now";
+"Allow" = "Allow";
+"%@ Granted" = "%@ Granted";
+"Permission Rejected" = "Permission Rejected";
+"%@ access was declined." = "%@ access was declined.";
+"Open Settings" = "Open Settings";
+
+/* FeedbackWidgetView */
+"Sending feedback..." = "Sending feedback...";
+"Feedback sent. Thank you!" = "Feedback sent. Thank you!";
+"Feedback cancelled." = "Feedback cancelled.";
+"Suggested follow-ups:" = "Suggested follow-ups:";
+"Clarify" = "Clarify";
+"Cancel" = "Cancel";
+"Send" = "Send";
+
+/* BackgroundTaskWidgetView */
+"Processing Request..." = "Processing Request...";
+
+/* SunWidgetView */
+"Sunrise" = "Sunrise";
+"Sunset" = "Sunset";
+"Golden hour until %@" = "Golden hour until %@";
+"Golden hour from %@" = "Golden hour from %@";
+
+/* StockWidgetView */
+"Open in Stocks" = "Open in Stocks";
+"Invalid Stock Data" = "Invalid Stock Data";
+"stock.a11y.change" = "Up %1$@, %2$@ percent";
+"stock.a11y.change.down" = "Down %1$@, %2$@ percent";
+
+/* SpeedTestWidgetView */
+"Mbps" = "Mbps";
+"Speed test failed" = "Speed test failed";
+"Not connected" = "Not connected";
+"ms" = "ms";
+"Signal" = "Signal";
+"dBm" = "dBm";
+"Ch %@" = "Ch %@";
+
+/* AutomationWidgetView */
+"New Automation" = "New Automation";
+"Query:" = "Query:";
+"Interval:" = "Interval:";
+"First run:" = "First run:";
+"Confirm" = "Confirm";
+"Manage in Settings" = "Manage in Settings";
+
+/* ImportPreviewWidgetView */
+"Invalid import data" = "Invalid import data";
+"Add to Calendar" = "Add to Calendar";
+"Add to Contacts" = "Add to Contacts";
+"Failed to save event: %@" = "Failed to save event: %@";
+"Failed to save contact: %@" = "Failed to save contact: %@";
+
+/* EmailListWidgetView */
+"No emails" = "No emails";
+"email.header.search" = "Search: %@";
+"email.header.from" = "From: %@";
+
+/* NewsWidgetView */
+"No articles available" = "No articles available";
+"Headlines" = "Headlines";
+"Search through web" = "Search through web";
+"Ask about this article" = "Ask about this article";
+
+/* MapWidgetView */
+"Open in Apple Maps" = "Open in Apple Maps";
+"Open in Maps" = "Open in Maps";
+"Map data unavailable" = "Map data unavailable";
+
+/* ComputeWidgetView */
+"Copy result" = "Copy result";
+"Output was truncated (exceeded 10KB)" = "Output truncated (too large)";
+"Show Code" = "Show Code";
+
+/* TimerWidgetView */
+"Pause" = "Pause";
+"Resume" = "Resume";
+"timer.a11y.remaining" = "Timer: %@ remaining";
+
+/* ClockWidgetView */
+"Local Time" = "Local Time";
+"clock.a11y.showing" = "Clock showing %@";
+
+/* MoonWidgetView */
+"%lld%% illuminated" = "%lld%% illuminated";
+"moon.a11y.illumination" = "Moon illumination %lld percent";
+
+/* DateViewWidget */
+"Week %lld" = "Week %lld";
+
+/* EmojiWidgetView */
+"Copy %@" = "Copy %@";
+
+/* RandomWidgetView */
+"Random Color" = "Random Color";
+"Coin Flip" = "Coin Flip";
+"Heads" = "Heads";
+"Tails" = "Tails";
+"Card Draw" = "Card Draw";
+"Dice Roll" = "Dice Roll";
+"Random Date" = "Random Date";
+"Random Number" = "Random Number";
+"Generate again" = "Generate again";
+"Copy to clipboard" = "Copy to clipboard";
+
+/* TimeComparisonWidgetView */
+"Same timezone" = "Same timezone";
+"time.comparison.ahead" = "%@h ahead";
+"time.comparison.behind" = "%@h behind";
+"You" = "You";
+
+/* AudioPlayerWidgetView */
+"Unknown Title" = "Unknown Title";
+"Unknown Subtitle" = "Unknown Subtitle";
+
+/* DictionaryWidgetView */
+"Corrected from '%@'" = "Corrected from '%@'";
+"No data" = "No data";
+
+/* TodaySummaryWidgetView */
+"Today" = "Today";
+"Events" = "Events";
+"No events today" = "No events today";
+"All day" = "All day";
+"Reminders" = "Reminders";
+"All clear" = "All clear";
+
+/* ResearchWidgetView */
+"No sources found" = "No sources found";
+"Sources" = "Sources";
+
+/* AutomateWidgetView */
+"Automation" = "Automation";
+"Run" = "Run";
+"Saved" = "Saved";
+"Save" = "Save";
+"Script Editor" = "Script Editor";
+
+/* CalculatorWidgetView */
+"Explain" = "Explain";
+"Explain this calculation step by step" = "Explain calculation, step by step";
+
+/* CreateWidgetView */
+"Save to Desktop" = "Save to Desktop";
+
+/* CryptoWidgetView */
+"Copy" = "Copy";
+
+/* HoroscopeWidgetView */
+"Daily Horoscope" = "Daily Horoscope";
+
+/* QuoteWidgetView */
+"Copy quote" = "Copy quote";
+
+/* RemoteFileListWidgetView */
+"Files from %@" = "Files from %@";
+"No files found." = "No files found.";
+"Transfer to this device" = "Transfer to this device";
+
+/* PodcastPlayerView */
+"Open in Apple Podcasts" = "Open in Apple Podcasts";
+
+/* PodcastEpisodesWidgetView */
+"No episodes" = "No episodes";
+
+/* WidgetRenderer */
+"Unknown Widget: %@" = "Unknown Widget: %@";
+
+/* ToolTipCardView */
+"Tip" = "Tip";
+
+/* ConsentSheetView */
+/* "Cancel" and "Allow" already defined above */
+
+/* ============================================================
+   MARK: - Settings Strings
+   ============================================================ */
+
+/* SettingsTab */
+"General" = "General";
+"Models" = "Models";
+"Automations" = "Automations";
+"Skills" = "Skills";
+"Email" = "Email";
+"Continuity" = "Continuity";
+"Permissions" = "Permissions";
+"Labs" = "Labs";
+"History" = "History";
+"Notifications" = "Notifications";
+"About" = "About";
+
+/* NotificationMode */
+"Off" = "Off";
+"Basic" = "Basic";
+"Full" = "Full";
+"No badges, dots, or notifications." = "No badges, dots, or notifications.";
+"Shows a dot indicator on the menu bar and dock when results arrive in the background." = "Simple red dot indicator.";
+"Shows result count plus system notification banners that navigate to the result." = "Full system notification banners.";
+"Notification Style" = "Notification Style";
+"Notification permission is not granted." = "Notification permission is not granted.";
+"System banners require notification permission." = "System banners require notification permission.";
+"Notification permission granted." = "Notification permission granted.";
+
+/* PersonalityLevel */
+"Full (Terse & Sassy)" = "Full (Terse & Sassy)";
+"Moderate" = "Moderate";
+"Neutral" = "Neutral";
+"Custom" = "Custom";
+"Default personality: terse, no filler, dry humor." = "Default personality: terse, no filler, dry humor.";
+"Keeps brevity but tones down the sass." = "Keeps brevity with neutral tone.";
+"Straightforward assistant responses, no personality flavor." = "Straightforward assistant responses, no personality flavor.";
+
+/* Voice quality labels */
+" (Premium)" = " (Premium)";
+" (Enhanced)" = " (Enhanced)";
+"This is iClaw, your local AI agent." = "This is iClaw, your local AI agent.";
+
+/* ClearAge */
+"1 Week" = "1 Week";
+"1 Month" = "1 Month";
+"3 Months" = "3 Months";
+"6 Months" = "6 Months";
+"Keep Forever" = "Keep Forever";
+
+/* TemperatureUnit */
+"System Default" = "System Default";
+"Celsius (°C)" = "Celsius (°C)";
+"Fahrenheit (°F)" = "Fahrenheit (°F)";
+
+/* Automation status */
+"Failed" = "Failed";
+"Active" = "Active";
+"Paused" = "Paused";
+
+/* Continuity */
+"Available" = "Available";
+"Offline" = "Offline";
+
+/* History */
+"Calculating..." = "Calculating...";
+"N/A" = "N/A";
+
+/* AboutSettingsView */
+"Powered by Apple Intelligence" = "Powered by Apple Intelligence";
+"An on-device AI agent." = "An on-device AI agent.";
+"Version" = "Version";
+"Build" = "Build";
+"Check for Updates…" = "Check for Updates…";
+"About iClaw" = "About iClaw";
+"Website" = "Website";
+"GitHub" = "GitHub";
+"Privacy Policy" = "Privacy Policy";
+"Terms of Service" = "Terms of Service";
+
+/* Knowledge Memory (HistorySettingsView) */
+"Knowledge Memory" = "Knowledge Memory";
+"Enable Knowledge Memory" = "Enable Knowledge Memory";
+"Learned facts" = "Learned facts";
+"Clear Knowledge Memories" = "Clear Knowledge Memories";
+
+/* Browser Integration (GeneralSettingsView) */
+"Browser Integration" = "Browser Integration";
+"Enable Browser Bridge" = "Enable Browser Bridge";
+"Connected to browser extension" = "Connected to browser extension";
+"Waiting for browser extension" = "Waiting for browser extension";
+"Open Safari Extension Settings" = "Open Safari Extension Settings";
+"The bundled Safari extension lets iClaw access page content with real cookies and sessions. Enable it in Safari → Settings → Extensions." = "The Safari extension lets iClaw access web page content. Enable it in Safari → Settings → Extensions.";
+
+/* ============================================================
+   MARK: - FTUE / Onboarding
+   ============================================================ */
+
+/* FTUETutorialView */
+"Welcome to iClaw" = "Welcome to iClaw";
+"Your private, local AI companion." = "Your private, local AI companion.";
+"Type # to use a specific tool. For example: type #weather to skip the thinking and go straight to the forecast." = "Type # to use a tool like #weather to skip the thinking and go straight to the forecast.";
+"Get Started" = "Get Started";
+
+"Private" = "Private";
+"Local AI, so your data never leaves your Mac." = "Powered by Apple Intelligence, all AI runs locally on your Mac, not the cloud.";
+"Free" = "Free";
+"No trials, subscriptions, credits, or rate limits." = "No trials, subscriptions, credits, API keys, or rate limits.";
+"Powerful" = "Powerful";
+"Built-in tools and skills help iClaw get results and take action." = "Built-in tools and skills help iClaw get results and take action.";
+"Secure" = "Secure";
+"iClaw only uses the permissions you give it, and confirms before taking action." = "iClaw only uses the permissions you give it, and confirms before taking action.";
+
+/* SaveToFileAction */
+"Save Message" = "Save Message";
+
+/* ============================================================
+   MARK: - TipKit Strings
+   ============================================================ */
+
+"Tool Chips" = "Tool Chips";
+"Type # to browse all available tools, or just ask naturally." = "Type # to browse all available tools, or just ask naturally.";
+"Voice Input" = "Voice Input";
+"Tap the mic to speak your request instead of typing." = "Tap the mic to speak your request instead of typing.";
+"Follow-Up Context" = "Follow-Up Context";
+"Ask a Follow-Up" = "Ask a Follow-Up";
+"Paste Files" = "Paste Files";
+"Stock Quotes" = "Stock Quotes";
+"Type $AAPL to get a stock quote instantly." = "Type $AAPL to get a stock quote instantly.";
+"Teach Me New Tricks" = "Teach Me New Tricks";
+"Drop AgentSkills.io files into ~/Documents/AgentSkills to add capabilities." = "Drop Agent Skills into ~/Documents/AgentSkills to add new skills.";
+"Customize Personality" = "Customize Personality";
+"Report Bad Layouts" = "Report Bad Layouts";
+"Tap the flag icon to report a widget that doesn't look right." = "Tap the flag icon to report a widget that doesn't look right.";
+"Step-by-Step Math" = "Step-by-Step Math";
+"Tap Explain on calculator results to see the math rendered beautifully." = "Tap Explain on calculator results to see how the results were calculated.";
+
+/* ============================================================
+   MARK: - SettingsView Strings
+   ============================================================ */
+
+/* Section Headers */
+"Appearance" = "Appearance";
+"Personality" = "Personality";
+"Action Consent" = "Action Consent";
+"Speech" = "Speech";
+"Heartbeat" = "Heartbeat";
+"Privacy" = "Privacy";
+"Registered Devices" = "Registered Devices";
+"Read Email" = "Read Email";
+"Incoming Email Hook" = "Incoming Email Hook";
+"Future" = "Future";
+"Privacy Permissions" = "Privacy Permissions";
+"System Permissions" = "System Permissions";
+"Default Location" = "Default Location";
+"Dynamic Widgets" = "Dynamic Widgets";
+"Screen Context" = "Screen Context";
+"Conversation Memory" = "Conversation Memory";
+"Clear History" = "Clear History";
+"Skills" = "Skills";
+"Skill Catalog" = "Skill Catalog";
+"News Sources" = "News Sources";
+
+/* Appearance */
+"Font Size" = "Font Size";
+
+/* Personality */
+"Full" = "Full";
+"Moderate" = "Moderate";
+"Neutral" = "Neutral";
+"Custom" = "Custom";
+
+/* Action Consent */
+"Automatically approve non-destructive tool actions" = "Automatically approve non-destructive tool actions";
+
+/* Speech */
+"Automatically reads aloud agent responses when voice input is used." = "Automatically reads aloud responses when voice input is used.";
+"System Default" = "System Default";
+
+/* Heartbeat */
+"Disabled" = "Disabled";
+"Periodically send a greeting to keep iClaw active." = "Periodically send a greeting to keep iClaw active.";
+
+/* Privacy */
+"Help make iClaw better by sharing anonymous crash reports." = "Help make iClaw better by sharing anonymous crash reports.";
+
+/* Browser Extension */
+"Coming Soon" = "Coming Soon";
+
+/* Continuity */
+"Enable iPhone/Mac Continuity" = "Enable iPhone/Mac Continuity";
+"No other devices found." = "No other devices found.";
+"Refresh" = "Refresh";
+
+/* Email */
+"Automation (Mail.app)" = "Automation (Mail.app)";
+
+/* Permissions */
+"Location" = "Location";
+"Contacts" = "Contacts";
+"Calendar" = "Calendar";
+"Reminders" = "Reminders";
+"Rejected" = "Rejected";
+"City or address" = "City or address";
+"Clear" = "Clear";
+"Used when Location Services is unavailable." = "Used when Location Services is unavailable.";
+
+/* Automations */
+"Automations" = "Automations";
+"No automations yet" = "No automations yet";
+
+/* Labs */
+"Labs" = "Labs";
+
+/* About */
+"About" = "About";
+
+/* History */
+"History" = "History";
+
+/* ============================================================
+   MARK: - Other Views
+   ============================================================ */
+
+/* SearchResultView */
+"Summary" = "Summary";
+
+/* FeedbackWidgetView */
+"Rate iClaw on the App Store" = "Rate iClaw on the App Store";
+
+/* DictionaryWidgetView (help tooltips) */
+"Look up in Dictionary" = "Look up in Dictionary";
+
+/* ChatView (help tooltips) */
+"Reply to this message" = "Reply to this message";
+"Read aloud" = "Read aloud";
+"Delete" = "Delete";
+
+/* ChatView (fallback messages) */
+"empty_response_fallback" = "I wasn't able to generate a response. Try rephrasing or using a specific tool chip.";
+
+/* ============================================================
+   MARK: - Help System Strings
+   ============================================================ */
+
+/* Help suggestion pills */
+"help_suggestion_capabilities" = "What can you do?";
+"help_suggestion_tour" = "Give me a tour";
+"help_suggestion_limitations" = "What can't you do?";
+"help_suggestion_modes" = "What modes are available?";
+"help_suggestion_explore_category %@" = "Explore %@ tools";
+
+/* Help category descriptions (overview widget) */
+"help_cat_math" = "Calculator, unit conversion, statistics";
+"help_cat_live" = "Weather, stocks, news, podcasts";
+"help_cat_search" = "Web search, Wikipedia, deep research";
+"help_cat_util" = "Translate, dictionary, transcription";
+"help_cat_schedule" = "Calendar, timers, daily briefing";
+"help_cat_system" = "Device info, diagnostics, troubleshooting";
+"help_cat_email" = "Compose and read email";
+"help_cat_automate" = "Scripting, automation, shortcuts";
+
+/* Help category name references */
+"help_category_search" = "Search";
+
+/* Help widget accessibility */
+"help_category_explored" = "Explored";
+"help_category_explore_hint" = "Double-tap to explore this category";
+
+/* Help category widget: try-it button */
+"help_try_example %@" = "Try: \"%@\"";
+"help_try_tool %@" = "Try %@";
+
+/* Help tour steps */
+"help_tour_step %lld %lld" = "Step %lld of %lld";
+"help_tour_step1_title" = "Just ask naturally";
+"help_tour_step1_body" = "No special syntax needed. Ask anything and I'll route it to the right tool.";
+"help_tour_step2_title" = "Chips for precision";
+"help_tour_step2_body" = "Type # to pick a tool category directly. Useful when you know what you want.";
+"help_tour_step3_title" = "Modes for deep work";
+"help_tour_step3_body" = "Modes are multi-turn sessions. Enter one, work through it, say \"done\" to exit.";
+"help_tour_step4_title" = "Power features";
+"help_tour_step4_body" = "Paste files for analysis. Use $AAPL for stock quotes. Tap the mic for voice. The context pill above the input chains follow-ups.";
+
+/* Help tour example prompts */
+"help_tour_example_weather" = "Weather in Paris";
+"help_tour_example_coin" = "Flip a coin";
+"help_tour_example_time" = "What time is it in Tokyo?";
+
+/* Help limitations widget */
+"help_limitations_header" = "LIMITATIONS";
+"help_strengths_header" = "STRENGTHS";
+
+"help_limit_no_images_title" = "No image generation";
+"help_limit_no_images_detail" = "I can analyze images but not create them";
+"help_limit_no_file_edit_title" = "No file editing";
+"help_limit_no_file_edit_detail" = "I can read files but not modify them yet";
+"help_limit_offline_title" = "Some tools need internet";
+"help_limit_offline_detail" = "Weather, stocks, news, and web search require a connection";
+"help_limit_context_title" = "Focused questions work best";
+"help_limit_context_detail" = "I handle 3–4 steps well; very long documents may be truncated";
+"help_limit_no_calls_title" = "No phone calls";
+"help_limit_no_calls_detail" = "I can send messages but not make calls or FaceTime";
+
+"help_strength_private" = "Private";
+"help_strength_fast" = "Fast";
+"help_strength_free" = "Free";
+
+/* ============================================================
+   MARK: - TipKit Help Discovery Strings
+   ============================================================ */
+
+"help_tip_discovery_title" = "Need Help?";
+"help_tip_discovery_message" = "Type \"help\" or ask \"what can you do?\" to explore all capabilities.";
+"help_tip_modes_title" = "Try a Mode";
+"help_tip_modes_message" = "Type #research or #techsupport for multi-turn focused sessions.";
+"help_tip_tour_title" = "Take a Tour";
+"help_tip_tour_message" = "Type \"give me a tour\" for a guided walkthrough of what I can do.";
+
+/* ============================================================
+   MARK: - Starter Prompt Strings
+   ============================================================ */
+
+"starter_hint" = "Tap to try this prompt";
+"starter_sunrise" = "Sunrise today";
+"starter_timer" = "Set a timer";
+"starter_math_label" = "Quick math";
+"starter_news" = "Headlines";
+"starter_translate_label" = "Translate";
+"starter_define_label" = "Define a word";
+"starter_random" = "Try your luck";
+"starter_calendar" = "My schedule";
+"starter_today" = "Daily briefing";
+"starter_system" = "System check";
+"starter_podcast" = "Find a podcast";
+
+/* ============================================================
+   MARK: - Tool Settings Strings
+   ============================================================ */
+
+"tools_settings_tab" = "Tools";
+"open_tools_settings" = "Open Tools settings";
+"tools_settings_footer" = "Disabled tools won't appear in routing, help, or suggestions. Changes take effect after restart.";
+"tools_restart_required" = "Restart iClaw to apply changes";
+"tools_restart_button" = "Restart";

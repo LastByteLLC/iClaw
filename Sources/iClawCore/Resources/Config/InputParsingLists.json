@@ -1,0 +1,4 @@
+{
+    "fillerWords": ["what's", "the", "for", "in", "is", "what", "how's", "how", "get", "show", "me"],
+    "strippableKeywords": ["weather", "forecast", "temperature", "time"]
+}

@@ -1,0 +1,36 @@
+{
+    "detailKeywords": [
+        { "keywords": ["wind speed", "wind", "windy", "gusts", "gust"], "field": "wind" },
+        { "keywords": ["humidity", "humid", "moisture"], "field": "humidity" },
+        { "keywords": ["uv index", "uv", "ultraviolet", "sun exposure", "sunburn"], "field": "uv" },
+        { "keywords": ["feels like", "real feel", "apparent", "wind chill", "heat index"], "field": "feelsLike" },
+        { "keywords": ["pressure", "barometric", "barometer"], "field": "pressure" },
+        { "keywords": ["visibility", "visible", "how far can i see"], "field": "visibility" },
+        { "keywords": ["dew point", "dewpoint"], "field": "dewPoint" },
+        { "keywords": ["cloud cover", "clouds", "cloudy", "overcast"], "field": "clouds" },
+        { "keywords": ["precipitation", "rainfall", "rain chance", "chance of rain"], "field": "precipitation" },
+        { "keywords": ["moon", "moon phase", "lunar", "moonrise", "moonset", "full moon", "new moon", "crescent", "gibbous", "waxing", "waning"], "field": "moon" },
+        { "keywords": ["sunrise", "sun rise", "when does the sun rise", "what time sunrise"], "field": "sunrise" },
+        { "keywords": ["sunset", "sun set", "when does the sun set", "what time sunset", "golden hour"], "field": "sunset" },
+        { "keywords": ["air quality", "aqi", "pollution", "pm2.5", "pm10", "particulate", "smog", "air pollution", "pollen", "allergen"], "field": "airQuality" }
+    ],
+    "forecastKeywords": [
+        "forecast", "this week", "next week", "next few days",
+        "coming days", "week ahead", "outlook"
+    ],
+    "sevenDayKeywords": [
+        "7 day", "7-day", "seven day", "next week", "week ahead", "weekly"
+    ],
+    "comparisonKeywords": [
+        "compare", "vs", "versus", "compared to", "or",
+        "warmer", "colder", "hotter", "cooler", "wetter", "drier",
+        "difference between"
+    ],
+    "searchKeywords": [
+        { "keywords": ["next full moon", "when is the full moon", "when will the moon be full", "days until full moon", "how long until full moon", "upcoming full moon"], "condition": "full moon" },
+        { "keywords": ["next new moon", "when is the new moon", "upcoming new moon"], "condition": "new moon" },
+        { "keywords": ["next first quarter", "next first quarter moon"], "condition": "first quarter" },
+        { "keywords": ["next last quarter", "next last quarter moon"], "condition": "last quarter" },
+        { "keywords": ["next sunny day", "next clear day", "when will it be sunny", "when will it be clear", "next nice day", "when will the weather be nice", "when will it stop raining", "next good weather", "next day without rain"], "condition": "sunny day" }
+    ]
+}

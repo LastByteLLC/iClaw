@@ -1,0 +1,9 @@
+{
+    "concisenessRules": [
+        {"maxWords": 8, "maxIngredients": 1, "instruction": "1-2 sentences"},
+        {"maxWords": 20, "maxIngredients": 3, "instruction": "2-4 sentences"},
+        {"maxWords": 999, "maxIngredients": 999, "instruction": "3-6 sentences"}
+    ],
+    "charLimitMultiplier": 4,
+    "minCharLimitForTruncation": 50
+}

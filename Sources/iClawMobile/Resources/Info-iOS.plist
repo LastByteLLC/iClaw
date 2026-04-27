@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.geticlaw.iClaw.automation.refresh</string>
+	</array>
+	<key>CFBundleDisplayName</key>
+	<string>iClaw</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleName</key>
+	<string>iClaw</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0-a1-LoRA</string>
+	<key>CFBundleVersion</key>
+	<string>29</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>iClaw accesses your calendar to check and create events.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>iClaw uses the camera to capture photos when you ask it to take a picture.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>iClaw accesses your contacts to personalize your experience and send messages on your behalf.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>iClaw communicates with browser extensions on this device to fetch web page content.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>iClaw uses your location to provide weather, directions, and nearby place information.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>iClaw uses the microphone for voice input and audio transcription.</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>iClaw accesses your reminders to check and create tasks.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>iClaw uses speech recognition for voice-to-text input.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+		<string>processing</string>
+	</array>
+	<key>UILaunchScreen</key>
+	<dict/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+</dict>
+</plist>

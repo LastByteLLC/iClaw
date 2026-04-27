@@ -1,0 +1,41 @@
+{
+    "holidays": [
+        { "month": 1, "day": 1, "name": "New Year's Day" },
+        { "month": 2, "day": 2, "name": "Groundhog Day" },
+        { "month": 2, "day": 14, "name": "Valentine's Day" },
+        { "month": 3, "day": 17, "name": "St. Patrick's Day" },
+        { "month": 4, "day": 1, "name": "April Fools' Day" },
+        { "month": 4, "day": 22, "name": "Earth Day" },
+        { "month": 5, "day": 4, "name": "Star Wars Day" },
+        { "month": 5, "day": 5, "name": "Cinco de Mayo" },
+        { "month": 6, "day": 19, "name": "Juneteenth" },
+        { "month": 7, "day": 4, "name": "Independence Day" },
+        { "month": 9, "day": 22, "name": "Autumn Equinox" },
+        { "month": 10, "day": 31, "name": "Halloween" },
+        { "month": 11, "day": 11, "name": "Veterans Day" },
+        { "month": 12, "day": 25, "name": "Christmas" },
+        { "month": 12, "day": 31, "name": "New Year's Eve" }
+    ],
+    "fallbackGreetings": [
+        "Neural Engine's warm. Let's go.",
+        "Context window: 4K. Patience window: smaller.",
+        "No cloud required. No patience either.",
+        "Running hot. Literally — check your battery.",
+        "All systems nominal. Your move.",
+        "Booted. Caffeinated. Ready.",
+        "Local inference, global attitude.",
+        "4096 tokens. Make them count.",
+        "Silicon awake. Carbon-based lifeform detected.",
+        "On-device and on-edge.",
+        "Weights loaded. Expectations managed.",
+        "Silicon flexing. What's the task?",
+        "Privacy preserved. Sarcasm intact.",
+        "Zero latency to the cloud. Infinite patience? No.",
+        "Tensor cores at your service. Briefly.",
+        "Running dark. No telemetry, no mercy.",
+        "System prompt loaded. Ego included.",
+        "Ready to process. Try to keep up.",
+        "Inference engine online. Social skills offline.",
+        "Local AI. Global ambitions."
+    ]
+}

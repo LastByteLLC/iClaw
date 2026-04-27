@@ -1,0 +1,55 @@
+{
+    "providers": [
+        {
+            "kind": "appleFoundation",
+            "displayName": "Apple Foundation",
+            "requiresAPIKey": false,
+            "keyPrefix": null,
+            "keyMinLength": 0,
+            "keyFormatHint": "",
+            "models": [
+                { "id": "default", "name": "On-Device (default)", "inputPricePer1M": 0, "outputPricePer1M": 0 }
+            ]
+        },
+        {
+            "kind": "openAI",
+            "displayName": "OpenAI",
+            "requiresAPIKey": true,
+            "keyPrefix": "sk-",
+            "keyMinLength": 40,
+            "keyFormatHint": "OpenAI keys start with \"sk-\" and are 40+ characters",
+            "models": [
+                { "id": "gpt-5.4",      "name": "GPT-5.4",              "inputPricePer1M": 2.50,  "outputPricePer1M": 15.00 },
+                { "id": "gpt-5-mini",    "name": "GPT-5 Mini",           "inputPricePer1M": 0.25,  "outputPricePer1M": 2.00  },
+                { "id": "gpt-4.1",       "name": "GPT-4.1",              "inputPricePer1M": 2.00,  "outputPricePer1M": 8.00  },
+                { "id": "gpt-4.1-mini",  "name": "GPT-4.1 Mini",         "inputPricePer1M": 0.40,  "outputPricePer1M": 1.60  },
+                { "id": "gpt-4.1-nano",  "name": "GPT-4.1 Nano",         "inputPricePer1M": 0.10,  "outputPricePer1M": 0.40  },
+                { "id": "o4-mini",       "name": "o4-mini (reasoning)",   "inputPricePer1M": 1.10,  "outputPricePer1M": 4.40  },
+                { "id": "o3",            "name": "o3 (reasoning)",        "inputPricePer1M": 2.00,  "outputPricePer1M": 8.00  },
+                { "id": "o3-pro",        "name": "o3-pro (reasoning)",    "inputPricePer1M": 20.00, "outputPricePer1M": 80.00 },
+                { "id": "o3-mini",       "name": "o3-mini (reasoning)",   "inputPricePer1M": 1.10,  "outputPricePer1M": 4.40  },
+                { "id": "gpt-4o",        "name": "GPT-4o",               "inputPricePer1M": 2.50,  "outputPricePer1M": 10.00 },
+                { "id": "gpt-4o-mini",   "name": "GPT-4o Mini",          "inputPricePer1M": 0.15,  "outputPricePer1M": 0.60  }
+            ]
+        },
+        {
+            "kind": "googleGemini",
+            "displayName": "Google Gemini",
+            "requiresAPIKey": true,
+            "keyPrefix": null,
+            "keyMinLength": 30,
+            "keyFormatHint": "Gemini keys are 30+ alphanumeric characters",
+            "models": [
+                { "id": "gemini-3.1-pro-preview",        "name": "Gemini 3.1 Pro (preview)",       "inputPricePer1M": 2.00,  "outputPricePer1M": 12.00 },
+                { "id": "gemini-3-flash-preview",         "name": "Gemini 3 Flash (preview)",       "inputPricePer1M": 0.50,  "outputPricePer1M": 3.00  },
+                { "id": "gemini-3.1-flash-lite-preview",  "name": "Gemini 3.1 Flash-Lite (preview)","inputPricePer1M": 0.25,  "outputPricePer1M": 1.50  },
+                { "id": "gemini-2.5-pro",                 "name": "Gemini 2.5 Pro",                 "inputPricePer1M": 1.25,  "outputPricePer1M": 10.00 },
+                { "id": "gemini-2.5-flash",               "name": "Gemini 2.5 Flash",               "inputPricePer1M": 0.30,  "outputPricePer1M": 2.50  },
+                { "id": "gemini-2.5-flash-lite",          "name": "Gemini 2.5 Flash-Lite",          "inputPricePer1M": 0.10,  "outputPricePer1M": 0.40  },
+                { "id": "gemini-2.0-flash",               "name": "Gemini 2.0 Flash",               "inputPricePer1M": 0.10,  "outputPricePer1M": 0.40  },
+                { "id": "gemini-1.5-pro",                 "name": "Gemini 1.5 Pro",                 "inputPricePer1M": 1.25,  "outputPricePer1M": 5.00  },
+                { "id": "gemini-1.5-flash",               "name": "Gemini 1.5 Flash",               "inputPricePer1M": 0.075, "outputPricePer1M": 0.30  }
+            ]
+        }
+    ]
+}

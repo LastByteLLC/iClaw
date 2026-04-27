@@ -1,0 +1,44 @@
+{
+    "feeds": [
+        { "name": "BBC News", "url": "https://feeds.bbci.co.uk/news/rss.xml", "categories": [], "iconDomain": "bbc.co.uk" },
+        { "name": "NPR", "url": "https://feeds.npr.org/1001/rss.xml", "categories": [], "iconDomain": "npr.org" },
+        { "name": "The Guardian", "url": "https://www.theguardian.com/world/rss", "categories": ["world"] },
+        { "name": "AP News", "url": "https://rsshub.app/apnews/topics/apf-topnews", "categories": [], "iconDomain": "apnews.com" },
+        { "name": "Ars Technica", "url": "https://feeds.arstechnica.com/arstechnica/index", "categories": ["tech"], "iconDomain": "arstechnica.com" },
+        { "name": "The Verge", "url": "https://www.theverge.com/rss/index.xml", "categories": ["tech"] },
+        { "name": "Hacker News", "url": "https://hnrss.org/frontpage", "categories": ["tech"], "iconDomain": "news.ycombinator.com" },
+        { "name": "Nature", "url": "https://www.nature.com/nature.rss", "categories": ["science"] },
+        { "name": "Science Daily", "url": "https://www.sciencedaily.com/rss/all.xml", "categories": ["science"] },
+        { "name": "CNBC", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114", "categories": ["business"], "iconDomain": "cnbc.com" },
+        { "name": "Reuters", "url": "https://www.reutersagency.com/feed/", "categories": ["world"], "iconDomain": "reuters.com" },
+        { "name": "The Atlantic", "url": "https://www.theatlantic.com/feed/all/", "categories": ["culture"] },
+        { "name": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml", "categories": ["world"] },
+        { "name": "Wired", "url": "https://www.wired.com/feed/rss", "categories": ["tech"] },
+        { "name": "Quanta Magazine", "url": "https://api.quantamagazine.org/feed/", "categories": ["science"], "iconDomain": "quantamagazine.org" },
+        { "name": "Bloomberg", "url": "https://www.bloomberg.com/politics/feeds/site.xml", "categories": ["business", "politics"] },
+        { "name": "Fast Company", "url": "https://www.fastcompany.com/latest/rss", "categories": ["business", "design"] },
+        { "name": "CBC News", "url": "https://www.cbc.ca/webfeed/rss/rss-topstories", "categories": [], "iconDomain": "cbc.ca" },
+        { "name": "SBS News", "url": "https://www.sbs.com.au/news/feed", "categories": ["world"], "iconDomain": "sbs.com.au" },
+        { "name": "ABC News (AU)", "url": "https://www.abc.net.au/news/feed/2942460/rss.xml", "categories": ["world"], "iconDomain": "abc.net.au" },
+        { "name": "NHK World", "url": "https://www3.nhk.or.jp/rss/news/cat0.xml", "categories": ["world"], "iconDomain": "nhk.or.jp" },
+        { "name": "Deutsche Welle", "url": "https://rss.dw.com/rdf/rss-en-all", "categories": ["world"], "iconDomain": "dw.com" },
+        { "name": "France 24", "url": "https://www.france24.com/en/rss", "categories": ["world"] }
+    ],
+    "categoryKeywords": {
+        "tech": ["tech", "technology", "software", "ai", "startup", "programming", "silicon valley", "gadget"],
+        "science": ["science", "research", "study", "physics", "biology", "chemistry", "space", "nasa"],
+        "world": ["world", "international", "global", "politics", "foreign", "geopolitics"],
+        "business": ["business", "finance", "economy", "market", "stock", "wall street", "earnings"]
+    },
+    "noiseWords": [
+        "news", "headlines", "stories", "articles", "latest", "recent",
+        "top", "breaking", "current", "events", "today", "update", "updates",
+        "tech", "technology", "science", "world", "business", "finance",
+        "international", "global", "politics",
+        "the", "a", "an", "is", "are", "was", "were", "be", "been",
+        "in", "on", "at", "to", "for", "of", "with", "from", "by",
+        "about", "what", "show", "me", "get", "find", "tell",
+        "and", "or", "but", "not", "this", "that", "it", "its",
+        "my", "any", "some", "all", "whats", "what's", "happening"
+    ]
+}

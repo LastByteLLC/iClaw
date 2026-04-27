@@ -1,0 +1,15 @@
+{
+  "belowThresholdLabels" : [
+    "Read",
+    "Calendar",
+    "calendar_events",
+    "stocks",
+    "notes",
+    "Email"
+  ],
+  "misrouteCount" : 289,
+  "overallAccuracy" : 0.8035350101971448,
+  "passesThreshold" : false,
+  "timestamp" : "2026-03-18T01:01:51Z",
+  "totalEntries" : 1471
+}

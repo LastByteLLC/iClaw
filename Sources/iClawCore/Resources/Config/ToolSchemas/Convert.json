@@ -1,0 +1,1 @@
+{"intent":"unit|currency|encoding|color","value":"number?","fromUnit":"string?","toUnit":"string?","text":"string?","sourceColor":"string?","targetFormat":"string?"}

@@ -1,0 +1,84 @@
+{
+  "email": [
+    { "action": "read", "signals": ["read", "check", "inbox", "unread", "latest", "new mail", "any mail", "show email", "show my email", "my email", "my mail"] },
+    { "action": "compose", "signals": ["send", "write", "compose", "draft", "reply", "forward", "email to", "send email", "mail to", "write to"] },
+    { "action": "search", "signals": ["search email", "find email", "email from", "email about", "emails from", "look up email", "search mail", "find mail"] }
+  ],
+  "calendar": [
+    { "action": "view", "signals": ["what day", "how many days", "days until", "days between", "day of the week", "leap year", "date", "days left", "days ago"] },
+    { "action": "manage", "signals": ["schedule", "create event", "add event", "book", "new event", "cancel event", "delete event", "reschedule", "move event", "modify event", "change event", "update event"] },
+    { "action": "search", "signals": ["what's on", "my calendar", "meetings", "meeting", "next meeting", "appointments", "my schedule", "agenda", "any events", "events today", "events tomorrow", "show calendar", "upcoming", "when is my", "what events", "do i have"] }
+  ],
+  "search": [
+    { "action": "web", "signals": ["google", "search the web", "search for", "look up", "search online", "web search", "find online"] },
+    { "action": "wiki", "signals": ["wikipedia", "wiki", "tell me about", "who is", "who was", "what is a", "encyclopedia"] },
+    { "action": "research", "signals": ["research", "deep dive", "investigate", "comprehensive", "analysis", "explain the pros", "learn about", "teach me", "understand"] },
+    { "action": "local", "signals": ["find files", "search my mac", "spotlight", "search my computer", "find document", "find on my mac", "local search"] }
+  ],
+  "text": [
+    { "action": "translate", "signals": ["translate", "how do you say", "say in", "in spanish", "in french", "in german", "in japanese", "in korean", "in mandarin", "in arabic", "in italian", "to english"] },
+    { "action": "define", "signals": ["define", "definition", "meaning of", "what does", "mean", "look up the word", "dictionary"] }
+  ],
+  "speech": [
+    { "action": "transcribe", "signals": ["transcribe", "speech to text", "convert audio", "audio to text", "voice memo", "extract text from audio"] }
+  ],
+  "file": [
+    { "action": "read", "signals": ["read file", "read the file", "open file", "show contents", "open document", "read ~/"] },
+    { "action": "write", "signals": ["save file", "write file", "create file", "export", "download as", "save to downloads", "save as csv", "save as json", "save as text", "export as"] },
+    { "action": "delete", "signals": ["delete file", "remove file", "trash file", "delete the file"] }
+  ],
+  "browser": [
+    { "action": "extract", "signals": ["extract", "table", "list", "links", "data from page", "scrape", "pull from", "get the table", "get the list", "page data", "what's on the page", "extract from safari"] }
+  ],
+  "system": [
+    { "action": "control", "signals": ["volume", "brightness", "mute", "unmute", "dim", "display", "screen brightness", "sound"] },
+    { "action": "info", "signals": ["battery", "disk space", "storage", "wifi", "cpu", "memory", "ram", "system info", "system status"] },
+    { "action": "app", "signals": ["open", "launch", "start", "quit", "close", "switch to", "fire up"] }
+  ],
+  "media": [
+    { "action": "podcast", "signals": ["podcast", "episode", "listen to", "play podcast"] },
+    { "action": "camera", "signals": ["photo", "picture", "camera", "selfie", "snapshot", "take a photo"] },
+    { "action": "screenshot", "signals": ["screenshot", "screen capture", "capture screen", "grab screen", "ocr", "what's on my screen"] }
+  ],
+  "nav": [
+    { "action": "directions", "signals": ["directions", "navigate", "route", "how to get", "drive to", "walk to", "eta", "how long to", "how far"] },
+    { "action": "search", "signals": ["nearby", "find restaurants", "find places", "places near", "search near", "what's around"] }
+  ],
+  "Messages": [
+    { "action": "read", "signals": ["read message", "read messages", "show messages", "my messages", "check messages"] },
+    { "action": "send", "signals": ["text", "send message", "imessage", "tell", "message to", "send text", "send a text"] },
+    { "action": "search", "signals": ["search messages", "find message", "messages from", "messages about"] }
+  ],
+  "Notes": [
+    { "action": "read", "signals": ["show notes", "open notes", "read notes", "my notes", "view notes"] },
+    { "action": "create", "signals": ["create note", "new note", "write note", "save as note", "add to journal", "jot down"] },
+    { "action": "modify", "signals": ["edit note", "update note", "change note", "modify note", "append to note"] },
+    { "action": "delete", "signals": ["delete note", "remove note", "trash note"] }
+  ],
+  "Contacts": [
+    { "action": "view", "signals": ["phone number", "email address", "address", "contact info", "find contact", "look up contact", "search contacts"] },
+    { "action": "create", "signals": ["add contact", "new contact", "save contact", "create contact"] },
+    { "action": "modify", "signals": ["update contact", "edit contact", "change number", "change email", "modify contact"] },
+    { "action": "delete", "signals": ["delete contact", "remove contact"] }
+  ],
+  "Reminders": [
+    { "action": "view", "signals": ["show reminders", "my reminders", "check reminders", "view reminders", "list reminders"] },
+    { "action": "create", "signals": ["remind me", "set reminder", "add reminder", "create reminder", "add to todo", "todo list", "add to my list"] },
+    { "action": "modify", "signals": ["update reminder", "edit reminder", "change reminder", "modify reminder", "reschedule reminder"] },
+    { "action": "delete", "signals": ["delete reminder", "remove reminder", "cancel reminder", "complete reminder", "done with reminder"] }
+  ],
+  "automation": [
+    { "action": "create", "signals": ["every hour", "every day", "every morning", "every evening", "daily at", "hourly", "weekly", "recurring", "schedule", "check every", "monitor", "track", "alert me every", "notify me every"] },
+    { "action": "manage", "signals": ["my automations", "list automations", "show automations", "cancel automation", "stop automation", "pause automation", "delete automation", "resume automation"] }
+  ],
+  "math": [
+    { "action": "arithmetic", "signals": ["calculate", "math", "plus", "minus", "multiply", "divide", "percent", "mortgage", "loan", "tip", "tax", "sqrt", "squared", "factorial", "interest"] },
+    { "action": "conversion", "signals": ["convert", "to km", "to miles", "to celsius", "to fahrenheit", "usd to", "eur to", "btc to", "base64", "hex to", "rgb to", "how many", "in meters"] },
+    { "action": "statistics", "signals": ["average", "median", "sort", "standard deviation", "largest", "smallest", "sum of", "count of", "matrix", "regex", "permutations", "combinations"] }
+  ],
+  "meta": [
+    { "action": "capabilities", "signals": ["what can you do", "what do you do", "capable", "capabilities", "features", "tools", "what are your", "show me what you", "list your", "what all can you"] },
+    { "action": "identity", "signals": ["who are you", "what are you", "are you an ai", "are you a bot", "what is iclaw", "about iclaw", "who made", "who built", "your name", "introduce yourself"] },
+    { "action": "help", "signals": ["help me", "how does this work", "how do i use", "show me how", "tutorial", "getting started", "guide me"] }
+  ]
+}

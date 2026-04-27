@@ -1,0 +1,1 @@
+{"intent":"directions|nearby|search","origin":"string?","destination":"string?","transport":"automobile|walking|transit?","query":"string?"}

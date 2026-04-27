@@ -1,0 +1,74 @@
+{
+  "currency_terms": {
+    "en": ["$", "dollar", "dollars", "cents", "money", "cost", "price", "fee", "usd", "cash"],
+    "es": ["$", "dólar", "dólares", "euro", "euros", "centavos", "dinero", "costo", "precio", "tarifa", "coste"],
+    "fr": ["€", "euro", "euros", "centimes", "argent", "coût", "prix", "tarif", "frais"],
+    "de": ["€", "euro", "euros", "cent", "geld", "kosten", "preis", "gebühr", "betrag"],
+    "pt": ["R$", "real", "reais", "centavos", "dinheiro", "custo", "preço", "taxa", "valor"],
+    "it": ["€", "euro", "centesimi", "denaro", "soldi", "costo", "prezzo", "tariffa", "spesa"],
+    "ja": ["円", "¥", "お金", "値段", "価格", "料金", "費用", "コスト"],
+    "zh-Hans": ["¥", "元", "块", "人民币", "钱", "费用", "价格", "价钱", "成本"],
+    "ko": ["원", "₩", "돈", "가격", "비용", "요금", "값", "금액"],
+    "ar": ["$", "دولار", "دولارات", "ريال", "درهم", "مال", "تكلفة", "سعر", "رسوم"]
+  },
+  "loan_terms": {
+    "en": ["loan", "mortgage", "interest rate", "principal", "amortization", "monthly payment", "APR", "refinance"],
+    "es": ["préstamo", "hipoteca", "tasa de interés", "capital", "amortización", "pago mensual", "tipo de interés"],
+    "fr": ["prêt", "hypothèque", "taux d'intérêt", "capital", "amortissement", "mensualité", "crédit immobilier"],
+    "de": ["kredit", "hypothek", "zinssatz", "tilgung", "darlehen", "monatliche rate", "zinsen"],
+    "pt": ["empréstimo", "hipoteca", "taxa de juros", "principal", "amortização", "prestação", "financiamento"],
+    "it": ["prestito", "mutuo", "tasso di interesse", "capitale", "ammortamento", "rata mensile", "finanziamento"],
+    "ja": ["ローン", "住宅ローン", "金利", "元本", "返済", "月々の支払い", "利息"],
+    "zh-Hans": ["贷款", "房贷", "利率", "本金", "分期", "月供", "按揭"],
+    "ko": ["대출", "주택담보대출", "이자율", "원금", "할부", "월 상환금", "융자"],
+    "ar": ["قرض", "رهن عقاري", "معدل الفائدة", "أصل القرض", "قسط شهري", "تمويل"]
+  },
+  "tax_terms": {
+    "en": ["tax", "vat", "sales tax", "after tax", "before tax", "net", "gross", "tax rate"],
+    "es": ["impuesto", "IVA", "impuesto sobre ventas", "después de impuestos", "antes de impuestos", "neto", "bruto"],
+    "fr": ["taxe", "TVA", "impôt", "après impôt", "avant impôt", "net", "brut", "taux de taxe"],
+    "de": ["steuer", "MwSt", "umsatzsteuer", "mehrwertsteuer", "nach steuern", "vor steuern", "netto", "brutto"],
+    "pt": ["imposto", "ICMS", "IVA", "após impostos", "antes de impostos", "líquido", "bruto", "taxa de imposto"],
+    "it": ["tassa", "IVA", "imposta", "al netto", "al lordo", "dopo le tasse", "prima delle tasse"],
+    "ja": ["税", "税金", "消費税", "税込", "税抜", "税別", "所得税"],
+    "zh-Hans": ["税", "增值税", "税后", "税前", "净值", "毛值", "税率", "消费税"],
+    "ko": ["세금", "부가세", "세후", "세전", "순액", "총액", "세율"],
+    "ar": ["ضريبة", "ضريبة القيمة المضافة", "بعد الضريبة", "قبل الضريبة", "صافي", "إجمالي", "معدل الضريبة"]
+  },
+  "income_terms": {
+    "en": ["salary", "income", "paycheck", "earnings", "wages", "pay", "annual income", "take home"],
+    "es": ["salario", "ingresos", "sueldo", "nómina", "ganancias", "ingreso anual", "paga"],
+    "fr": ["salaire", "revenu", "paie", "gains", "rémunération", "revenu annuel", "fiche de paie"],
+    "de": ["gehalt", "einkommen", "lohn", "verdienst", "bezahlung", "jahresgehalt", "nettolohn"],
+    "pt": ["salário", "renda", "contracheque", "ganhos", "remuneração", "renda anual", "holerite"],
+    "it": ["stipendio", "reddito", "busta paga", "guadagni", "retribuzione", "reddito annuo"],
+    "ja": ["給料", "収入", "給与", "年収", "月収", "手取り", "所得"],
+    "zh-Hans": ["工资", "收入", "薪水", "薪资", "年收入", "月薪", "税后工资"],
+    "ko": ["월급", "급여", "연봉", "수입", "소득", "임금", "실수령액"],
+    "ar": ["راتب", "دخل", "أجر", "مكافأة", "الدخل السنوي", "أجور", "المرتب"]
+  },
+  "discount_terms": {
+    "en": ["discount", "off", "sale", "savings", "percent off", "markdown", "rebate", "deal"],
+    "es": ["descuento", "rebaja", "oferta", "ahorro", "por ciento menos", "promoción", "liquidación"],
+    "fr": ["remise", "réduction", "solde", "économies", "pourcent de moins", "promo", "rabais"],
+    "de": ["rabatt", "nachlass", "sale", "ersparnis", "prozent reduziert", "angebot", "ermäßigung"],
+    "pt": ["desconto", "promoção", "oferta", "economia", "por cento off", "liquidação", "abatimento"],
+    "it": ["sconto", "saldo", "offerta", "risparmio", "percento di sconto", "promozione"],
+    "ja": ["割引", "オフ", "セール", "値引き", "パーセント引き", "特価", "割"],
+    "zh-Hans": ["折扣", "打折", "促销", "减价", "优惠", "特价", "立减"],
+    "ko": ["할인", "세일", "프로모션", "할인율", "특가", "에누리", "퍼센트 할인"],
+    "ar": ["خصم", "تخفيض", "تنزيلات", "عرض", "بالمئة", "توفير", "تخفيضات"]
+  },
+  "tip_terms": {
+    "en": ["tip", "gratuity", "leave a tip", "service charge", "tipping", "how much to tip"],
+    "es": ["propina", "dar propina", "dejar propina", "cuánto de propina"],
+    "fr": ["pourboire", "laisser un pourboire", "donner un pourboire", "service"],
+    "de": ["trinkgeld", "trinkgeld geben", "trinkgeld lassen", "bedienung"],
+    "pt": ["gorjeta", "caixinha", "deixar gorjeta", "taxa de serviço", "quanto de gorjeta"],
+    "it": ["mancia", "lasciare una mancia", "dare la mancia", "servizio"],
+    "ja": ["チップ", "チップを払う", "チップはいくら", "サービス料"],
+    "zh-Hans": ["小费", "给小费", "留小费", "服务费", "小费多少"],
+    "ko": ["팁", "팁 얼마", "팁 주기", "봉사료", "팁 남기기"],
+    "ar": ["بقشيش", "إكرامية", "كم البقشيش", "ترك بقشيش", "رسوم الخدمة"]
+  }
+}

@@ -1,0 +1,152 @@
+name: iClaw
+options:
+  bundleIdPrefix: com.geticlaw
+  deploymentTarget:
+    macOS: "26.0"
+  defaultConfig: Debug
+  groupSortPosition: top
+  createIntermediateGroups: true
+
+configs:
+  Debug: debug
+  Release: release
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "26.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    DEAD_CODE_STRIPPING: YES
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING: YES_ERROR
+    CLANG_WARN_BOOL_CONVERSION: YES_ERROR
+    CLANG_WARN_COMMA: YES_ERROR
+    CLANG_WARN_CONSTANT_CONVERSION: YES_ERROR
+    CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS: YES
+    CLANG_WARN_EMPTY_BODY: YES
+    CLANG_WARN_ENUM_CONVERSION: YES_ERROR
+    CLANG_WARN_INFINITE_RECURSION: YES
+    CLANG_WARN_INT_CONVERSION: YES_ERROR
+    CLANG_WARN_NON_LITERAL_NULL_CONVERSION: YES_ERROR
+    CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF: YES
+    CLANG_WARN_OBJC_LITERAL_CONVERSION: YES_ERROR
+    CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER: YES
+    CLANG_WARN_RANGE_LOOP_ANALYSIS: YES
+    CLANG_WARN_STRICT_PROTOTYPES: YES
+    CLANG_WARN_SUSPICIOUS_MOVE: YES
+    CLANG_WARN_UNREACHABLE_CODE: YES
+    CLANG_WARN__DUPLICATE_METHOD_MATCH: YES
+    ENABLE_STRICT_OBJC_MSGSEND: YES
+    GCC_NO_COMMON_BLOCKS: YES
+    GCC_WARN_64_TO_32_BIT_CONVERSION: YES_ERROR
+    GCC_WARN_ABOUT_RETURN_TYPE: YES_ERROR
+    GCC_WARN_UNDECLARED_SELECTOR: YES
+    GCC_WARN_UNINITIALIZED_AUTOS: YES_AGGRESSIVE
+    GCC_WARN_UNUSED_FUNCTION: YES
+    GCC_WARN_UNUSED_VARIABLE: YES
+    ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: YES
+    STRING_CATALOG_GENERATE_SYMBOLS: YES
+
+packages:
+  iClawLocal:
+    path: "."
+  Replay:
+    url: https://github.com/mattt/Replay.git
+    from: "0.4.0"
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle.git
+    from: "2.7.0"
+
+targets:
+  iClaw:
+    type: application
+    platform: macOS
+    sources:
+      - Sources/iClaw
+      - path: Assets.xcassets
+        buildPhase: resources
+      - path: iClaw.help
+        buildPhase: resources
+    dependencies:
+      - package: iClawLocal
+        product: iClawCore
+      - package: Sparkle
+        product: Sparkle
+      - target: iClawSafariExtension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.geticlaw.iClaw
+        PRODUCT_NAME: iClaw
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: iClaw
+        CODE_SIGN_ENTITLEMENTS: Sources/iClawCore/Resources/iClaw.entitlements
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 5QGXMKNW2A
+        INFOPLIST_FILE: Xcode/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        LD_RUNPATH_SEARCH_PATHS:
+          - $(inherited)
+          - "@executable_path/../Frameworks"
+        ENABLE_HARDENED_RUNTIME: YES
+        ENABLE_APP_SANDBOX: YES
+        ENABLE_INCOMING_NETWORK_CONNECTIONS: YES
+        ENABLE_OUTGOING_NETWORK_CONNECTIONS: YES
+
+  iClawSafariExtension:
+    type: app-extension
+    platform: macOS
+    sources:
+      - Extension/safari/SafariWebExtensionHandler.swift
+      - path: Extension/safari/Resources
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.geticlaw.iClaw.Extension
+        PRODUCT_NAME: iClawSafariExtension
+        CODE_SIGN_ENTITLEMENTS: Extension/safari/iClawSafariExtension.entitlements
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 5QGXMKNW2A
+        INFOPLIST_FILE: Extension/safari/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        LD_RUNPATH_SEARCH_PATHS:
+          - $(inherited)
+          - "@executable_path/../Frameworks"
+          - "@executable_path/../../../../Frameworks"
+        SWIFT_EMIT_LOC_STRINGS: YES
+
+  iClawTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - Tests/iClawTests
+    resources:
+      - Tests/iClawTests/Fixtures
+    dependencies:
+      - package: iClawLocal
+        product: iClawCore
+      - package: Replay
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.geticlaw.iClawTests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: ""
+
+schemes:
+  iClaw:
+    build:
+      targets:
+        iClaw: all
+        iClawTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - iClawTests
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release

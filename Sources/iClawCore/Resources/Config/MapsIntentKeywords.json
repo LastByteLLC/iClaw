@@ -1,0 +1,50 @@
+{
+  "directions": {
+    "en": ["direction", "directions to", "how far", "how long to drive", "drive to", "distance to", "eta", "route to", "from ", " to "],
+    "es": ["dirección", "direcciones", "cómo llegar", "qué tan lejos", "ruta", "distancia", "desde", "hasta"],
+    "fr": ["itinéraire", "comment aller", "combien de temps", "distance", "route", "trajet"],
+    "de": ["route", "wegbeschreibung", "wie weit", "wie lange", "entfernung", "von", "nach"],
+    "pt": ["direção", "direções", "como chegar", "distância", "rota", "de ", "para "],
+    "it": ["indicazioni", "come arrivare", "quanto dista", "distanza", "percorso", "da ", "a "],
+    "ja": ["道順", "行き方", "距離", "ルート", "どのくらい", "まで"],
+    "zh-Hans": ["路线", "怎么去", "多远", "方向", "距离"],
+    "ko": ["길찾기", "가는 길", "거리", "경로"],
+    "ar": ["كيف أصل", "المسافة", "الاتجاهات", "الطريق"]
+  },
+  "nearby": {
+    "en": ["nearby", "near me", "around me", "close to me", "closest", "nearest", "in the area", "around here", "places near", "restaurants nearby", "food near", "coffee near", "gas station near"],
+    "es": ["cerca", "cerca de mí", "cercano", "cercana", "más cercano", "por aquí", "restaurantes cerca", "cafeterías cerca"],
+    "fr": ["à proximité", "près de moi", "autour de moi", "le plus proche", "dans le coin", "restaurants près"],
+    "de": ["in der nähe", "nahe", "nächste", "nächster", "um mich herum", "restaurants in der nähe"],
+    "pt": ["perto", "perto de mim", "próximo", "mais próximo", "por aqui", "restaurantes perto"],
+    "it": ["vicino", "vicino a me", "nelle vicinanze", "più vicino", "qui vicino", "ristoranti vicini"],
+    "ja": ["近く", "近くの", "周辺", "一番近い", "このあたり", "近くのレストラン", "近くのカフェ"],
+    "zh-Hans": ["附近", "周围", "最近", "周边", "附近的餐厅", "附近的咖啡"],
+    "ko": ["근처", "주변", "가장 가까운", "가까운", "근처 식당", "근처 카페"],
+    "ar": ["قريب", "قريب مني", "الأقرب", "حولي", "مطاعم قريبة"]
+  },
+  "transport_walk": {
+    "en": ["walk", "walking", "on foot", "pedestrian"],
+    "es": ["caminando", "a pie", "andando"],
+    "fr": ["à pied", "en marchant", "piéton"],
+    "de": ["zu fuß", "laufen", "wandern"],
+    "pt": ["caminhando", "a pé"],
+    "it": ["a piedi", "camminando"],
+    "ja": ["徒歩", "歩いて"],
+    "zh-Hans": ["步行", "走路"],
+    "ko": ["도보", "걸어서"],
+    "ar": ["مشيا", "سيرا على الأقدام"]
+  },
+  "transport_transit": {
+    "en": ["transit", "bus", "train", "subway", "metro", "public transport", "public transportation"],
+    "es": ["transporte público", "autobús", "tren", "metro", "bus"],
+    "fr": ["transports en commun", "bus", "train", "métro"],
+    "de": ["öffentliche verkehrsmittel", "bus", "zug", "u-bahn", "s-bahn"],
+    "pt": ["transporte público", "ônibus", "trem", "metrô"],
+    "it": ["trasporto pubblico", "autobus", "treno", "metro", "metropolitana"],
+    "ja": ["電車", "バス", "地下鉄", "公共交通機関"],
+    "zh-Hans": ["公交", "地铁", "火车", "公共交通"],
+    "ko": ["대중교통", "버스", "지하철", "기차"],
+    "ar": ["حافلة", "قطار", "مترو", "نقل عام"]
+  }
+}

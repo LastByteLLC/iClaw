@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>com.geticlaw.iClawCLI</string>
+    <key>CFBundleName</key>
+    <string>iClawCLI</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>iClaw CLI needs calendar access to manage events.</string>
+    <key>NSCalendarsFullAccessUsageDescription</key>
+    <string>iClaw CLI needs full calendar access to read and create events.</string>
+    <key>NSContactsUsageDescription</key>
+    <string>iClaw CLI needs contacts access to look up people.</string>
+    <key>NSRemindersUsageDescription</key>
+    <string>iClaw CLI needs reminders access to manage reminders.</string>
+    <key>NSRemindersFullAccessUsageDescription</key>
+    <string>iClaw CLI needs full reminders access.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>iClaw CLI needs location to provide weather and nearby results.</string>
+</dict>
+</plist>

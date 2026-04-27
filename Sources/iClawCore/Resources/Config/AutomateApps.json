@@ -1,0 +1,116 @@
+{
+  "apps": [
+    {
+      "name": "Finder",
+      "bundleId": "com.apple.finder",
+      "description": "File management — move, copy, rename, delete files and folders, get file info, eject disks, open folders",
+      "objects": ["file", "folder", "disk", "window", "Finder window", "trash"],
+      "example": "tell application \"Finder\" to move file \"Report.pdf\" of desktop to folder \"Documents\" of home"
+    },
+    {
+      "name": "Safari",
+      "bundleId": "com.apple.Safari",
+      "description": "Web browser — open URLs, get page content, manage tabs and windows, read bookmarks",
+      "objects": ["document", "window", "tab", "bookmark"],
+      "example": "tell application \"Safari\" to open location \"https://example.com\""
+    },
+    {
+      "name": "Mail",
+      "bundleId": "com.apple.mail",
+      "description": "Email — send messages, read inbox, search emails, manage mailboxes and rules",
+      "objects": ["message", "mailbox", "account", "outgoing message", "recipient"],
+      "example": "tell application \"Mail\" to make new outgoing message with properties {subject:\"Hello\", content:\"Body text\"}"
+    },
+    {
+      "name": "Calendar",
+      "bundleId": "com.apple.iCal",
+      "description": "Calendar events — create, read, modify, delete events, manage calendars and reminders",
+      "objects": ["calendar", "event", "attendee"],
+      "example": "tell application \"Calendar\" to make new event at end of events of calendar \"Work\" with properties {summary:\"Meeting\", start date:date \"January 1, 2025 9:00 AM\"}"
+    },
+    {
+      "name": "Reminders",
+      "bundleId": "com.apple.reminders",
+      "description": "Task management — create, complete, delete reminders, manage lists, set due dates",
+      "objects": ["reminder", "list", "account"],
+      "example": "tell application \"Reminders\" to make new reminder in list \"Tasks\" with properties {name:\"Buy groceries\", due date:date \"January 1, 2025 5:00 PM\"}"
+    },
+    {
+      "name": "Notes",
+      "bundleId": "com.apple.Notes",
+      "description": "Note-taking — create, read, search notes, manage folders",
+      "objects": ["note", "folder", "account", "attachment"],
+      "example": "tell application \"Notes\" to make new note at folder \"Notes\" with properties {name:\"My Note\", body:\"Content here\"}"
+    },
+    {
+      "name": "Music",
+      "bundleId": "com.apple.Music",
+      "description": "Music playback — play, pause, skip tracks, manage playlists, control volume, search library",
+      "objects": ["track", "playlist", "source", "encoder"],
+      "example": "tell application \"Music\" to play track \"Song Name\" of playlist \"My Playlist\""
+    },
+    {
+      "name": "Messages",
+      "bundleId": "com.apple.MobileSMS",
+      "description": "Messaging — send iMessages and SMS to contacts or phone numbers",
+      "objects": ["message", "chat", "participant", "buddy"],
+      "example": "tell application \"Messages\" to send \"Hello!\" to participant \"+1234567890\""
+    },
+    {
+      "name": "System Events",
+      "bundleId": "com.apple.systemevents",
+      "description": "System automation — click UI elements, type keystrokes, manage login items, control system preferences, manipulate windows, read/write property list files",
+      "objects": ["process", "UI element", "button", "menu", "window", "property list file", "login item", "disk"],
+      "example": "tell application \"System Events\" to keystroke \"c\" using command down"
+    },
+    {
+      "name": "Terminal",
+      "bundleId": "com.apple.Terminal",
+      "description": "Command line — run shell commands, manage terminal windows and tabs",
+      "objects": ["window", "tab", "settings set"],
+      "example": "tell application \"Terminal\" to do script \"ls -la ~/Desktop\""
+    },
+    {
+      "name": "Keynote",
+      "bundleId": "com.apple.iWork.Keynote",
+      "description": "Presentations — create slides, add text/images, export to PDF/images, control slideshows",
+      "objects": ["document", "slide", "text item", "image", "shape", "table"],
+      "example": "tell application \"Keynote\" to export front document to file \"Presentation.pdf\" as PDF"
+    },
+    {
+      "name": "Pages",
+      "bundleId": "com.apple.iWork.Pages",
+      "description": "Word processing — create documents, add text/images/tables, export to PDF/Word",
+      "objects": ["document", "page", "text item", "image", "shape", "table"],
+      "example": "tell application \"Pages\" to export front document to file \"Document.pdf\" as PDF"
+    },
+    {
+      "name": "Numbers",
+      "bundleId": "com.apple.iWork.Numbers",
+      "description": "Spreadsheets — create sheets, read/write cells, manage tables, export to CSV/Excel",
+      "objects": ["document", "sheet", "table", "row", "column", "cell", "range"],
+      "example": "tell application \"Numbers\" to set value of cell \"A1\" of table 1 of sheet 1 of front document to 42"
+    },
+    {
+      "name": "Preview",
+      "bundleId": "com.apple.Preview",
+      "description": "Document/image viewer — open files, print, export images",
+      "objects": ["document", "window"],
+      "example": "tell application \"Preview\" to open POSIX file \"/path/to/image.png\""
+    },
+    {
+      "name": "Photos",
+      "bundleId": "com.apple.Photos",
+      "description": "Photo library — search photos, create albums, export images, get photo metadata",
+      "objects": ["media item", "album", "folder", "container"],
+      "example": "tell application \"Photos\" to search for \"vacation\""
+    },
+    {
+      "name": "Contacts",
+      "bundleId": "com.apple.AddressBook",
+      "description": "Address book — search contacts, read phone/email/address info, create contacts and groups",
+      "objects": ["person", "group", "email", "phone", "address"],
+      "example": "tell application \"Contacts\" to get name of every person whose name contains \"John\""
+    }
+  ]
+}

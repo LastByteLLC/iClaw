@@ -1,0 +1,1 @@
+{"intent":"latest|unread|search|sender","count":"int?","query":"string?","senderName":"string?"}

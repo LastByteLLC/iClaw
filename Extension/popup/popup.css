@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  color: #1d1d1f;
+  background: #fafafa;
+}
+
+.container {
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.logo {
+  font-size: 20px;
+}
+
+.header h1 {
+  font-size: 16px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  font-size: 0;
+}
+
+.status.connected {
+  background: #34c759;
+  box-shadow: 0 0 4px rgba(52, 199, 89, 0.5);
+}
+
+.status.disconnected {
+  background: #ff3b30;
+}
+
+.tab-info {
+  background: #f0f0f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+}
+
+.tab-title {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.tab-url {
+  font-size: 11px;
+  color: #86868b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.btn-primary {
+  background: #007aff;
+  color: white;
+}
+
+.btn:not(.btn-primary) {
+  background: #e5e5ea;
+  color: #1d1d1f;
+}
+
+.message {
+  min-height: 20px;
+  font-size: 12px;
+  color: #86868b;
+  text-align: center;
+}
+
+.message.error {
+  color: #ff3b30;
+}
+
+.message.success {
+  color: #34c759;
+}
+
+.footer {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 11px;
+  color: #aeaeb2;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1c1c1e;
+    color: #f5f5f7;
+  }
+
+  .tab-info {
+    background: #2c2c2e;
+  }
+
+  .tab-url {
+    color: #98989d;
+  }
+
+  .btn:not(.btn-primary) {
+    background: #3a3a3c;
+    color: #f5f5f7;
+  }
+
+  .message {
+    color: #98989d;
+  }
+
+  .footer {
+    color: #636366;
+  }
+}

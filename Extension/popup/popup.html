@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=320">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img class="logo" src="../icons/icon-48.png" alt="iClaw" width="32" height="32">
+      <h1>iClaw</h1>
+      <div id="status" class="status disconnected">●</div>
+    </div>
+
+    <div id="tab-info" class="tab-info">
+      <div class="tab-title" id="tab-title">—</div>
+      <div class="tab-url" id="tab-url">—</div>
+    </div>
+
+    <div class="actions">
+      <button id="btn-send" class="btn btn-primary" disabled>
+        Send Page to iClaw
+      </button>
+      <button id="btn-extract" class="btn" disabled>
+        Extract Selection
+      </button>
+    </div>
+
+    <div id="message" class="message"></div>
+
+    <div class="footer">
+      <span id="version"></span>
+    </div>
+  </div>
+
+  <script src="../shared/compat.js"></script>
+  <script src="../shared/protocol.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

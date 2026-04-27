@@ -1,0 +1,6 @@
+{
+    "unreadKeywords": ["unread emails", "unread mail", "unread messages", "new emails", "new mail", "haven't read", "not read"],
+    "searchKeywords": ["containing", "mentions"],
+    "senderKeywords": ["sent by", "emails from", "mail from"],
+    "latestKeywords": ["latest email", "recent email", "last email", "newest email", "my inbox", "check my email", "show me my email", "show me my mail"]
+}

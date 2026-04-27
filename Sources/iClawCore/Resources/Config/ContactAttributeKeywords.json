@@ -1,0 +1,14 @@
+{
+  "contact_attribute": {
+    "en": ["email", "e-mail", "mail", "phone", "phone number", "number", "address", "contact", "contact info", "info"],
+    "es": ["correo", "email", "teléfono", "número", "dirección", "contacto", "información de contacto"],
+    "fr": ["e-mail", "email", "courriel", "téléphone", "numéro", "adresse", "contact", "coordonnées"],
+    "de": ["e-mail", "email", "mail", "telefon", "telefonnummer", "nummer", "adresse", "kontakt", "kontaktdaten"],
+    "pt": ["e-mail", "email", "correio", "telefone", "número", "endereço", "contato", "informações de contato"],
+    "it": ["e-mail", "email", "posta", "telefono", "numero", "indirizzo", "contatto", "dati di contatto"],
+    "ja": ["メール", "メールアドレス", "電話", "電話番号", "番号", "住所", "連絡先"],
+    "zh-Hans": ["邮箱", "邮件", "电子邮件", "电话", "电话号码", "号码", "地址", "联系方式", "联系人"],
+    "ko": ["이메일", "메일", "전화", "전화번호", "번호", "주소", "연락처"],
+    "ar": ["بريد", "إيميل", "ايميل", "هاتف", "رقم", "عنوان", "اتصال", "جهة اتصال"]
+  }
+}

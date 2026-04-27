@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "iClaw",
+  "version": "1.0.0",
+  "description": "Connect iClaw AI agent to your browser for page content extraction and web interaction.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "nativeMessaging"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "iClaw"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["compat.js", "protocol.js", "extractor.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  }
+}

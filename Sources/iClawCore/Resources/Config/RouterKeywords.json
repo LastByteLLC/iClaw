@@ -1,0 +1,5 @@
+{
+    "conversationalKeywords": ["joke", "funny", "make me laugh", "humor", "humour", "riddle"],
+    "shortQueryWordLimit": 2,
+    "emojiThreshold": 0.4
+}

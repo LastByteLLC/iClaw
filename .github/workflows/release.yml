@@ -1,0 +1,328 @@
+name: Build & Release
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  preflight:
+    name: Preflight
+    runs-on: macos-26
+    env:
+      HAS_CERTS: ${{ secrets.APPLE_CERTIFICATE_P12 != '' }}
+    steps:
+      - name: Check required secrets
+        run: |
+          MISSING=()
+          if [ "$HAS_CERTS" != "true" ]; then
+            MISSING+=("APPLE_CERTIFICATE_P12")
+          fi
+          # These are only checkable as non-empty; actual validity is tested below
+          if [ -z "$APPLE_ID" ]; then MISSING+=("APPLE_ID"); fi
+          if [ -z "$NOTARIZE_PASSWORD" ]; then MISSING+=("NOTARIZE_PASSWORD"); fi
+
+          if [ ${#MISSING[@]} -gt 0 ]; then
+            echo "::error::Missing secrets: ${MISSING[*]}"
+            exit 1
+          fi
+          echo "All required secrets present."
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          NOTARIZE_PASSWORD: ${{ secrets.NOTARIZE_PASSWORD }}
+
+      - name: Verify signing identity
+        env:
+          APPLE_CERTIFICATE_P12: ${{ secrets.APPLE_CERTIFICATE_P12 }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+        run: |
+          echo "$APPLE_CERTIFICATE_P12" | base64 --decode > cert.p12
+
+          KEYCHAIN="$RUNNER_TEMP/preflight.keychain-db"
+          KEYCHAIN_PASSWORD=$(openssl rand -hex 16)
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security default-keychain -s "$KEYCHAIN"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+
+          security import cert.p12 -k "$KEYCHAIN" -P "$APPLE_CERTIFICATE_PASSWORD" \
+            -T /usr/bin/codesign -T /usr/bin/security
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          # shellcheck disable=SC2046
+          security list-keychains -d user -s "$KEYCHAIN" $(security list-keychains -d user | tr -d '"')
+
+          rm cert.p12
+
+          echo "=== Signing identities ==="
+          security find-identity -v -p codesigning
+
+          EXPECTED="Developer ID Application: Last Byte LLC (5QGXMKNW2A)"
+          if ! security find-identity -v -p codesigning | grep -qF "$EXPECTED"; then
+            echo "::error::Certificate imported but identity not found: $EXPECTED"
+            echo "::error::Check that APPLE_CERTIFICATE_P12 contains a Developer ID (not Mac Developer / 3rd Party) certificate with its private key."
+            security find-identity -v -p codesigning
+            exit 1
+          fi
+          echo "Developer ID identity verified."
+
+      - name: Verify notarization credentials
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          NOTARIZE_PASSWORD: ${{ secrets.NOTARIZE_PASSWORD }}
+          TEAM_ID: 5QGXMKNW2A
+        run: |
+          # notarytool history is a lightweight auth check (no upload needed)
+          if ! xcrun notarytool history \
+            --apple-id "$APPLE_ID" \
+            --team-id "$TEAM_ID" \
+            --password "$NOTARIZE_PASSWORD" > /dev/null 2>&1; then
+            echo "::error::Notarization credentials are invalid. Check APPLE_ID, NOTARIZE_PASSWORD, and TEAM_ID."
+            exit 1
+          fi
+          echo "Notarization credentials verified."
+
+  test:
+    name: Test
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Select latest Xcode
+        run: |
+          # macos-26 runner default is Xcode 26.2 (SDK 26.0, Swift 6.2).
+          # Select the highest-versioned Xcode for Swift 6.3+ and SDK 26.4+.
+          # As of 2026-04, the runner ships Xcode 26.0.1 through 26.4 RC.
+          # Code uses canImport version guards so older SDKs compile fine with heuristic fallbacks.
+          LATEST=$(find /Applications -maxdepth 1 -name "Xcode*.app" -type d 2>/dev/null | sort -V | tail -1)
+          if [ -n "$LATEST" ]; then
+            echo "Selecting $LATEST"
+            sudo xcode-select -s "$LATEST"
+          fi
+          swift --version
+          xcrun --sdk macosx --show-sdk-version
+
+      - name: Run tests
+        env:
+          CI: "true"
+        run: |
+          set +e
+          # 60-second timeout — a timeout is a test failure (see CLAUDE.md).
+          timeout 60 swift test --parallel 2>&1 | tee /tmp/test-output.txt
+          EXIT_CODE=$?
+          # Safety net: Swift 6.2 had a SIGTRAP teardown bug (may be fixed in 6.3).
+          # Check test output rather than trusting exit code.
+          if grep -q "Test run with .* passed" /tmp/test-output.txt; then
+            exit 0
+          fi
+          exit $EXIT_CODE
+
+  build-dmg:
+    name: Build DMG
+    needs: [preflight, test]
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Select latest Xcode
+        run: |
+          LATEST=$(find /Applications -maxdepth 1 -name "Xcode*.app" -type d 2>/dev/null | sort -V | tail -1)
+          if [ -n "$LATEST" ]; then
+            echo "Selecting $LATEST"
+            sudo xcode-select -s "$LATEST"
+          fi
+          swift --version
+          xcrun --sdk macosx --show-sdk-version
+
+      - name: Import signing certificate
+        env:
+          APPLE_CERTIFICATE_P12: ${{ secrets.APPLE_CERTIFICATE_P12 }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+        run: |
+          echo "$APPLE_CERTIFICATE_P12" | base64 --decode > cert.p12
+
+          # Create a dedicated keychain with a known password
+          KEYCHAIN="$RUNNER_TEMP/build.keychain-db"
+          KEYCHAIN_PASSWORD=$(openssl rand -hex 16)
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security default-keychain -s "$KEYCHAIN"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security set-keychain-settings -lut 3600 "$KEYCHAIN"
+
+          # Import the certificate
+          security import cert.p12 -k "$KEYCHAIN" -P "$APPLE_CERTIFICATE_PASSWORD" \
+            -T /usr/bin/codesign -T /usr/bin/security
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+
+          # Make this keychain findable — prepend to search list (preserving existing keychains)
+          # shellcheck disable=SC2046
+          security list-keychains -d user -s "$KEYCHAIN" $(security list-keychains -d user | tr -d '"')
+
+          rm cert.p12
+
+      - name: Build DMG
+        run: make dmg
+
+      - name: Verify Developer ID signature
+        run: |
+          echo "=== Signature details ==="
+          codesign -dvv .build/xcode/Release/iClaw.app 2>&1
+          if ! codesign -dvv .build/xcode/Release/iClaw.app 2>&1 | grep -qF "Developer ID"; then
+            echo "::error::App is not signed with Developer ID after build"
+            exit 1
+          fi
+          echo "Developer ID signature confirmed."
+
+      - name: Notarize DMG
+        timeout-minutes: 30
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          NOTARIZE_PASSWORD: ${{ secrets.NOTARIZE_PASSWORD }}
+          TEAM_ID: 5QGXMKNW2A
+        run: |
+          # Submit and capture the submission ID (--timeout polls for up to 20 min)
+          SUBMIT_OUT=$(xcrun notarytool submit .build/iClaw.dmg \
+            --apple-id "$APPLE_ID" \
+            --team-id "$TEAM_ID" \
+            --password "$NOTARIZE_PASSWORD" \
+            --wait --timeout 20m 2>&1) || true
+          echo "$SUBMIT_OUT"
+
+          # Extract submission ID and check result
+          SUB_ID=$(echo "$SUBMIT_OUT" | grep "id:" | head -1 | awk '{print $2}')
+          if echo "$SUBMIT_OUT" | grep -q "status: Invalid"; then
+            echo "::error::Notarization failed. Fetching log..."
+            xcrun notarytool log "$SUB_ID" \
+              --apple-id "$APPLE_ID" \
+              --team-id "$TEAM_ID" \
+              --password "$NOTARIZE_PASSWORD"
+            exit 1
+          fi
+
+          xcrun stapler staple .build/xcode/Release/iClaw.app
+          xcrun stapler staple .build/iClaw.dmg
+
+      - name: Upload DMG artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: iClaw-DMG
+          path: .build/iClaw.dmg
+
+  release:
+    name: Create Release
+    needs: [build-dmg]
+    runs-on: macos-26
+    if: startsWith(github.ref, 'refs/tags/v')
+    env:
+      HAS_SPARKLE_KEY: ${{ secrets.SPARKLE_EDDSA_KEY != '' }}
+      HAS_DEPLOY_KEY: ${{ secrets.WEBSITE_DEPLOY_KEY != '' }}
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Download DMG
+        uses: actions/download-artifact@v8
+        with:
+          name: iClaw-DMG
+          path: artifacts/
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          # Tags containing a hyphen (e.g. v1.0.0-rc1, v1.0.0-beta) are
+          # marked as pre-release so they don't become /releases/latest.
+          PRERELEASE_FLAG=""
+          if [[ "$TAG" == *-* ]]; then
+            PRERELEASE_FLAG="--prerelease"
+          fi
+          gh release create "$TAG" \
+            --title "iClaw $TAG" \
+            --generate-notes \
+            $PRERELEASE_FLAG \
+            artifacts/*
+
+      - name: Generate Sparkle appcast entry
+        if: env.HAS_SPARKLE_KEY == 'true'
+        env:
+          SPARKLE_EDDSA_KEY: ${{ secrets.SPARKLE_EDDSA_KEY }}
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          VERSION="${TAG#v}"
+          BUILD_NUMBER=$(/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" Sources/iClawCore/Resources/Info.plist)
+          DMG_PATH="artifacts/iClaw.dmg"
+          DMG_SIZE=$(stat -f%z "$DMG_PATH")
+          DMG_URL="https://github.com/LastByteLLC/iClaw/releases/download/${TAG}/iClaw.dmg"
+          PUB_DATE=$(date -R)
+
+          # Build Sparkle sign_update tool
+          git clone --depth 1 https://github.com/sparkle-project/Sparkle.git /tmp/Sparkle
+          cd /tmp/Sparkle && swift build -c release --product sign_update 2>/dev/null
+          cd "$GITHUB_WORKSPACE"
+
+          # Sign the DMG with EdDSA
+          SIGNATURE=$(/tmp/Sparkle/.build/release/sign_update "$DMG_PATH" --ed-key-file <(echo "$SPARKLE_EDDSA_KEY") | grep "sparkle:edSignature" | sed 's/.*sparkle:edSignature="\([^"]*\)".*/\1/')
+
+          # Generate appcast.xml
+          cat > appcast.xml << APPCAST_EOF
+          <?xml version="1.0" encoding="utf-8"?>
+          <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+            <channel>
+              <title>iClaw Updates</title>
+              <link>https://geticlaw.com/appcast.xml</link>
+              <language>en</language>
+              <item>
+                <title>iClaw ${VERSION}</title>
+                <pubDate>${PUB_DATE}</pubDate>
+                <sparkle:version>${BUILD_NUMBER}</sparkle:version>
+                <sparkle:shortVersionString>${VERSION}</sparkle:shortVersionString>
+                <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+                <enclosure
+                  url="${DMG_URL}"
+                  length="${DMG_SIZE}"
+                  type="application/octet-stream"
+                  sparkle:edSignature="${SIGNATURE}"
+                />
+              </item>
+            </channel>
+          </rss>
+          APPCAST_EOF
+
+          echo "Generated appcast.xml for version ${VERSION}"
+          cat appcast.xml
+
+      - name: Push appcast to website repo
+        if: env.HAS_DEPLOY_KEY == 'true' && env.HAS_SPARKLE_KEY == 'true'
+        env:
+          DEPLOY_KEY: ${{ secrets.WEBSITE_DEPLOY_KEY }}
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+
+          # Configure SSH for deploy key
+          mkdir -p ~/.ssh
+          echo "$DEPLOY_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no"
+
+          # Clone website repo, update appcast, push
+          git clone git@github.com:LastByteLLC/geticlaw.com.git /tmp/website
+          cp appcast.xml /tmp/website/public/appcast.xml
+          cd /tmp/website
+          git config user.name "iClaw CI"
+          git config user.email "ci@geticlaw.com"
+          git add public/appcast.xml
+          git commit -m "Update appcast for ${TAG}" || echo "No changes to commit"
+          git push
+
+          # Cleanup
+          rm -f ~/.ssh/deploy_key

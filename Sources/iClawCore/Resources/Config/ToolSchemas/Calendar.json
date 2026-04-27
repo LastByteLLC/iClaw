@@ -1,0 +1,1 @@
+{"intent":"relative|between|dayOfWeek|until|today|dateView","amount":"int?","unit":"year|month|week|day?","direction":"past|future?","targetDate":"string?","viewScope":"day|week|month?"}

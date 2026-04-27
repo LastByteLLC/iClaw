@@ -1,0 +1,70 @@
+{
+    "unitKeywords": [
+        "mile", "miles", "mi", "km", "kilometers", "kilometer",
+        "meter", "meters", "m", "foot", "feet", "ft",
+        "inch", "inches", "in", "cm", "centimeters", "mm", "millimeters",
+        "kg", "kilogram", "kilograms", "lb", "lbs", "pound", "pounds",
+        "gram", "grams", "g", "oz", "ounce", "ounces", "mg",
+        "celsius", "fahrenheit", "kelvin", "centigrade",
+        "usd", "eur", "gbp", "jpy", "btc", "eth", "dollar", "dollars",
+        "euro", "euros", "pound", "yen", "bitcoin", "ethereum",
+        "liter", "liters", "gallon", "gallons", "pint", "pints",
+        "cup", "cups", "tablespoon", "teaspoon"
+    ],
+    "arithmeticPatterns": [
+        "\\d+\\s*[+\\-*/^]\\s*\\d+",
+        "\\d+!",
+        "sqrt\\(", "log\\(", "sin\\(", "cos\\(", "tan\\(",
+        "\\(\\d+"
+    ],
+    "stockHintWords": ["worth", "stock", "price", "value", "trading", "share"],
+    "podcastIndicators": ["episode", "podcast", "show", "listen", "summarize", "summary"],
+    "localIndicators": [
+        "file", "files", "folder", "folders", "document", "documents",
+        "app", "apps", "application", "photo", "photos", "image", "images",
+        "mail", "email", "mac", "finder", "spotlight", "open", "launch"
+    ],
+    "contactIndicators": [
+        "contact", "contacts", "phone", "number", "call", "text",
+        "message", "address", "person", "people", "who"
+    ],
+    "encodingFormats": [
+        "binary", "hex", "hexadecimal", "base64", "nato",
+        "morse", "octal", "rot13", "url encode", "url decode",
+        "roman numeral"
+    ],
+    "randomKeywords": [
+        "random", "dice", "coin", "flip", "roll", "d20",
+        "heads", "tails", "draw a card", "pick a card",
+        "deal a card", "playing card", "coin toss", "coin flip"
+    ],
+    "entityLookupVerbs": [
+        "compare", "show", "display", "list", "provide",
+        "give", "what are", "facts", "info", "information",
+        "stats", "statistics", "specs", "specifications",
+        "features", "highlights", "key", "summary", "overview",
+        "demographics", "bio", "biography", "profile", "history",
+        "achievements", "career", "details", "data", "table",
+        "card", "grid", "chart", "breakdown"
+    ],
+    "systemKeywords": [
+        "my mac", "my macbook", "this mac", "battery", "disk",
+        "storage", "memory", "ram", "cpu", "processor", "uptime",
+        "wifi", "network", "bluetooth", "installed apps", "system info",
+        "ip", "ip address",
+        "os version", "macos version"
+    ],
+    "financialKeywords": [
+        "stock", "stocks", "share", "shares", "ticker", "trading",
+        "dividend", "earnings", "market cap", "ipo", "nasdaq", "nyse",
+        "portfolio", "invest", "valuation"
+    ],
+    "comparisonConnectors": [
+        " vs ", " versus ", " compared to ", " vs. "
+    ],
+    "calculatorExcludeKeywords": [
+        "derivative", "integral", "integrate", "differentiate",
+        "antiderivative", "d/dx", "lim", "limit of", "summation",
+        "solve for x", "solve for y", "factor", "simplify expression"
+    ]
+}

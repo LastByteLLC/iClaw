@@ -1,0 +1,14 @@
+{
+  "clipboard": ["copy", "paste", "clipboard", "selection"],
+  "read_file": ["read", "file", "document", "open file"],
+  "browser": [
+    "extract", "table", "list", "links", "page data", "scrape", "pull from page", "browser data",
+    "click", "fill form", "type into", "submit", "scroll page", "press button", "navigate to"
+  ],
+  "write_file": ["save file", "write file", "create file", "export", "download as", "save to downloads", "save as csv", "save as json"],
+  "spotlight": ["search", "find", "spotlight", "mac"],
+  "system_control_mas": ["volume", "mute", "system", "open", "launch", "app", "application", "quit", "close"],
+  "system_control": ["volume", "display", "mute", "system", "open", "launch", "app", "application", "quit", "close"],
+  "web_search": ["web", "google", "search", "lookup"],
+  "shortcuts": ["shortcut", "automation", "run shortcut", "home", "lights", "thermostat", "smart home", "scene"]
+}

@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  color: #1d1d1f;
+  background: #fafafa;
+}
+
+.container {
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.logo {
+  font-size: 20px;
+}
+
+.header h1 {
+  font-size: 16px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.status {
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tab-info {
+  background: #f0f0f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+}
+
+.tab-title {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.tab-url {
+  font-size: 11px;
+  color: #86868b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.btn-primary {
+  background: #007aff;
+  color: white;
+}
+
+.message {
+  min-height: 20px;
+  font-size: 12px;
+  color: #86868b;
+  text-align: center;
+}
+
+.message.error {
+  color: #ff3b30;
+}
+
+.message.success {
+  color: #34c759;
+}
+
+.help {
+  background: #fff3cd;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.help.hidden {
+  display: none;
+}
+
+.help-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.help ul {
+  padding-left: 18px;
+  line-height: 1.6;
+}
+
+.footer {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 11px;
+  color: #aeaeb2;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1c1c1e;
+    color: #f5f5f7;
+  }
+
+  .tab-info {
+    background: #2c2c2e;
+  }
+
+  .tab-url {
+    color: #98989d;
+  }
+
+  .message {
+    color: #98989d;
+  }
+
+  .help {
+    background: #3a3a00;
+    color: #ffd60a;
+  }
+
+  .footer {
+    color: #636366;
+  }
+}

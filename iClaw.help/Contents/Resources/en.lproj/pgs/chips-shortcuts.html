@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="AppleTitle" content="Tool Chips &amp; Shortcuts" />
+    <meta name="description" content="Use chips and shortcuts to route queries directly to specific tools." />
+    <meta name="KEYWORDS" content="chips, shortcuts, hashtag, tool chip, ticker, dollar sign, stocks, direct routing" />
+    <meta name="robots" content="anchors" />
+    <link rel="stylesheet" href="../sty/help.css" />
+    <title>Tool Chips &amp; Shortcuts</title>
+</head>
+<body>
+    <p class="breadcrumb"><a href="../iClaw.html">iClaw Help</a></p>
+    <h1>Tool Chips &amp; Shortcuts</h1>
+
+    <p>While iClaw routes queries automatically, you can force a specific tool using <strong>tool chips</strong> &mdash; hashtag prefixes in your message.</p>
+
+    <h2>Tool chips</h2>
+    <p>Prefix your message with <code>#toolname</code> to bypass automatic routing and send it directly to that tool:</p>
+    <ul>
+        <li><code>#weather</code> &mdash; Weather</li>
+        <li><code>#stocks</code> &mdash; Stocks</li>
+        <li><code>#timer</code> &mdash; Timer</li>
+        <li><code>#calendar</code> &mdash; Calendar</li>
+        <li><code>#calculator</code> &mdash; Calculator</li>
+        <li><code>#convert</code> &mdash; Currency/unit conversion</li>
+        <li><code>#translate</code> &mdash; Translation</li>
+        <li><code>#news</code> &mdash; News headlines</li>
+        <li><code>#search</code> &mdash; Web search</li>
+        <li><code>#research</code> &mdash; In-depth research</li>
+        <li><code>#podcast</code> &mdash; Podcast search</li>
+        <li><code>#email</code> &mdash; Email</li>
+        <li><code>#maps</code> &mdash; Maps and directions</li>
+        <li><code>#help</code> &mdash; Help</li>
+    </ul>
+    <p>Example: <code>#weather Paris next week</code></p>
+
+    <h2>Ticker symbols</h2>
+    <p>Type a dollar sign followed by a stock ticker to get a quick quote:</p>
+    <ul>
+        <li><code>$AAPL</code> &mdash; Apple stock price</li>
+        <li><code>$TSLA</code> &mdash; Tesla stock price</li>
+        <li><code>$MSFT</code> &mdash; Microsoft stock price</li>
+    </ul>
+    <p>Tickers are validated before lookup &mdash; invalid symbols return an error rather than a bad result.</p>
+
+    <h2>URL detection</h2>
+    <p>Paste or type any <code>http://</code> or <code>https://</code> URL and iClaw automatically fetches and summarizes the page content.</p>
+
+    <h2>Common company names</h2>
+    <p>iClaw recognizes about 50 common company names and maps them to tickers automatically. Saying <em>"How is Tesla doing?"</em> routes to the Stocks tool for <code>$TSLA</code>.</p>
+</body>
+</html>
