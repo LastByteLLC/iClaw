@@ -265,6 +265,7 @@ jobs:
         if: env.HAS_SPARKLE_KEY == 'true'
         env:
           SPARKLE_EDDSA_KEY: ${{ secrets.SPARKLE_EDDSA_KEY }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           TAG="${GITHUB_REF#refs/tags/}"
           VERSION="${TAG#v}"
@@ -274,13 +275,22 @@ jobs:
           DMG_URL="https://github.com/LastByteLLC/iClaw/releases/download/${TAG}/iClaw.dmg"
           PUB_DATE=$(date -R)
 
-          # Build Sparkle sign_update tool
-          git clone --depth 1 https://github.com/sparkle-project/Sparkle.git /tmp/Sparkle
-          cd /tmp/Sparkle && swift build -c release --product sign_update 2>/dev/null
-          cd "$GITHUB_WORKSPACE"
+          # Download Sparkle's prebuilt sign_update from the latest release tarball.
+          # Avoids fragile `swift build` of Sparkle's main branch.
+          mkdir -p /tmp/sparkle-dl
+          gh release download --repo sparkle-project/Sparkle \
+            --pattern "Sparkle-*.tar.xz" --dir /tmp/sparkle-dl
+          mkdir -p /tmp/Sparkle
+          tar -xJf /tmp/sparkle-dl/Sparkle-*.tar.xz -C /tmp/Sparkle
+          SIGN_UPDATE=$(find /tmp/Sparkle -name sign_update -type f | head -1)
+          if [ -z "$SIGN_UPDATE" ]; then
+            echo "::error::sign_update binary not found in Sparkle release tarball"
+            ls -R /tmp/Sparkle
+            exit 1
+          fi
 
           # Sign the DMG with EdDSA
-          SIGNATURE=$(/tmp/Sparkle/.build/release/sign_update "$DMG_PATH" --ed-key-file <(echo "$SPARKLE_EDDSA_KEY") | grep "sparkle:edSignature" | sed 's/.*sparkle:edSignature="\([^"]*\)".*/\1/')
+          SIGNATURE=$("$SIGN_UPDATE" "$DMG_PATH" --ed-key-file <(echo "$SPARKLE_EDDSA_KEY") | grep "sparkle:edSignature" | sed 's/.*sparkle:edSignature="\([^"]*\)".*/\1/')
 
           # Generate appcast.xml
           cat > appcast.xml << APPCAST_EOF
