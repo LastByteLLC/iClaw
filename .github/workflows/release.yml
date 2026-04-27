@@ -16,12 +16,16 @@ jobs:
     runs-on: macos-26
     env:
       HAS_CERTS: ${{ secrets.APPLE_CERTIFICATE_P12 != '' }}
+      HAS_PROFILE: ${{ secrets.PROVISIONING_PROFILE_BASE64 != '' }}
     steps:
       - name: Check required secrets
         run: |
           MISSING=()
           if [ "$HAS_CERTS" != "true" ]; then
             MISSING+=("APPLE_CERTIFICATE_P12")
+          fi
+          if [ "$HAS_PROFILE" != "true" ]; then
+            MISSING+=("PROVISIONING_PROFILE_BASE64")
           fi
           # These are only checkable as non-empty; actual validity is tested below
           if [ -z "$APPLE_ID" ]; then MISSING+=("APPLE_ID"); fi
@@ -166,6 +170,12 @@ jobs:
           security list-keychains -d user -s "$KEYCHAIN" $(security list-keychains -d user | tr -d '"')
 
           rm cert.p12
+
+      - name: Restore provisioning profile
+        env:
+          PROVISIONING_PROFILE_BASE64: ${{ secrets.PROVISIONING_PROFILE_BASE64 }}
+        run: |
+          echo "$PROVISIONING_PROFILE_BASE64" | base64 --decode > iClaw_Distribution_Profile.provisionprofile
 
       - name: Build DMG
         run: make dmg

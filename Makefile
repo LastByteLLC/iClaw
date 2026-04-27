@@ -206,8 +206,12 @@ release: stamp-version safari-extension
 	@# Embed Safari extension (built separately to avoid signing conflicts)
 	@mkdir -p $(XCODE_APP_REL)/Contents/PlugIns
 	@cp -R $(XCODE_SYMROOT)/Release/iClawSafariExtension.appex $(XCODE_APP_REL)/Contents/PlugIns/ 2>/dev/null || true
-	@# Embed provisioning profile
-	@cp -f "$(PROVISIONING_PROFILE)" $(XCODE_APP_REL)/Contents/embedded.provisionprofile
+	@# Embed provisioning profile (skip if absent — local ad-hoc builds)
+	@if [ -f "$(PROVISIONING_PROFILE)" ]; then \
+		cp -f "$(PROVISIONING_PROFILE)" $(XCODE_APP_REL)/Contents/embedded.provisionprofile; \
+	else \
+		echo "Note: $(PROVISIONING_PROFILE) not found, skipping profile embed."; \
+	fi
 	@# Sign everything inside-out with Developer ID (or ad-hoc fallback).
 	@# xcodebuild uses ad-hoc signing; we must re-sign all nested code for notarization.
 	@if security find-identity -v -p codesigning 2>/dev/null | grep -qF "$(DEVELOPER_ID)"; then \
@@ -281,8 +285,12 @@ mas: stamp-version safari-extension
 	@/usr/libexec/PlistBuddy -c "Delete :SUEnableAutomaticChecks" $(XCODE_APP_REL)/Contents/Info.plist 2>/dev/null || true
 	@/usr/libexec/PlistBuddy -c "Delete :SUPublicEDKey" $(XCODE_APP_REL)/Contents/Info.plist 2>/dev/null || true
 	@/usr/libexec/PlistBuddy -c "Delete :NSAppleEventsUsageDescription" $(XCODE_APP_REL)/Contents/Info.plist 2>/dev/null || true
-	@# Embed provisioning profile
-	@cp -f "$(PROVISIONING_PROFILE)" $(XCODE_APP_REL)/Contents/embedded.provisionprofile
+	@# Embed provisioning profile (skip if absent — local ad-hoc builds)
+	@if [ -f "$(PROVISIONING_PROFILE)" ]; then \
+		cp -f "$(PROVISIONING_PROFILE)" $(XCODE_APP_REL)/Contents/embedded.provisionprofile; \
+	else \
+		echo "Note: $(PROVISIONING_PROFILE) not found, skipping profile embed."; \
+	fi
 	@# Sign with MAS identity
 	@codesign --force --sign "$(MAS_APP_IDENTITY)" --entitlements $(MAS_ENTITLEMENTS) --options runtime --deep $(XCODE_APP_REL)
 	@productbuild --component $(XCODE_APP_REL) /Applications --sign "$(MAS_PKG_IDENTITY)" $(MAS_PKG)
